@@ -1,37 +1,6 @@
 import SmallFrame from './SmallFrame'
 import LargeFrame from './LargeFrame'
 
-// export default function GalleryLayout(props) {
-//     const data = props.dataList;
-//     const category = props.category
-//         return (
-//         <section>
-//             <div className="w-full">
-//                  <div className="flex flex-wrap w-full b-1">
-//                     {if (category = "project") {
-//                         return (
-//                             <>
-//                                 <LargeFrame category={props.category} imgSrc="/cutty.jpeg" title="웹팀인터" id="1"></LargeFrame>
-//                                 <LargeFrame category={props.category} imgSrc="/team_temp.jpeg" title="누구팀인터" id="2"></LargeFrame>
-//                             </>
-//                         )
-//                     }
-//                 }
-                    
-                   
-//                     { data.map((e,idx) => {
-//                         return (
-//                         <SmallFrame imgSrc="https://source.unsplash.com/random/?mediaart" title={idx} id={idx} key={idx}></SmallFrame>
-//                         );
-//                     }
-//                     )}
-//                 </div>
-//             </div>
-//         </section>
-//     )
-// }
-
-
 export default function GalleryLayout(props) {
     // 리스트 데이터
     const data = props.dataList; 
