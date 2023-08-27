@@ -12,6 +12,25 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: { //폰트 추가
+        sanserif: ["var(--archivo)"], // :앞에 있는 글자대로 class 추가해주면 적용됨
+        serif: ["var(--archivo)"],
+      },
+      minHeight: {
+        vh30: '30vh',
+        vh40: '40vh',
+        vh50: '50vh',
+        vh70: '70vh',
+      },
+      maxHeight: {
+        vh30: '30vh',
+        vh40: '40vh',
+        vh50: '50vh',
+      },
+      Height: {
+        vh30: '30vh',
+        vh50: '50vh',
+      }
     },
   },
   plugins: [],
