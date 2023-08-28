@@ -1,6 +1,7 @@
 import './globals.css'
 import Link from 'next/link';
 import { Archivo, Noto_Sans_KR, Philosopher } from 'next/font/google' //구글폰트에 있는 폰트들 추가 가능
+import Footer from '@/components/Footer/Footer.js'
 
 //한글 기본 폰트 : notoSans
 const notoSansKr = Noto_Sans_KR({
@@ -71,8 +72,9 @@ export default function RootLayout({ children }) {
             {/* 페이지표시 */}
               <div className='w-full h-full'>
                 {children}
+                {/* 푸터 */}
+                <Footer></Footer>
               </div>
-
             </div>
           </body>
       </html>
