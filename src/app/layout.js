@@ -2,7 +2,7 @@ import './globals.css'
 import Link from 'next/link';
 import { Archivo, Noto_Sans_KR, Philosopher } from 'next/font/google' //구글폰트에 있는 폰트들 추가 가능
 import Footer from '@/components/Footer/Footer.js'
-
+import MarqueeText from '@/components/Marquee/MarqueeText.js';
 //한글 기본 폰트 : notoSans
 const notoSansKr = Noto_Sans_KR({
   preload: false,
@@ -36,10 +36,11 @@ export default function RootLayout({ children }) {
       <html lang="kr">
         <body className={cls(notoSansKr.className, archivo.variable, philosopher.variable)}>
           {/* 컨테이너 */}
-          <div className="absolute flex items-center h-full w-full ">
+          <div className="absolute flex items-center h-full w-full overflow-hidden ">
+          
             {/* 네비게이션 */}
               <aside className="h-full border-r border-black" aria-label="Sidebar">
-                <div className="overflow-y-auto rounded h-full">
+                <div className="rounded h-full">
                       <ul className="w-48 h-full">
                         {/* 확인용 예시 구조 삭제 및 변형 바람! */}
 
@@ -70,7 +71,19 @@ export default function RootLayout({ children }) {
               </aside>
 
             {/* 페이지표시 */}
-              <div className='w-full h-full'>
+              <div className='overflow-scroll w-100 h-full'>
+              <MarqueeText>
+                <span className='font-bold'>• HOMMAGE • </span>
+                <span className='uppercase'>We are the sum of the things we love</span>
+                <span className='font-bold'>• HOMMAGE • </span>
+                <span className='uppercase'>We are the sum of the things we love</span>
+                <span className='font-bold'>• HOMMAGE • </span>
+                <span className='uppercase'>We are the sum of the things we love</span>
+                <span className='font-bold'>• HOMMAGE • </span>
+                <span className='uppercase'>We are the sum of the things we love</span>
+                <span className='font-bold'>• HOMMAGE • </span>
+                <span className='uppercase'>We are the sum of the things we love</span>
+             </MarqueeText>
                 {children}
                 {/* 푸터 */}
                 <Footer></Footer>
