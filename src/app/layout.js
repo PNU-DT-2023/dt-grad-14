@@ -71,7 +71,7 @@ export default function RootLayout({ children }) {
               </aside>
 
             {/* 페이지표시 */}
-              <div className='w-full h-full'>
+              <div className='overflow-scroll w-100 h-full'>
               <MarqueeText>
                 <span className='font-bold'>• HOMMAGE • </span>
                 <span className='uppercase'>We are the sum of the things we love</span>
