@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer/Footer";
-import Submenu from "@/components/Sidebar/submenu"
+import Submenu from "@/components/Sidebar/Submenu"
 
 const profileDataExample = Array.from({ length: 24 }, (_, idx) => ({
     id: idx,

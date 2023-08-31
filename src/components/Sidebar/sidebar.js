@@ -1,4 +1,3 @@
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -10,10 +9,10 @@ const mainMenuData = [
 
 export default function Sidebar() {
     return (
-        <nav className="h-full border-r border-black" aria-label="Sidebar">
+        <nav className="h-full border-r border-black font-sanserif" aria-label="Sidebar">
             <div className="rounded h-full">
                 <ul className="w-48">
-                    <div className="py-10 font-bold border-b border-black bg-black opacity-50 hover:opacity-100">
+                    <div className="py-10 font-bold border-b border-black bg-black opacity-30 hover:opacity-100">
                         <Link href='/'>
                             <span className="sr-only">Main</span>
                             <Image
@@ -25,7 +24,7 @@ export default function Sidebar() {
                         </Link>
                     </div>
                     {mainMenuData.map((menu) => (
-                        <li key={menu.id} className="p-6 hover:font-bold border-b border-black uppercase">
+                        <li key={menu.id} className="p-6 hover:font-bold border-b border-black uppercase text-xl">
                             <Link href={menu.path}>{menu.name}</Link>
                         </li>
                     ))}

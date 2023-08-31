@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-
 export default function Submenu(props) {
     const dataList = props.dataList;
     const category = props.category;
