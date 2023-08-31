@@ -1,5 +1,8 @@
+"use client"
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const mainMenuData = [
     { id: 'project', name: 'project', path: '/project' },
@@ -8,12 +11,15 @@ const mainMenuData = [
 ]
 
 export default function Sidebar() {
+    const pathname = usePathname();
+
     return (
         <nav className="h-full border-r border-black font-sanserif" aria-label="Sidebar">
             <div className="rounded h-full">
                 <ul className="w-48">
-                    <div className="py-10 font-bold border-b border-black bg-black opacity-30 hover:opacity-100">
                         <Link href='/'>
+                            <div className={`py-10 font-bold border-b border-black bg-black hover:opacity-100 
+                            ${pathname === '/' ? "opacity-100" : "opacity-30"}`}>
                             <span className="sr-only">Main</span>
                             <Image
                                 alt="project-image"
@@ -21,11 +27,11 @@ export default function Sidebar() {
                                 src="/mainLogo.svg"
                                 width={300} height={300}
                             />
+                            </div>
                         </Link>
-                    </div>
                     {mainMenuData.map((menu) => (
                         <li key={menu.id} className="p-6 hover:font-bold border-b border-black uppercase text-xl">
-                            <Link href={menu.path}>{menu.name}</Link>
+                            <Link className={`${pathname.startsWith(menu.path) ? "font-bold" : ""}`} href={menu.path}>{menu.name}</Link>
                         </li>
                     ))}
                 </ul>
