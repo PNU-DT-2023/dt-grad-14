@@ -24,7 +24,6 @@ export default function GuestBook() {
                     </div>
                     <input className="h-full w-3/4 bg-transparent outline-none" type="text" placeholder="검색"></input>
                 </div>
-                
             </div>
             <div className="flex w-full">
                 <Write></Write>

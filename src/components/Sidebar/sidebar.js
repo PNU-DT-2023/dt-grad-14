@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Submenu from "./Submenu";
 
 const mainMenuData = [
     { id: 'project', name: 'project', path: '/project' },
@@ -10,15 +11,29 @@ const mainMenuData = [
     { id: 'guest', name: 'guest book', path: '/guestbook' }
 ]
 
+const projectDataExample = Array.from({ length: 24 }, (_, idx) => ({
+    id: idx,
+    name: idx === 0 ? 'ALL' : `작품 ${idx}`,
+    description: idx === 0 ? '전체보기' : `작품설명${idx}작품설명입니다작품`,
+    path: idx == 0 ? '/project' : `/project/${idx}`
+}));
+
+const profileDataExample = Array.from({ length: 24 }, (_, idx) => ({
+    id: idx,
+    name: idx === 0 ? 'ALL' : `학생 ${idx}`,
+    path: idx == 0 ? '/profile' : `/profile/${idx}`
+}));
+
 export default function Sidebar() {
     const pathname = usePathname();
 
     return (
-        <nav className="h-full border-r border-black font-sanserif" aria-label="Sidebar">
-            <div className="rounded h-full">
+        <nav className="GNB h-full flex font-sanserif" aria-label="Sidebar">
+            {/* pc */}
+            <div className="h-full border-r border-black hidden md:block">
                 <ul className="w-48">
-                        <Link href='/'>
-                            <div className={`py-10 font-bold border-b border-black bg-black hover:opacity-100 
+                    <Link href='/'>
+                        <div className={`py-10 font-bold border-b border-black bg-black hover:opacity-100 
                             ${pathname === '/' ? "opacity-100" : "opacity-30"}`}>
                             <span className="sr-only">Main</span>
                             <Image
@@ -27,8 +42,8 @@ export default function Sidebar() {
                                 src="/mainLogo.svg"
                                 width={300} height={300}
                             />
-                            </div>
-                        </Link>
+                        </div>
+                    </Link>
                     {mainMenuData.map((menu) => (
                         <li key={menu.id} className="p-6 hover:font-bold border-b border-black uppercase text-xl">
                             <Link className={`${pathname.startsWith(menu.path) ? "font-bold" : ""}`} href={menu.path}>{menu.name}</Link>
@@ -58,6 +73,10 @@ export default function Sidebar() {
                     </li>
                 </ul>
             </div>
+            {pathname.startsWith('/project') && <Submenu category="project" dataList={projectDataExample}></Submenu>}
+            {pathname.startsWith('/profile') && <Submenu category="profile" dataList={profileDataExample}></Submenu>}
+              {/* 추후수정..........., */}
+            
         </nav>
     );
 };
