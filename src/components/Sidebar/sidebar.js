@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import Submenu from "./Submenu";
+import Submenu from "./submenu.js";
 
 const mainMenuData = [
     { id: 'project', name: 'project', path: '/project' },
