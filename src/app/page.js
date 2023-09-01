@@ -14,6 +14,7 @@ export default function Home() {
       </div>
       <div className="relative mt-28">
       <img src="/hommage-home.svg" alt="hommage_home" className='scale-105 -left-8 mb-32'/>
+      <img src='/ArrowIcon.png' alt="ArrowIcon" />
       {/*youtube*/}
       <iframe src={`https://www.youtube.com/embed/${videoId}`} className='w-full h-screen' />
       </div>
