@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
           <div className="absolute flex items-center h-full w-full overflow-hidden ">
           
             {/* 네비게이션 */}
-              <aside className="h-full border-r border-black" aria-label="Sidebar">
+              <aside className="max-phone:hidden h-full border-r border-black" aria-label="Sidebar">
                 <div className="rounded h-full">
                       <ul className="w-48 h-full">
                         {/* 확인용 예시 구조 삭제 및 변형 바람! */}
@@ -85,8 +85,6 @@ export default function RootLayout({ children }) {
                 <span className='uppercase'>We are the sum of the things we love</span>
              </MarqueeText>
                 {children}
-                {/* 푸터 */}
-                <Footer></Footer>
               </div>
             </div>
           </body>
