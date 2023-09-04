@@ -30,6 +30,8 @@ module.exports = {
       Height: {
         vh30: '30vh',
         vh50: '50vh',
+      colors: {
+        'accent' : '#E8361E'
       }
     },
   },
