@@ -3,7 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import Submenu from "./Submenu";
+import Submenu from "./Submenu.js";
+import { useState } from "react";
 
 const mainMenuData = [
     { id: 'project', name: 'project', path: '/project' },
@@ -17,38 +18,61 @@ const projectDataExample = Array.from({ length: 24 }, (_, idx) => ({
     description: idx === 0 ? '전체보기' : `작품설명${idx}작품설명입니다작품`,
     path: idx == 0 ? '/project' : `/project/${idx}`
 }));
-
 const profileDataExample = Array.from({ length: 24 }, (_, idx) => ({
     id: idx,
     name: idx === 0 ? 'ALL' : `학생 ${idx}`,
     path: idx == 0 ? '/profile' : `/profile/${idx}`
 }));
+const dataExample = {
+    project: projectDataExample,
+    profile: profileDataExample
+}
 
 export default function Sidebar() {
     const pathname = usePathname();
+    const [activeState, setActiveState] = useState("collapsed");
+    const [expandCategory, setExpandCategory] = useState(null);
+    const [hoverCategory, setHoverCategory] = useState(null);
+
+    function collapseMenu() {
+            setActiveState("collapsed"); setHoverCategory(null);
+    }
 
     return (
-        <nav className="GNB h-full flex font-sanserif" aria-label="Sidebar">
+        <nav className="Sidebar h-full flex font-sanserif z-50" aria-label="Sidebar">
             {/* pc */}
             <div className="h-full border-r border-black hidden md:block">
-                <ul className="w-48">
-                    <Link href='/'>
-                        <div className={`py-10 font-bold border-b border-black bg-black hover:opacity-100 
-                            ${pathname === '/' ? "opacity-100" : "opacity-30"}`}>
-                            <span className="sr-only">Main</span>
-                            <Image
-                                alt="project-image"
-                                className="relative block h-full w-full object-none object-center"
-                                src="/mainLogo.svg"
-                                width={300} height={300}
-                            />
-                        </div>
-                    </Link>
-                    {mainMenuData.map((menu) => (
-                        <li key={menu.id} className="p-6 hover:font-bold border-b border-black uppercase text-xl">
-                            <Link className={`${pathname.startsWith(menu.path) ? "font-bold" : ""}`} href={menu.path}>{menu.name}</Link>
-                        </li>
-                    ))}
+                <ul className="w-48 text-neutral-500">
+                    <li key="main" onMouseEnter={() => { collapseMenu() }}>
+                        <Link href='/'>
+                            <div className={`py-10 border-b border-black bg-black hover:opacity-100
+                                ${pathname === '/' ? "opacity-100" : "opacity-30"}`}>
+                                <span className="sr-only">Main</span>
+                                <Image
+                                    alt="project-image"
+                                    className="relative block h-full w-full object-none object-center"
+                                    src="/mainLogo.svg"
+                                    width={300} height={300}
+                                />
+                            </div>
+                        </Link>
+                    </li>
+                    <li key="project" className="group p-6  border-b border-black"
+                        onMouseEnter={() => { setActiveState("hover"); setHoverCategory("project") }}
+                        onClick={() => {setExpandCategory("project")}}>
+                        <Link className={`${pathname.startsWith("/project") ? "font-bold text-black" : ""} ${hoverCategory === "project" && "font-bold"} uppercase text-xl`}
+                        href={"/project"}>project</Link>
+                    </li>
+                    <li key="profile" className="group p-6  border-b border-black"
+                        onMouseEnter={() => { setActiveState("hover"); setHoverCategory("profile") }}
+                        onClick={() => { setExpandCategory("profile") }}>
+                        <Link className={`${pathname.startsWith("/profile") ? "font-bold text-black" : "group-hover:font-bold"} ${hoverCategory === "profile" && "font-bold"} uppercase text-xl`}
+                        href={"/profile"}>profile</Link>
+                    </li>
+                    <li key="guest" className="group p-6  border-b border-black" onMouseEnter={() => { collapseMenu() }}>
+                        <Link className={`${pathname.startsWith("/guestbook") ? "font-bold text-black" : "group-hover:font-bold"} uppercase text-xl`} href={"/guestbook"}>guest book</Link>
+                    </li>
+
                 </ul>
                 <ul className="w-48 p-6 absolute bottom-0">
                     <li className="hover:opacity-50 pb-2">
@@ -73,10 +97,11 @@ export default function Sidebar() {
                     </li>
                 </ul>
             </div>
-            {pathname.startsWith('/project') && <Submenu category="project" dataList={projectDataExample}></Submenu>}
-            {pathname.startsWith('/profile') && <Submenu category="profile" dataList={profileDataExample}></Submenu>}
-              {/* 추후수정..........., */}
-            
+            <div onMouseLeave={() => { collapseMenu() }}>
+                <Submenu category={hoverCategory} state={activeState} dataList={hoverCategory === "project" ? dataExample.project : dataExample.profile}></Submenu>
+                <Submenu category={expandCategory} state={(pathname.startsWith("/project") || pathname.startsWith("/profile")) ? "expanded" : "collapsed"} dataList={expandCategory === "project" ? dataExample.project : dataExample.profile}></Submenu>
+            </div>
+
         </nav>
     );
 };

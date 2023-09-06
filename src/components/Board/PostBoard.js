@@ -5,7 +5,7 @@ export default function PostBoardLayout(props){
 
     return(
         <>
-        <div className="w-full">
+        <div className="w-full overflow-y-auto">
                 <div className="flex flex-wrap border-l border-t border-black">
                     <>
                         {dataList.map((data) => (
