@@ -58,6 +58,7 @@ export default function Home() {
 
   return (
     <>
+
        <div ref={(el) => (sectionRefs.current[0] = el)} className="h-screen" name="section1">
         <h1 className="font-sans text-3xl md:text-6xl font-bold mt-0 ml-5 md:ml-10">HOMMAGE</h1>
         <div className="flex flex-col md:flex-row">
@@ -124,4 +125,5 @@ export default function Home() {
         </div>
         </>
   );
+
 }

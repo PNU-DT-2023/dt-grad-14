@@ -1,0 +1,31 @@
+/* MarqueeText.module.css */
+@keyframes marqueeAnimation {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+}
+
+.content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marqueeAnimation 30s linear infinite;
+}
+
+/* 테일윈드 적용하는 법 */
+.marquee {
+  /* @apply bg-gray-200;  */
+  @apply border-b border-black font-sanserif;
+}
+.content {
+  @apply py-1.5 text-xl;
+}
