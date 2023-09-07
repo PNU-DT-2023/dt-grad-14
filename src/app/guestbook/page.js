@@ -12,7 +12,7 @@ const boardDataExample = Array.from({ length: 8 }, (_, idx) => ({
 
 export default function GuestBook() {
     return (
-        <>
+        <div className="">
             <div className="flex justify-between w-full">
                 <h2 className="font-bold text-2xl px-6 py-4 whitespace-nowrap">제14회 졸업전시에 오신 여러분 감사합니다! 응원의 한마디를 남겨주세요.</h2>
                 <div className="flex justify-between bg-black text-white text-xl px-4 m-2 mt-3 min-w-fit h-10">
@@ -29,6 +29,6 @@ export default function GuestBook() {
                 <Write></Write>
                 <PostBoardLayout dataList={boardDataExample}></PostBoardLayout>
             </div>
-        </>
+        </div>
     )
 }

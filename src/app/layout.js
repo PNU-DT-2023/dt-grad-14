@@ -3,6 +3,7 @@ import { Archivo, Noto_Sans_KR, Philosopher } from 'next/font/google' //구글�
 import Footer from '@/components/Footer/Footer.js'
 import MarqueeText from '@/components/Marquee/MarqueeText.js';
 import Sidebar from '@/components/Sidebar/sidebar.js';
+
 //한글 기본 폰트 : notoSans
 const notoSansKr = Noto_Sans_KR({
   preload: false,

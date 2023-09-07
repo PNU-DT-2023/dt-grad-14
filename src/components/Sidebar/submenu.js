@@ -2,26 +2,28 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
+import { useState } from "react";
+import Preview from "./Preview.js";
 
 export default function Submenu(props) {
-    const dataList = props.dataList;
-    const category = props.category;
+    const {category, state, dataList} = props;
     const pathname = usePathname();
+    //랜덤이미지 (임시용)
+    const randomImg = "https://source.unsplash.com/random/"
 
+    const [active, setActive] = useState(false);
+    const [activeId, setActiveId] = useState(null);
     return (
         <>
-            <nav className="submenu h-full border-r border-black" aria-label="Sidebar">
-                <div className="rounded h-full">
-                    <ul className="w-48 h-full px-6 py-8 bg-white">
-                        {dataList.map((data) => (
-                            <li key={data.id} className="group pb-3 hover:font-bold overflow-visible"
-                                onMouseEnter={(e) => console.log('id', e)}
-                            // 추후 기능추가..,...,......,,.........
-                            >
+            <nav className={`submenu h-full border-r border-black z-40 ${state === "hover" ? "absolute left-48 border-l" : state === "expanded" ? "block" : "hidden" }`} aria-label="Sidebar">
+                <div className="h-full">
+                    <ul className="w-48 h-full px-6 py-8 bg-white overflow-x-visible">
+                        {dataList.map((data, idx) => (
+                            <li key={data.id} className="submenu-list w-full inline-block group pb-3 hover:font-bold relative"
+                                onMouseEnter={() => {console.log("enter", activeId); if(idx !==0) {setActive(true); setActiveId(data.id)}}} onMouseLeave={() => {setActive(false); setActiveId(null)}}>
                                 <Link href={data.path} className={`${pathname === data.path ? "font-bold" : ""}`}>{pathname === data.path && "> "}{data.name}</Link>
                                 {category === "project" && (
-                                    <div className="absolute hidden bg-black ml-4 px-4 py-1 text-white group-hover:inline-block z-50">
+                                    <div className="description absolute hidden bg-black  ml-4 px-4 py-1 text-white whitespace-nowrap group-hover:inline-block">
                                         {data.description}
                                     </div>
                                 )}
@@ -30,7 +32,7 @@ export default function Submenu(props) {
                     </ul>
                 </div>
             </nav>
-            {/* 호버 미리보기 기능 추가예정 */}
+            <Preview isActive={category ==="project" && pathname !== "/project/"+activeId && active} imgSrc={randomImg+activeId}></Preview>
         </>
     )
 }
