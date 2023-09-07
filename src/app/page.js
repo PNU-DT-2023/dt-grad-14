@@ -39,6 +39,7 @@ export default function Home() {
   const scrollToSection = (index) => {
     const sectionRef = sectionRefs.current[index];
     if (sectionRef) {
+      console.log({sectionRef});
       scroller.scrollTo(sectionRef.getAttribute('name'), {
         duration: 800,
         delay: 0,
@@ -103,10 +104,10 @@ export default function Home() {
         <div className="bg-black h-auto w-1/2 text-white">
           <p className="font-sans mx-5 md:mx-10 pt-5 md:pt-10 font-bold">전시개요</p>
           <p className="font-sans mx-5 md:mx-10 pb-5 md:pb-10 leading-loose">
-            '나'는 살아가며 사랑하는, 존경하는 것들로 '나'를 채워나가고, 그들에게 경의를 담아 진심어린 애정을 표하는 일을 반복합니다.
-            그렇게 '나'는 내가 사랑하는 것들의 총체가 됩니다. 이번 전시에서 '나'는 애정의 대상을 자유롭게 드러내고, 이를 다시 재구성하고 재탄생시키는 과정을 통해
+          &apos;나&apos;는 살아가며 사랑하는, 존경하는 것들로 &apos;나&apos;를 채워나가고, 그들에게 경의를 담아 진심어린 애정을 표하는 일을 반복합니다.
+            그렇게 &apos;나&apos;는 내가 사랑하는 것들의 총체가 됩니다. 이번 전시에서 &apos;나&apos;는 애정의 대상을 자유롭게 드러내고, 이를 다시 재구성하고 재탄생시키는 과정을 통해
             잊고 있었을지도 모르는 사랑과 존경의 대상을 다시 떠올려본다.
-            이번 전시가 20명의 '나'에게는 지금의 '나'를 이루고 있는 것들을 찾아 스스로를 되돌아보는 기회가, 관객 여러분께도 당신이 사랑하고 존경했던 대상을 다시 떠올려 보는 순간이 되길 바랍니다.
+            이번 전시가 20명의 &apos;나&apos;에게는 지금의 &apos;나&apos;를 이루고 있는 것들을 찾아 스스로를 되돌아보는 기회가, 관객 여러분께도 당신이 사랑하고 존경했던 대상을 다시 떠올려 보는 순간이 되길 바랍니다.
           </p>
         </div>
         <div className="bg-black h-auto w-1/2 text-white">
@@ -127,3 +128,4 @@ export default function Home() {
   );
 
 }
+ 
