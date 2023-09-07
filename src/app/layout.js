@@ -38,40 +38,30 @@ export default function RootLayout({ children,loadingVisible }) {
   return (
 
     <html lang="kr">
-      <body className={cls(notoSansKr.className, archivo.variable, philosopher.variable)}>
-        {/* 컨테이너 */}
-        <div className="absolute flex items-center h-full w-full overflow-hidden ">
-          {/* 네비게이션 */}
-          <Sidebar></Sidebar>
+    <body className={cls(notoSansKr.className, archivo.variable, philosopher.variable)}>
+      {/* 컨테이너 */}
+      <div className="absolute flex items-center h-full w-full overflow-hidden ">
+        {/* 네비게이션 */}
+        <Sidebar></Sidebar>
 
-            {/* 페이지표시 */}
-              <div className='w-full h-full overflow-scroll'>
-              <MarqueeText>
-                <span className='font-bold'>• HOMMAGE • </span>
-                <span className='uppercase'>We are the sum of the things we love</span>
-                <span className='font-bold'>• HOMMAGE • </span>
-                <span className='uppercase'>We are the sum of the things we love</span>
-                <span className='font-bold'>• HOMMAGE • </span>
-                <span className='uppercase'>We are the sum of the things we love</span>
-                <span className='font-bold'>• HOMMAGE • </span>
-                <span className='uppercase'>We are the sum of the things we love</span>
-                <span className='font-bold'>• HOMMAGE • </span>
-                <span className='uppercase'>We are the sum of the things we love</span>
-             </MarqueeText>
-                {children}
-
-              </div>
-            </aside>
-            {/* 페이지표시 */}
-            <div className='w-full h-full'>
+          {/* 페이지표시 */}
+            <div className='w-full h-full overflow-scroll'>
+            <MarqueeText>
+              <span className='font-bold'>• HOMMAGE • </span>
+              <span className='uppercase'>We are the sum of the things we love</span>
+              <span className='font-bold'>• HOMMAGE • </span>
+              <span className='uppercase'>We are the sum of the things we love</span>
+              <span className='font-bold'>• HOMMAGE • </span>
+              <span className='uppercase'>We are the sum of the things we love</span>
+              <span className='font-bold'>• HOMMAGE • </span>
+              <span className='uppercase'>We are the sum of the things we love</span>
+              <span className='font-bold'>• HOMMAGE • </span>
+              <span className='uppercase'>We are the sum of the things we love</span>
+           </MarqueeText>
               {children}
-              {/* 푸터 */}
-              <Footer></Footer>
             </div>
-            
           </div>
-          )}
-      </body>
+        </body>
     </html>
   );
 }
