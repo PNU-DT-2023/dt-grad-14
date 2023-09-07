@@ -27,9 +27,19 @@ module.exports = {
         vh40: '40vh',
         vh50: '50vh',
       },
-      Height: {
+      height: {
         vh30: '30vh',
         vh50: '50vh',
+        vh70: '70vh',
+      },
+      screens: {
+        'phone': '450px',
+        'tablet': '640px',
+        'laptop': '1024px',
+        'desktop': '1280px',
+      },
+      colors: {
+        'accent' : '#E8361E'
       }
     },
   },
