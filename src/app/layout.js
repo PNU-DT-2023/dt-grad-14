@@ -5,23 +5,24 @@ import MarqueeText from '@/components/Marquee/MarqueeText.js';
 import Sidebar from '@/components/Sidebar/sidebar.js';
 
 //한글 기본 폰트 : notoSans
+
 const notoSansKr = Noto_Sans_KR({
   preload: false,
-  weight: ["100", "400", "700", "900"] //variable 폰트가 아닐 경우 사용할 굵기 지정해주기
+  weight: ["100", "400", "700", "900"]
 });
 
-//영문 기본 폰트 : Archivo (임시)
+// 영문 기본 폰트 : Archivo (임시)
 const archivo = Archivo({
-  subsets: ["latin"], //미리 로딩해 둘 언어, 아쉽게도 한국어는 지원을 안해서 영문폰트만 할 수 있음
-  variable: "--archivo", // CSS 스타일 변수 이름 지정
+  subsets: ["latin"],
+  variable: "--archivo",
 });
 
 // 임시 세리프 폰트 : Philosopher
-const philosopher = Philosopher ({
+const philosopher = Philosopher({
   subsets: ["latin"],
   variable: "--philosopher",
   weight: ["400", "700"]
-})
+});
 
 export const cls = (...classnames) => {
   return classnames.join(" ");
@@ -30,9 +31,10 @@ export const cls = (...classnames) => {
 export const metadata = {
   title: 'HOMMAGE',
   description: 'Design&Technology 14th Graduation Online',
-}
+};
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children,loadingVisible }) {
+  
   return (
 
     <html lang="kr">
@@ -41,6 +43,7 @@ export default function RootLayout({ children }) {
       <div className="absolute flex items-center h-full w-full overflow-hidden ">
         {/* 네비게이션 */}
         <Sidebar></Sidebar>
+
           {/* 페이지표시 */}
             <div className='w-full h-full overflow-scroll'>
             <MarqueeText>
