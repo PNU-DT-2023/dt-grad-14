@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import Submenu from "./ubmenu.js";
+import Submenu from "./submenu.js";
 
 
 const mainMenuData = [
