@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     // Ensure there are enough sectionRefs
-    sectionRefs.current = Array(2).fill(null).map((_, i) => sectionRefs.current[i] || null);
+    sectionRefs.current = Array(3).fill(null).map((_, i) => sectionRefs.current[i] || null);
 
     const handleScroll = (event) => {
       const deltaY = event.deltaY;
@@ -72,7 +72,11 @@ export default function Home() {
             11.10 - 11.12 10am-6pm
           </p>
         </div>
-        <div className="relative overflow-hidden space-between pt-20 md:pt-32">
+        {/* {모바일 이미지} */}
+        <div className="relative overflow-hidden space-between pt-20 md:pt-32 hidden max-phone:block">
+          <img src="/hommage-home-mobile.svg" alt="hommage_home" className="scale-105 -left-5 md:-left-8 h-60 md:h-96" />
+        </div>
+        <div className="relative overflow-hidden space-between pt-20 md:pt-32 max-phone:hidden">
           <img src="/hommage-home.svg" alt="hommage_home" className="scale-105 -left-5 md:-left-8 h-60 md:h-96" />
         </div>
         <div className="flex items-center justify-center mb-5 md:mb-10">
@@ -92,6 +96,8 @@ export default function Home() {
         style={{ height: videoHeight }}
       >
         <iframe src={`https://www.youtube.com/embed/${videoId}`} className='w-full h-screen' />
+        </div>
+        <div ref={(el) => (sectionRefs.current[2] = el)} className="h-screen" name="section3">
         <div className='flex'>
         <div className="bg-black h-auto w-1/2 text-white">
           <p className="font-sans mx-5 md:mx-10 pt-5 md:pt-10 font-bold">전시개요</p>
