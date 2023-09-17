@@ -1,6 +1,7 @@
 
 
 .namelink {
+    @apply w-fit m-2;
     border-bottom-width: 0;
     background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
     background-size: 100% 2px;
