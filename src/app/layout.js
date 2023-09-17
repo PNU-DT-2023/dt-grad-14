@@ -34,7 +34,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children,loadingVisible }) {
-  
   return (
 
     <html lang="kr">
@@ -65,3 +64,4 @@ export default function RootLayout({ children,loadingVisible }) {
     </html>
   );
 }
+

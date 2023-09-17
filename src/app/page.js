@@ -7,7 +7,7 @@ export default function Home() {
   const sectionRefs = useRef([]);
   const currentSection = useRef(0);
   const [videoHeight, setVideoHeight] = useState('100vh');
-
+  
   useEffect(() => {
     // Ensure there are enough sectionRefs
     sectionRefs.current = Array(3).fill(null).map((_, i) => sectionRefs.current[i] || null);
@@ -129,3 +129,5 @@ export default function Home() {
 
 }
  
+
+
