@@ -16,13 +16,16 @@ export default async function Project({params}) {
     // 임베드 형으로 변경
     const youtubeURL = data?.videoURL?.replace('watch?v=','embed/');
 
-    const memberLinks = teamMembers(data.name).map((e) => (
+    // 팀 작업일 경우 멤버들 목록 가져와서 상단영역에 리스트 표시
+    const memberLinks = () => {
+        if(data.tag === "TEAM"){
+        teamMembers(data?.name).map((e) => (
         <Link href={`/profile/${e}`} className="pr-12">
             <div className={styles.namelink}>
                 {e}
             </div>
         </Link>
-    ))
+    )) }}
 
     return (
         <>
