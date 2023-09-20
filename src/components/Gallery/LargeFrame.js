@@ -10,14 +10,13 @@ export default function LargeFrame(props) {
     const slugTitle = title?.replaceAll(' ',"");
     const tag = props.data?.tag;
     const name = props.data?.name;
-
-    console.log(title);
+    
     return (
         <>
             <div className="group relative transition-scale relative border-white border overflow-hidden min-h-vh70 w-full  max-h-vh md:w-1/2 md:max-h-vh30 md:min-h-vh40" >
                 <Link href={`/${category}/${slugTitle}`}>
                     <Image
-                        alt="project-image"
+                        alt={title}
                         className="relative duration-300 hover:scale-110 block w-full h-full object-cover object-center"
                         src={`/projectsImg/${name}_cover.png`}  
                         // 아래 w,h는 필수 구성요소로 크게 영향은 없지만 빠지면 안됨

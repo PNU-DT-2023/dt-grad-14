@@ -25,7 +25,8 @@ export default function Submenu(props) {
                     </div> */}
                     <ul className="submenu-list absolute m-4 overflow-visible">
                         {dataList.map((data, idx) => (
-                            <li key={data.id} className={`w-full inline-block pb-2 relative`}>
+                            <li key={data.id} className="submenu-list w-full inline-block group pb-3 hover:font-bold relative"
+                                onMouseEnter={() => { if(idx !==0) {setActive(true); setActiveId(data.id)}}} onMouseLeave={() => {setActive(false); setActiveId(null)}}>
                                 <Link href={data.path} className={`${pathname === data.path ? "font-bold" : ""}`}>{pathname === data.path && "> "}{data.name}</Link>
                                 
                             </li>
