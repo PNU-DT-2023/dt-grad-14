@@ -5,13 +5,16 @@ export default function GalleryLayout(props) {
     // 리스트 데이터
     const data = props.dataList; 
     const category = props.category;
-    const profileGallery = data?.map((e) => (
+    const profileGallery = data?.map((e, index) => (
         category === "project" ? (
                                     e.tag === "TEAM" ?
-                                            ( <LargeFrame data={e} category={category}/> ) :
-                                            ( <SmallFrame data={e} category={category}/>)
+                                            ( <LargeFrame 
+                                                key={index}data={e} category={category}/> ) :
+                                            ( <SmallFrame 
+                                                key={index}
+                                                data={e} category={category}/>)
                                 ) :
-                                (<SmallFrame data={e} category={category}/>)
+                                (<SmallFrame key={index} data={e} category={category}/>)
     ))
 
     return (
