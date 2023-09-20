@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function SmallFrame(props) {
     const category = props.category;
 
-    const title = category==="TEAM" ? props.data?.title : props.data?.name;
+    const title = category==="project" ? props.data?.title : props.data?.name;
     const slugTitle = title?.replaceAll(' ',"");
     const tag = props.data?.tag;
     const name = props.data?.name;
@@ -29,7 +29,7 @@ export default function SmallFrame(props) {
             <div className='flex items-end absolute bottom-0 left-0 right-0 h-2/5  text-white p-4 bg-gradient-to-b from-transparent to-black bg-transparent translate-y-1 group-hover:-translate-y-0 transition-transform opacity-0  group-hover:opacity-100'>
                         <div className="relative w-full flex align-bottom justify-items-stretch max-tablet:flex-wrap op">
                             <h6 className="grow pr-2 self-end line-clamp-2 line-clamp-5">{title}</h6>
-                            <div className={`${category=="TEAM" ? "block" : "hidden" } text-xs text-gray-300 leading-none text-right self-end`}>{name}</div>
+                            <div className={`${category=="project" ? "block" : "hidden" } text-xs text-gray-300 leading-none text-right self-end`}>{name}</div>
                         </div>
                     </div>
             </Link>
