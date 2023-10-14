@@ -1,4 +1,3 @@
-import { loadProfileItem, loadProfiles } from "@/api/notion";
 import Footer from "@/components/Footer/Footer";
 import NavBtn from "@/components/Page/PrevNextBtn";
 import { getProfileByName } from "@/data/profiles";
