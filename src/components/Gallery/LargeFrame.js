@@ -16,7 +16,6 @@ export default function LargeFrame(props) {
         <>
             <div className="group relative transition-scale relative border-white border overflow-hidden min-h-vh70 w-full  max-h-vh md:w-1/2 md:max-h-vh30 md:min-h-vh40" >
                  <Link href={`/project/${props.data.name}`}>
-                 {console.log(fileExists(imgPath))}
                     <Image
                         alt={title}
                         className="relative duration-300 hover:scale-110 block w-full h-full object-cover object-center"

@@ -6,9 +6,9 @@ export function getProjectTitles() {
 }
 
 export function getProjectListData() {
-    const projectListData = projectData.map((project) => (
+    const projectListData = projectData.map((project,idx) => (
     {  
-        id : project.id,
+        id : idx,
         title : project.title,
         subtitle: project.subtitle,
         tag : project.tag,
@@ -44,13 +44,76 @@ function shuffleArray(array) {
 
 // 엑셀에 취합 후 변환해 삽입
 export const projectData = [
-    
+    {
+        "index": 0,
+        "tag": "TEAM",
+        "title": "추억",
+        "subtitle": "추억으로의초대",
+        "description": "오마주는 과거를 현재에 재현시킨다.",
+        "name": "웹팀",
+        "members": "이진희, 김유민, 김유진, 배유림, 엄채연",
+        "filmTitle": "추억으로의 초대",
+        "filmBody": "추억으로의 초대",
+        "filmVideoURL": "https:\/\/www.youtube.com\/embed\/lXZngFLxBLY",
+        "interTitle": "추억으로의 초대",
+        "interBody": "하하하",
+        "interFormat": "web",
+        "interVideoURL": "https:\/\/www.youtube.com\/embed\/lXZngFLxBLY"
+       },
+       {
+        "index": 1,
+        "tag": "TEAM",
+        "title": "임시제목",
+        "subtitle": "임시부제목",
+        "description": "임시설명",
+        "name": "디피팀",
+        "members": "문관영,김도연,김민호,박재현,전서연",
+        "filmTitle": "임시영상제목",
+        "filmBody": "임시영상설명",
+        "filmVideoURL": "https:\/\/www.youtube.com\/embed\/lXZngFLxBLY",
+        "interTitle": "임시인터제목",
+        "interBody": "임시인터설명",
+        "interFormat": "임시",
+        "interVideoURL": "https:\/\/www.youtube.com\/embed\/lXZngFLxBLY"
+       },
+       {
+        "index": 2,
+        "tag": "TEAM",
+        "title": "임시제목",
+        "subtitle": "임시부제목",
+        "description": "임시설명",
+        "name": "도록팀",
+        "members": "김현서, 박원영, 이세영, 전종규, 전혜성",
+        "filmTitle": "임시영상제목",
+        "filmBody": "임시영상설명",
+        "filmVideoURL": "https:\/\/www.youtube.com\/embed\/lXZngFLxBLY",
+        "interTitle": "임시인터제목",
+        "interBody": "임시인터설명",
+        "interFormat": "임시",
+        "interVideoURL": "https:\/\/www.youtube.com\/embed\/lXZngFLxBLY"
+       },
+       {
+        "index": 3,
+        "tag": "TEAM",
+        "title": "임시제목",
+        "subtitle": "임시부제목",
+        "description": "임시설명",
+        "name": "영상팀",
+        "members": "민재현, 이민영, 김나연, 박찬유",
+        "filmTitle": "임시영상제목",
+        "filmBody": "임시영상설명",
+        "filmVideoURL": "https:\/\/www.youtube.com\/embed\/lXZngFLxBLY",
+        "interTitle": "임시인터제목",
+        "interBody": "임시인터설명",
+        "interFormat": "임시",
+        "interVideoURL": "https:\/\/www.youtube.com\/embed\/lXZngFLxBLY"
+       },
          {
-          "index": 0,
+          "index": 4,
           "tag": "INDIVIDUAL",
           "title": "소유",
           "subtitle": "운!",
-          "introduction": "우리는일생동안 더 나은 '나'가 되기 위해 끊임없이 노력한다. 그 과정에서 ‘나’는 성공한 사람들의 경험을 오마주하여 자신의 성장과 성공을 추구하며 소유하고자 한다. 나의 컨셉에서는 '소유'를 내가 직접 행하는 행동과 연결짓고, 끊임없이 오마주의 대상을 닮아가는 것을 '성장'으로 정의한다. 따라서 노력과 성공의 경험을 소유하며 성장해 나가는 과정을 강조하며, 노력을 멈추지 말고 지속적으로 소유하여 성공을 이루어내는 메세지를 담고 있다.",
+          "description": "우리는일생동안 더 나은 '나'가 되기 위해 끊임없이 노력한다. 그 과정에서 ‘나’는 성공한 사람들의 경험을 오마주하여 자신의 성장과 성공을 추구하며 소유하고자 한다. 나의 컨셉에서는 '소유'를 내가 직접 행하는 행동과 연결짓고, 끊임없이 오마주의 대상을 닮아가는 것을 '성장'으로 정의한다. 따라서 노력과 성공의 경험을 소유하며 성장해 나가는 과정을 강조하며, 노력을 멈추지 말고 지속적으로 소유하여 성공을 이루어내는 메세지를 담고 있다.",
           "name": "김나연",
           "email": "yohotiger2680@gmail.com",
           "phone": "-",
@@ -64,109 +127,148 @@ export const projectData = [
           "interVideoURL": "https:\/\/www.youtube.com\/embed\/lXZngFLxBLY"
          },
          {
-          "index": 1,
-          "name": "김도연"
-         },
-         {
-          "index": 2,
-          "name": "김민호"
-         },
-         {
-          "index": 3,
-          "name": "김유민"
-         },
-         {
-          "index": 4,
-          "name": "김유진"
-         },
-         {
           "index": 5,
-          "name": "김현서"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "김도연",
+          "email": "mail.com"
          },
          {
           "index": 6,
-          "name": "문관영"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "김민호",
+          "email": "mail.com"
          },
          {
           "index": 7,
-          "name": "민재현"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "김유민",
+          "email": "mail.com"
          },
          {
           "index": 8,
-          "name": "박원영"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "김유진",
+          "email": "mail.com"
          },
          {
           "index": 9,
-          "name": "박재현"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "김현서",
+          "email": "mail.com"
          },
          {
           "index": 10,
-          "name": "박찬유"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "문관영",
+          "email": "mail.com"
          },
          {
           "index": 11,
-          "name": "배유림"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "민재현",
+          "email": "mail.com"
          },
          {
           "index": 12,
-          "name": "엄채연"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "박원영",
+          "email": "mail.com"
          },
          {
           "index": 13,
-          "name": "이민영"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "박재현",
+          "email": "mail.com"
          },
          {
           "index": 14,
-          "name": "이세영"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "박찬유",
+          "email": "mail.com"
          },
          {
           "index": 15,
-          "name": "이진희"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "배유림",
+          "email": "mail.com"
          },
          {
           "index": 16,
-          "name": "전서연"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "엄채연",
+          "email": "mail.com"
          },
          {
           "index": 17,
-          "name": "전종규"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "이민영",
+          "email": "mail.com"
          },
          {
           "index": 18,
-          "name": "전혜성"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "이세영",
+          "email": "mail.com"
          },
          {
           "index": 19,
-          "tag": "TEAM",
-          "title": "추억",
-          "subtitle": "추억으로의초대",
-          "introduction": "오마주는 과거를 현재에 재현시킨다.",
-          "name": "웹팀",
-          "members": "이진희, 김유민, 김유진, 배유림, 엄채연",
-          "filmTitle": "추억으로의 초대",
-          "filmBody": "추억으로의 초대",
-          "filmVideoURL": "https:\/\/www.youtube.com\/embed\/lXZngFLxBLY",
-          "interTitle": "추억으로의 초대",
-          "interBody": "하하하",
-          "interFormat": "web",
-          "interVideoURL": "https:\/\/www.youtube.com\/embed\/lXZngFLxBLY"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "이진희",
+          "email": "mail.com"
          },
          {
           "index": 20,
-          "tag": "TEAM",
-          "name": "디피팀",
-          "members": "문관영, 김도연, 김민호, 박재현, 전서연"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "전서연",
+          "email": "mail.com"
          },
          {
           "index": 21,
-          "tag": "TEAM",
-          "name": "도록팀",
-          "members": "김현서, 박원영, 이세영, 전종규, 전혜성"
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "전종규",
+          "email": "mail.com"
          },
          {
           "index": 22,
-          "tag": "TEAM",
-          "name": "영상팀",
-          "members": "민재현, 이민영, 김나연, 박찬유"
-         }
+          "tag": "INDIVIDUAL",
+          "title": "임시",
+          "subtitle": "임시부제",
+          "name": "전혜성",
+          "email": "mail.com"
+         },
+
 ]

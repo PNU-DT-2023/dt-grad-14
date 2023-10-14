@@ -18,7 +18,6 @@ export default function GalleryLayout(props) {
                                 ) :
                                 (
                                     <>
-                                    {console.log("하하하핳하하핳")}
                                      <SmallFrame key={index} data={e} category={category}/>
                                     </>
                                 )

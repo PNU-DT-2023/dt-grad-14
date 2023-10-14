@@ -1,5 +1,4 @@
 import Gallery from '@/components/Gallery/Gallery'
-import { loadProjects } from '@/api/notion';
 import { getProjectListData } from '@/data/project';
 
 

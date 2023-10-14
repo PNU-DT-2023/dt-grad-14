@@ -1,6 +1,5 @@
 function ContactLinks(props) {
     const profile = props?.data
-    console.log(`${props.data}===`);
     return(
         <ul className="p-2 flex flex-col gap-1.5">
                                     <li>{profile?.email && <a alt="이메일" href={`mailto:${profile.email}`}>{profile.email}</a>}</li>

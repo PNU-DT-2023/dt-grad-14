@@ -130,7 +130,6 @@ function ProjectList(props) {
             
             <div className="group relative transition-scale relative border-white border  h-full w-full overflow-hidden ">
                 <Link href={url}>
-                    { console.log(url)}
                     <Image
                         alt={projectTitle}
                         className="relative border border-white object-cover object-center h-full w-full  transition-transform hover:scale-110"

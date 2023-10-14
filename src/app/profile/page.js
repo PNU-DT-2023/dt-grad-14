@@ -1,4 +1,3 @@
-import { loadProfiles } from '@/api/notion';
 import Gallery from '@/components/Gallery/Gallery'
 import { getProfileListData } from '@/data/profiles';
 
