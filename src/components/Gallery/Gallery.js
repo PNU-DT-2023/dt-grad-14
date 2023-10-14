@@ -9,12 +9,19 @@ export default function GalleryLayout(props) {
         category === "project" ? (
                                     e.tag === "TEAM" ?
                                             ( <LargeFrame 
-                                                key={index}data={e} category={category}/> ) :
+                                                key={index} data={e} category={category}/>
+                                               
+                                                ) :
                                             ( <SmallFrame 
                                                 key={index}
                                                 data={e} category={category}/>)
                                 ) :
-                                (<SmallFrame key={index} data={e} category={category}/>)
+                                (
+                                    <>
+                                    {console.log("하하하핳하하핳")}
+                                     <SmallFrame key={index} data={e} category={category}/>
+                                    </>
+                                )
     ))
 
     return (

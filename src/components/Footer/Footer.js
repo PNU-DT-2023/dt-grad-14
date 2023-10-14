@@ -4,8 +4,8 @@ import Link from 'next/link'
 export default function Footer() {
   return (
     <>
-        <footer className="bg-[#262626]">
-                <div className="w-full p-4 flex justify-center object-center bg-white ">
+        <footer className="bg-[#262626] w-full relative ">
+                {/* <div className="w-full p-4 flex justify-center object-center bg-white ">
                         <p className="pr-2">FOLLOW US!</p>
                         <Link
                         href="https://www.instagram.com/pnu.dt.14/" 
@@ -13,7 +13,7 @@ export default function Footer() {
                         className='text-[#E8361E] underline decoration-accent decoration-solid underline-offset-4 '>
                              @pnu.dt.14
                         </Link>
-                </div>
+                </div> */}
                 <div className="mx-auto  text-white space-y-8 px-4 py-16 sm:px-6 lg:space-y-4 lg:px-8">
                     <div className="flex sm:items-center sm:justify-between">
                         <div className="w-full min-w-[50%] font-archivo text-xl mr-auto font-bold gray-900">

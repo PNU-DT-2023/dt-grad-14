@@ -1,8 +1,10 @@
 import Gallery from '@/components/Gallery/Gallery'
 import { loadProjects } from '@/api/notion';
+import { getProjectListData } from '@/data/project';
+
 
 export default async function ProjectList() {
-    const data = await loadProjects();
+    const data = getProjectListData();
     // const temp = Array.from({length: 24}, (_, i) => i + 1);
     return (
         <>  

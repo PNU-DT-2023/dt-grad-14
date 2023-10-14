@@ -32,8 +32,12 @@ module.exports = {
         vh50: '50vh',
         vh70: '70vh',
       },
+      width: {
+        half: '50vw',
+        vw80: '80vw'
+      },
       screens: {
-        'phone': '450px',
+        'phone': '300px',
         'tablet': '640px',
         'laptop': '1024px',
         'desktop': '1280px',
