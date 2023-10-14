@@ -1,10 +1,14 @@
 import Gallery from '@/components/Gallery/Gallery'
+import { getProjectListData } from '@/data/project';
 
-export default function ProjectList() {
-    const temp = Array.from({length: 24}, (_, i) => i + 1);
+
+export default async function ProjectList() {
+    const data = getProjectListData();
+    // const temp = Array.from({length: 24}, (_, i) => i + 1);
     return (
         <>  
-            <Gallery category="project" dataList = {temp}></Gallery>
+            <Gallery category="project" dataList = {data}></Gallery>
         </>
     )
 }
+

@@ -12,3 +12,16 @@
     background-repeat: no-repeat;
     transition: transform .3s ease-in-out;
 }
+
+/* 스크롤바 숨기기 */
+.submenu{
+    -ms-overflow-style: none;
+ }
+ .submenu::-webkit-scrollbar{
+   display:none;
+ }
+
+body {
+   @apply overflow-x-hidden;
+   -ms-overflow-style: none;
+ }
