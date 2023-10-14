@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Submenu from "./submenu.js";
 import "./animation.css";
+import { getProjectListData } from "@/data/project.js";
+import { getProfileListData } from "@/data/profiles.js";
 
 
 const mainMenuData = [
@@ -26,8 +28,8 @@ const profileDataExample = Array.from({ length: 24 }, (_, idx) => ({
     path: idx == 0 ? '/profile' : `/profile/${idx}`
 }));
 const dataExample = {
-    project: projectDataExample,
-    profile: profileDataExample
+    project: getProjectListData(),
+    profile: getProfileListData()
 }
 
 export default function Sidebar() {
@@ -36,7 +38,8 @@ export default function Sidebar() {
     const [hoverCategory, setHoverCategory] = useState(null);
     const [mobileSidebar, setMobileSidebar] = useState(false);
     const [mobileCategory, setMobileCategory] = useState(null);
-
+    const projectListData = getProjectListData();
+    const profileListData = getProfileListData();
     function collapseMenu() {
             setActiveState("collapsed"); setHoverCategory(null);
     }
@@ -100,7 +103,7 @@ export default function Sidebar() {
                 </ul>
             </div>
             <div onMouseLeave={() => { collapseMenu() }}>
-                <Submenu mobile={false} category={hoverCategory} state={activeState} dataList={hoverCategory === "project" ? dataExample.project : dataExample.profile}></Submenu>
+                <Submenu mobile={false} category={hoverCategory} state={activeState} dataList={hoverCategory === "project" ? projectListData : profileListData }></Submenu>
             </div>
         </nav>
 
@@ -155,7 +158,7 @@ export default function Sidebar() {
                             </li>
                         </ul>
                     </div>
-                    <Submenu mobile={true} category={mobileCategory} dataList={mobileCategory === "project" ? dataExample.project : dataExample.profile}></Submenu>
+                    <Submenu mobile={true} category={mobileCategory} dataList={mobileCategory === "project" ? dataExample?.project : dataExample?.profile}></Submenu>
                 </div>
                 
             </nav>
