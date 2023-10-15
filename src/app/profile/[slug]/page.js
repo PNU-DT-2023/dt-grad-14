@@ -35,21 +35,20 @@ function ProfileHeader(props) {
         <>
             {/* 사이니지: background-image */}
 
-            <section className={`overflow-x-hidden profile-section text-white  bg-black md:px-16 md:py-12 p-4 phone:py-12 max-phone:pb-24 bg-[url(/profilesImg/${profile.name}_signage.svg)]
-            bg-no-repeat lg:bg-[length:400px_200px] bg-[length:200px_100px] bg-right-bottom`}>
+            <section className={` relative overflow-hidden profile-section text-white  bg-black md:px-16 md:my-12 p-4 phone:mb-12 max-phone:mb-24`}>
 
                 {/* 이름 */}
                 <h1 className="name text-xl  w-screen">{profile.name}</h1>
                 <div className="english-name text-gray-500">{profile.engName}</div>
 
                 {/* 프로필 상세*/}
-                <div className="flex flex-wrap pt-4 relative ">
+                <div className="flex flex-wrap pt-4 ">
                     {/* 프로필 이미지 */}
                     <ProfileImage imgSrc={`/profilesImg/${profile.name}_profile.jpeg`}></ProfileImage>
 
                     {/* 프로필 정보 영역 */}
-                    <div className="lg:w-1/2 flex flex-col leading-loose">
-                        <div className="max-phone:w-full  min-h-[50%] ">{profile.introduction} </div>
+                    <div className="flex flex-col leading-loose">
+                        <div className=" sm:min-h-[50%] h-auto ">{profile.introduction} </div>
                         <div>
                             <div className="CONTACT h-full">
                                 <h5 className="font-sanserif text-gray-500">CONTACT</h5>
@@ -63,7 +62,9 @@ function ProfileHeader(props) {
                                 </ul>
                             </div>
                         </div>
-                        <img className="absolute  right-1 bottom-1 object-contain h-[30%] r-0" src={`/profilesImg/${profile.name}_signage.svg`}></img>
+                        <div className="absolute phone:max-w-[40%] flex p-auto p-2 right-1 bottom-0 content-end object-contain h-[30%] r-0" >
+                        <img classname="h-fit" src={`/profilesImg/${profile.name}_signage.svg`}></img>
+                        </div>
                     </div>
 
                 </div>

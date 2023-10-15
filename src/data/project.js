@@ -67,7 +67,7 @@ export const projectData = [
         "subtitle": "임시부제목",
         "description": "임시설명",
         "name": "디피팀",
-        "members": "문관영,김도연,김민호,박재현,전서연",
+        "members": "문관영, 김도연, 김민호, 박재현, 전서연",
         "filmTitle": "임시영상제목",
         "filmBody": "임시영상설명",
         "filmVideoURL": "https:\/\/www.youtube.com\/embed\/lXZngFLxBLY",

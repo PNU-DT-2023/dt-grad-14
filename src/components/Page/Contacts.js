@@ -1,7 +1,7 @@
 function ContactLinks(props) {
     const profile = props?.data
     return(
-        <ul className="p-2 flex flex-col gap-1.5">
+        <ul className="flex flex-col gap-1.5">
                                     <li>{profile?.email && <a alt="이메일" href={`mailto:${profile.email}`}>{profile.email}</a>}</li>
                                     <li>{profile?.phone && <a alt="전화번호" href={`telto:${profile.phone}`}>{profile.phone} </a>}</li>
                                     <li className="leading-normal px-2 bg-slate-700 rounded-full w-fit h-fit ">
