@@ -7,7 +7,6 @@ import { useState } from "react";
 import Submenu from "./submenu.js";
 import "./animation.css";
 
-
 const mainMenuData = [
     { id: 'project', name: 'project', path: '/project' },
     { id: 'profile', name: 'profile', path: '/profile' },
@@ -40,6 +39,12 @@ export default function Sidebar() {
     function collapseMenu() {
             setActiveState("collapsed"); setHoverCategory(null);
     }
+    
+    const handleMenuPicked = (newState) => {
+        setMobileSidebar(!newState);
+        console.log("mobileSidebar " + mobileSidebar);
+    };
+
 
     return (
         <>
@@ -103,7 +108,7 @@ export default function Sidebar() {
         </nav>
 
             {/* mobile */}
-            <nav className="Mobile-sidebar-wrap h-screen w-screen fixed flex font-sanserif z-40 md:hidden" aria-label="Mobile-sidebar">
+            <nav className={`Mobile-sidebar-wrap top-0 left-0 fixed flex font-sanserif z-40 md:hidden ${mobileSidebar ? 'h-full w-full' : 'h-auto w-auto'}`} aria-label="Mobile-sidebar">
                 <div className="hamburger-wrap fixed m-6 z-50">
                     <button className={`hamburger ${mobileSidebar ? 'active' : ''}`} onClick={()=>{setMobileSidebar(!mobileSidebar);
                         if(pathname.startsWith("/project")){setMobileCategory("project")} else if(pathname.startsWith("/profile")){setMobileCategory("profile")} else{setMobileCategory(null)}}}>
@@ -112,7 +117,6 @@ export default function Sidebar() {
                         <span></span>
                     </button>
                 </div>
-
                 <div className={`sidebar h-full w-full bg-white/80 backdrop-blur ${mobileSidebar ? 'flex' : 'hidden'}`}>
                     <div className="h-full w-1/3 min-w-fit  px-6 flex">
                         <ul className="Main-menu uppercase whitespace-nowrap text-l self-center">
@@ -153,7 +157,7 @@ export default function Sidebar() {
                             </li>
                         </ul>
                     </div>
-                    <Submenu mobile={true} category={mobileCategory} dataList={mobileCategory === "project" ? dataExample.project : dataExample.profile}></Submenu>
+                    <Submenu onChildStateChange={handleMenuPicked} mobile={true} category={mobileCategory} dataList={mobileCategory === "project" ? dataExample.project : dataExample.profile}></Submenu>
                 </div>
                 
             </nav>

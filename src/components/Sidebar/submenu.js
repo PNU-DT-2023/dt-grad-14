@@ -4,34 +4,30 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Preview from "./Preview.js";
+import Picker from "./Picker.js";
+
 
 export default function Submenu(props) {
-    const {mobile, category, state, dataList} = props;
+    const { mobile, state, category, dataList, onChildStateChange } = props;
     const pathname = usePathname();
     //랜덤이미지 (임시용)
     const randomImg = "https://source.unsplash.com/random/"
 
     const [active, setActive] = useState(false);
     const [activeId, setActiveId] = useState(null);
+    const [isPicked, setPicked] = useState(true);
 
+    const handlePickerChange = (newState) => {
+        setPicked(newState);
+        onChildStateChange(isPicked);
+        console.log("picked " + isPicked);
+    };
 
     if (mobile) {
         return (
             <>
                 <nav className={`mobile-submenu h-full grow relative border-l border-black overflow-auto ${category===null ? "hidden" : "flex"}`}>
-                    {/* <div className="mask">
-                        <div className="h-vh50 top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-black to-transparent"></div>
-                        <div className="h-vh50 bg-gradient-to-t from-black to-transparent"></div>
-                    </div> */}
-                    <ul className="submenu-list absolute m-4 overflow-visible">
-                        {dataList.map((data, idx) => (
-                            <li key={data.id} className={`w-full inline-block pb-2 relative`}>
-                                <Link href={data.path} className={`${pathname === data.path ? "font-bold" : ""}`}>{pathname === data.path && "> "}{data.name}</Link>
-                                
-                            </li>
-                        ))}
-                    </ul>
-                    
+                    <Picker items={dataList} onPickerClicked={handlePickerChange}></Picker>
                 </nav>
             </>
         );
