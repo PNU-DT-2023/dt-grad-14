@@ -11,10 +11,9 @@ const Picker = (props) => {
     const [selected, setSelected] = useState(0);
     const [isMenuClicked, setMenuClicked] = useState(true);
     const [ismenuPicked, setMenuPicked] = useState(false);
-    const ref = useRef(HTMLDivElement);
-    const itemRefs = useRef(HTMLLIElement);
-    const timerRef = useRef();
-    const container = document.querySelector('.overflow-y-scroll');
+    const ref = useRef();
+    const itemRefs = useRef([]);
+    const timerRef = useRef(null);
 
     const itemHeight = 40;
     var index = selected;
@@ -27,8 +26,8 @@ const Picker = (props) => {
     const handleScroll = () => {
         if (ref.current && !ismenuPicked) {
             if (timerRef.current) { clearTimeout(timerRef.current); }
-            const scrollTop = container.scrollTop;
-            const scrollHeight = container.scrollHeight - container.clientHeight;
+            const scrollTop = ref.current.scrollTop;
+            const scrollHeight = ref.current.scrollHeight - ref.current.clientHeight;
             index = Math.floor(((scrollTop / scrollHeight)) * items.length);
             if (index >= items.length) { index = items.length - 1 }
             timerRef.current = setTimeout(() => {
