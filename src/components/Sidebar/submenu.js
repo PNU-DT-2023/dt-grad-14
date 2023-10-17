@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Preview from "./Preview.js";
 import Picker from "./Picker.js";
 
 
 export default function Submenu(props) {
-    const { mobile, state, category, dataList, onChildStateChange } = props;
+    const { mobile, state, category, dataList, onChildStateChange, isCollapsed } = props;
     const pathname = usePathname();
     //랜덤이미지 (임시용)
     const randomImg = "https://source.unsplash.com/random/"
@@ -27,7 +27,7 @@ export default function Submenu(props) {
         return (
             <>
                 <nav className={`mobile-submenu h-full grow relative border-l border-black overflow-auto ${category===null ? "hidden" : "flex"}`}>
-                    <Picker items={dataList} onPickerClicked={handlePickerChange}></Picker>
+                    <Picker items={dataList} onPickerClicked={handlePickerChange} category={category} isCollapsed={isCollapsed}></Picker>
                 </nav>
             </>
         );

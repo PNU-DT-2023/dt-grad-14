@@ -1,0 +1,11 @@
+/* Chrome, Safari, Opera */
+.picker-container::-webkit-scrollbar {
+    width: 0.1rem;
+    display: none;
+}
+
+/* Firefox */
+.picker-container {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}

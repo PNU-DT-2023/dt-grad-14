@@ -35,16 +35,20 @@ export default function Sidebar() {
     const [hoverCategory, setHoverCategory] = useState(null);
     const [mobileSidebar, setMobileSidebar] = useState(false);
     const [mobileCategory, setMobileCategory] = useState(null);
-
-    function collapseMenu() {
-            setActiveState("collapsed"); setHoverCategory(null);
-    }
-    
+ 
     const handleMenuPicked = (newState) => {
         setMobileSidebar(!newState);
-        console.log("mobileSidebar " + mobileSidebar);
     };
 
+    function collapseMenu() {
+        setActiveState("collapsed"); setHoverCategory(null);
+    }
+
+    function HamburgerClick() {
+        setMobileSidebar(!mobileSidebar);
+            if (pathname.startsWith("/project")) { setMobileCategory("project") }
+            else if (pathname.startsWith("/profile")) { setMobileCategory("profile") } else {setMobileCategory(null)}
+    }
 
     return (
         <>
@@ -110,18 +114,17 @@ export default function Sidebar() {
             {/* mobile */}
             <nav className={`Mobile-sidebar-wrap top-0 left-0 fixed flex font-sanserif z-40 md:hidden ${mobileSidebar ? 'h-full w-full' : 'h-auto w-auto'}`} aria-label="Mobile-sidebar">
                 <div className="hamburger-wrap fixed m-6 z-50">
-                    <button className={`hamburger ${mobileSidebar ? 'active' : ''}`} onClick={()=>{setMobileSidebar(!mobileSidebar);
-                        if(pathname.startsWith("/project")){setMobileCategory("project")} else if(pathname.startsWith("/profile")){setMobileCategory("profile")} else{setMobileCategory(null)}}}>
+                    <button className={`hamburger ${mobileSidebar ? 'active' : ''}`} onClick={()=>{HamburgerClick()}}>
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
                 </div>
-                <div className={`sidebar h-full w-full bg-white/80 backdrop-blur ${mobileSidebar ? 'flex' : 'hidden'}`}>
-                    <div className="h-full w-1/3 min-w-fit  px-6 flex">
+                <div className={`Mobile-sidebar ${mobileSidebar ? 'active' : 'collapsed'} h-full w-full backdrop-blur transition-all`}>
+                    <div className={`h-full w-1/3 min-w-fit  px-6 ${mobileSidebar ? 'flex' : 'hidden'}`}>
                         <ul className="Main-menu uppercase whitespace-nowrap text-l self-center">
                             <li key="main">
-                                <Link href='/' onClick={()=>{setMobileSidebar(false)}}>home</Link>
+                                <Link href='/' onClick={() => { setMobileSidebar(false); setMobileCategory(null); }}>home</Link>
                             </li>
                             <li key="project" className={`${mobileCategory === "project" ? "font-bold" : ""}`} 
                             onClick={() => {setMobileCategory("project")}}>
@@ -132,7 +135,7 @@ export default function Sidebar() {
                                 profile
                             </li>
                             <li key="guest" className="">
-                                <Link href={"/guestbook"} onClick={()=>{setMobileSidebar(false)}}>guest book</Link>
+                                <Link href={"/guestbook"} onClick={() => { setMobileSidebar(false); setMobileCategory(null); }}>guest book</Link>
                             </li>
                         </ul>
                         <ul className="links absolute bottom-6">
@@ -157,7 +160,7 @@ export default function Sidebar() {
                             </li>
                         </ul>
                     </div>
-                    <Submenu onChildStateChange={handleMenuPicked} mobile={true} category={mobileCategory} dataList={mobileCategory === "project" ? dataExample.project : dataExample.profile}></Submenu>
+                    <Submenu onChildStateChange={handleMenuPicked} isCollapsed={!mobileSidebar} mobile={true} category={mobileCategory} dataList={mobileCategory === "project" ? dataExample.project : dataExample.profile}></Submenu>
                 </div>
                 
             </nav>
