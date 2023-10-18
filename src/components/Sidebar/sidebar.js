@@ -9,27 +9,26 @@ import "./animation.css";
 import { getProjectListData } from "@/data/project.js";
 import { getProfileListData } from "@/data/profiles.js";
 
-const mainMenuData = [
-    { id: 'project', name: 'project', path: '/project' },
-    { id: 'profile', name: 'profile', path: '/profile' },
-    { id: 'guest', name: 'guest book', path: '/guestbook' }
-]
-
-const projectDataExample = Array.from({ length: 24 }, (_, idx) => ({
-    id: idx,
-    name: idx === 0 ? 'ALL' : `작품 ${idx}`,
-    description: idx === 0 ? '전체보기' : `작품설명${idx}작품설명입니다작품`,
-    path: idx == 0 ? '/project' : `/project/${idx}`
-}));
-const profileDataExample = Array.from({ length: 24 }, (_, idx) => ({
-    id: idx,
-    name: idx === 0 ? 'ALL' : `학생 ${idx}`,
-    path: idx == 0 ? '/profile' : `/profile/${idx}`
-}));
-const dataExample = {
-    project: getProjectListData(),
-    profile: getProfileListData()
-}
+// const mainMenuData = [
+//     { id: 'project', name: 'project', path: '/project' },
+//     { id: 'profile', name: 'profile', path: '/profile' },
+//     { id: 'guest', name: 'guest book', path: '/guestbook' }
+// ]
+// const projectDataExample = Array.from({ length: 24 }, (_, idx) => ({
+//     id: idx,
+//     name: idx === 0 ? 'ALL' : `작품 ${idx}`,
+//     description: idx === 0 ? '전체보기' : `작품설명${idx}작품설명입니다작품`,
+//     path: idx == 0 ? '/project' : `/project/${idx}`
+// }));
+// const profileDataExample = Array.from({ length: 24 }, (_, idx) => ({
+//     id: idx,
+//     name: idx === 0 ? 'ALL' : `학생 ${idx}`,
+//     path: idx == 0 ? '/profile' : `/profile/${idx}`
+// }));
+// const dataExample = {
+//     project: getProjectListData(),
+//     profile: getProfileListData()
+// }
 
 export default function Sidebar() {
     const pathname = usePathname();
@@ -168,7 +167,7 @@ export default function Sidebar() {
                             </li>
                         </ul>
                     </div>
-                    <Submenu onChildStateChange={handleMenuPicked} isCollapsed={!mobileSidebar} mobile={true} category={mobileCategory} dataList={mobileCategory === "project" ? dataExample.project : dataExample.profile}></Submenu>
+                    <Submenu onChildStateChange={handleMenuPicked} isCollapsed={!mobileSidebar} mobile={true} category={mobileCategory} dataList={mobileCategory === "project" ? projectListData : profileListData}></Submenu>
 
                 </div>
                 
