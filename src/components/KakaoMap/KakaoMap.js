@@ -1,0 +1,54 @@
+import React, { useEffect } from 'react';
+
+function KakaoMap() {
+  useEffect(() => {
+    const mapScript = document.createElement('script');
+
+    mapScript.async = true;
+    mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=9b9d018706c8a7f7508294a621f3a307&autoload=false`;
+
+    document.head.appendChild(mapScript);
+
+    const onLoadKakaoMap = () => {
+      window.kakao.maps.load(() => {
+        const mapContainer = document.getElementById('map');
+        const mapOption = {
+          center: new window.kakao.maps.LatLng(35.17405417422078 , 129.1293928342763), // 지도의 중심좌표
+          level: 3, // 지도의 확대 레벨
+        };
+
+        const map = new window.kakao.maps.Map(mapContainer, mapOption);
+
+        // 중심 좌표에 마커 생성
+        const markerPosition = new window.kakao.maps.LatLng(35.17405417422078 , 129.1293928342763);
+        const marker = new window.kakao.maps.Marker({ position: markerPosition });
+
+        // 지도에 마커 표시
+        marker.setMap(map);
+      });
+
+    };
+    mapScript.addEventListener('load', onLoadKakaoMap);
+
+  }, []);
+
+  return (
+    <div className='h-screen text-center items-center justify-center flex flex-col w-3/4 m-auto '>
+      <h2 className='text-3xl mb-20'>Offline Info</h2>
+      <div className='flex flex-col md:flex-row w-full items-center justify-center md:justify-start'>
+        <div className='w-full md:w-1/2 flex flex-col justify-center items-center'>
+          <p>
+            부산디자인진흥원
+            <br />
+            부산광역시 해운대구 센텀동로 57 부산디자인진흥원 1층
+          </p>
+          <p>DESIGN CENTER BUSAN 1F Exhibition Hall</p>
+          <p>2023.11.10 - 2023.11.12</p>
+        </div>
+        <div id="map" className="w-1/2 h-96"></div>
+      </div>
+    </div>
+  );
+}
+
+export default KakaoMap;
