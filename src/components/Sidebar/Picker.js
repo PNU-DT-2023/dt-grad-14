@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 const Picker = (props) => {
     const { items, category, onPickerClicked, isCollapsed } = props;
     const pathname = usePathname();
-    const currentIdx = items.findIndex(item => item.path === pathname);
+    const currentIdx = items.findIndex(data => decodeURI(pathname) === decodeURI(`/${category}/${data.name}`));
     const SCROLL_DEBOUNCE_TIME = 200;
     const [selected, setSelected] = useState(0);
     const [isMenuClicked, setMenuClicked] = useState(true);
@@ -68,28 +68,33 @@ const Picker = (props) => {
             behavior: "auto",
             block: "center",
         });
+        console.log(items[index].name);
     }, [isCollapsed]);
 
     return (
         <div className="relative w-full mx-auto">
             <div className="picker-container h-full overflow-y-scroll" ref={ref} onScroll={handleScroll}>
                 <div className='h-1/2'></div>
-                {items.map((item, index) => (
-                    <div
-                        ref={(el) => (itemRefs.current[index] = el)}
-                        key={index}
-                        className={`list-item px-4 py-0 h-10 leading-10 group ${selected === index ? 'font-bold text-black' : 'text-neutral-500'}`}
-                        onClick={() => { handleMenuPicked(index); }}
-                    >
-                        {selected === index ? (
-                            <Link href={item.path} onClick={handleLinkClick}>
-                                {item.name}
-                            </Link>
-                        ) : (
-                            item.name
-                        )}
-                    </div>
-                ))}
+                {items.map((data, idx) => {
+                    const isProjectCategory = category === "project";
+                    const title = isProjectCategory ? data.title : data.name;
+                    return (
+                        <div
+                            ref={(el) => (itemRefs.current[idx] = el)}
+                            key={data.id}
+                            className={`list-item px-4 py-0 h-10 leading-10 group ${selected === idx ? 'font-bold text-black' : 'text-neutral-500'}`}
+                            onClick={() => { handleMenuPicked(idx); }}
+                        >
+                            {selected === idx ? (
+                                <Link href={`/${category}/${data.name}`} onClick={handleLinkClick}>
+                                    {title}
+                                </Link>
+                            ) : (
+                                title
+                            )}
+                        </div>
+                    );
+                })}
                 <div className='h-1/2'></div>
             </div>
         </div>
