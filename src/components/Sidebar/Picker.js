@@ -82,9 +82,16 @@ const Picker = (props) => {
                         <div
                             ref={(el) => (itemRefs.current[idx] = el)}
                             key={data.id}
-                            className={`list-item px-4 py-0 h-10 leading-10 group ${selected === idx ? 'font-bold text-black' : 'text-neutral-500'}`}
+                            className={`list-item relative w-full px-4 py-0 h-10 leading-10 group ${selected === idx ? 'font-bold text-black' : 'text-neutral-500'}`}
                             onClick={() => { handleMenuPicked(idx); }}
                         >
+                            <Link href={`/${category}/${data.name}`} onClick={handleLinkClick}
+                                className={`absolute h-full inline-block duration-200 ${selected === idx ? "right-4" : "-right-12"}`}>
+                                <span className="sr-only">화살표</span>
+                                <svg width="21" height="39" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.7844 10L11.5344 3.75L10.6532 4.63125L15.3907 9.375L2.78442 9.375L2.78442 10.625L15.3907 10.625L10.6532 15.3687L11.5344 16.25L17.7844 10Z" fill="black" />
+                                </svg>
+                                </Link>
                             {selected === idx ? (
                                 <Link href={`/${category}/${data.name}`} onClick={handleLinkClick}>
                                     {title}
@@ -92,7 +99,7 @@ const Picker = (props) => {
                             ) : (
                                 title
                             )}
-                        </div>
+                        </div>    
                     );
                 })}
                 <div className='h-1/2'></div>
