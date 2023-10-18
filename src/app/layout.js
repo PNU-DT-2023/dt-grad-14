@@ -41,7 +41,7 @@ export default function RootLayout({ children,loadingVisible }) {
       {/* 컨테이너 */}
       <div className="absolute flex items-center h-full w-full overflow-hidden ">
         {/* 네비게이션 */}
-        {/* <Sidebar></Sidebar> */}
+        <Sidebar></Sidebar>
 
           {/* 페이지표시 */}
             <div className='w-full h-full overflow-scroll'>

@@ -47,3 +47,15 @@
     -webkit-transform: translateY(-9px) rotate(45deg);
     transform: translateY(-9px) rotate(45deg);
 }
+
+/* sidebar */
+
+.Mobile-sidebar.collapsed {
+    background-color: rgba(255, 255, 255, 0);
+    display: none;
+}
+
+.Mobile-sidebar.active {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.8);
+}
