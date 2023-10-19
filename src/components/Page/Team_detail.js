@@ -37,7 +37,7 @@ export function TeamDetailPage(props) {
                     </section>
 
                     {/* INTERACTION */}
-                    <section id="inter" className='py-12'>
+                    <section id="inter" className='pt-12'>
                         <div className="text-center flex flex-wrap flex-col items-center justify-items-center justify-center place-content-center pb-12">
                             <div className={styles.sectionTitle}>
                                 INTERACTION
