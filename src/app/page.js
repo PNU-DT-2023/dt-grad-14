@@ -2,6 +2,7 @@
 import React, {useRef, useEffect, useState} from 'react'; // Add React import
 import { useScrollFadeIn } from '@/components/Hooks/useScrollFadeIn';
 import Footer from '@/components/Footer/Footer.js';
+import Image from 'next/image'
 import KakaoMap from '@/components/KakaoMap/KakaoMap.js';
 
 export default function Home() {
@@ -77,7 +78,10 @@ export default function Home() {
       </div>
       {/* 모바일 이미지 */}
       <div className="relative overflow-hidden space-between md:pt-32 hidden max-phone:block">
-        <img src="/hommage-home-mobile.svg" alt="hommage_home" />
+      <Image
+                width={full}
+                height={full} 
+                src="/hommage-home-mobile.svg" alt="hommage_home" />
       </div>
       <div className="flex flex-wrap items-center justify-center max-phone:hidden flex-grow">
         <img src="/hommage-home.svg" alt="hommage_home" className="w-screen scale-105" />
@@ -168,7 +172,7 @@ export default function Home() {
           Made By
         </div>
         <div className='flex flex-col justify-between w-3/4 md:flex-row'>
-          <img
+          <Image
             src={imagePaths[imageIndex]}
             alt='단체사진'
             className={`w-1/2 md:w-1/2 cursor-pointer transition-opacity duration-1000 ${imageVisible ? 'opacity-100' : 'opacity-0'}`}
@@ -222,17 +226,38 @@ export default function Home() {
         </div>
         <div className="flex flex-wrap items-center justify-between">
         <div className="text-center">
-              <img src="/cutty.jpeg" alt="교수님1" className=' w-56 h-80' />
+              {/* <image src="/cutty.jpeg" alt="교수님1" className=' w-56 h-80' /> */}
+              <Image
+                src="/cutty.jpeg"
+                width={200}
+                height={350}
+                alt="교수님"
+                
+              />
               <p className="mt-5 text-lg md:text-xl lg:text-2xl">김태완 교수님</p>
               <p className="mt-3 text-sm md:text-base lg:text-lg">DIGITAL CONTENT DESIGN</p>
           </div>
           <div className="text-center">
-              <img src="/cutty.jpeg" alt="교수님1" className=' w-56 h-80' />
+              {/* <image src="/cutty.jpeg" alt="교수님1" className=' w-56 h-80' /> */}
+              <Image
+                src="/cutty.jpeg"
+                width={200}
+                height={450}
+                alt="교수님"
+                
+              />
               <p className="mt-5 text-lg md:text-xl lg:text-2xl">김철기 교수님</p>
               <p className="mt-3 text-sm md:text-base lg:text-lg">UX / AI / 감성공학</p>
           </div>
             <div className="text-center">
-              <img src="/cutty.jpeg" alt="교수님1" className=' w-56 h-80'  />
+              {/* <image src="/cutty.jpeg" alt="교수님1"  /> */}
+              <Image
+                src="/cutty.jpeg"
+                width={200}
+                height={450}
+                alt="교수님"
+                
+              />
               <p className="mt-5 text-lg md:text-xl lg:text-2xl">이화세 교수님</p>
               <p className="mt-3 text-sm md:text-base lg:text-lg">HCI</p>
             </div>
