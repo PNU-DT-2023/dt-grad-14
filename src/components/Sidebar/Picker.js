@@ -4,9 +4,9 @@ import "./scrollbar.css";
 import { usePathname } from 'next/navigation';
 
 const Picker = (props) => {
-    const { items, category, onPickerClicked, isCollapsed } = props;
+    const { dataList, category, onPickerClicked, isCollapsed } = props;
     const pathname = usePathname();
-    const currentIdx = items.findIndex(data => decodeURI(pathname) === decodeURI(`/${category}/${data.name}`));
+    const currentIdx = dataList.findIndex(data => decodeURI(pathname) === decodeURI(`/${category}/${data.name}`));
     const SCROLL_DEBOUNCE_TIME = 200;
     const [selected, setSelected] = useState(0);
     const [isMenuClicked, setMenuClicked] = useState(true);
@@ -15,7 +15,6 @@ const Picker = (props) => {
     const itemRefs = useRef([]);
     const timerRef = useRef(null);
 
-    const itemHeight = 40;
     var index = selected;
 
     const handleLinkClick = () => {
@@ -28,8 +27,8 @@ const Picker = (props) => {
             if (timerRef.current) { clearTimeout(timerRef.current); }
             const scrollTop = ref.current.scrollTop;
             const scrollHeight = ref.current.scrollHeight - ref.current.clientHeight;
-            index = Math.floor(((scrollTop / scrollHeight)) * items.length);
-            if (index >= items.length) { index = items.length - 1 }
+            index = Math.floor(((scrollTop / scrollHeight)) * dataList.length);
+            if (index >= dataList.length) { index = dataList.length - 1 }
             timerRef.current = setTimeout(() => {
                 itemRefs.current[index]?.scrollIntoView({
                     behavior: "smooth",
@@ -68,21 +67,22 @@ const Picker = (props) => {
             behavior: "auto",
             block: "center",
         });
-        console.log(items[index].name);
+        console.log(dataList[index].name);
     }, [isCollapsed]);
 
     return (
         <div className="relative w-full mx-auto">
-            <div className="picker-container h-full overflow-y-scroll" ref={ref} onScroll={handleScroll}>
+            <div className="picker-container h-full overflow-y-scroll overflow-x-clip" ref={ref} onScroll={handleScroll}>
                 <div className='h-1/2'></div>
-                {items.map((data, idx) => {
+                {dataList.map((data, idx) => {
                     const isProjectCategory = category === "project";
                     const title = isProjectCategory ? data.title : data.name;
+                    const isAll = data.name === "ALL";
                     return (
                         <div
                             ref={(el) => (itemRefs.current[idx] = el)}
                             key={data.id}
-                            className={`list-item relative w-full px-4 py-0 h-10 leading-10 group ${selected === idx ? 'font-bold text-black' : 'text-neutral-500'}`}
+                            className={`list-item relative w-full px-4 pr-12 py-0 h-10 leading-10 truncate group ${selected === idx ? 'font-bold text-black' : 'text-neutral-500'}`}
                             onClick={() => { handleMenuPicked(idx); }}
                         >
                             <Link href={`/${category}/${data.name}`} onClick={handleLinkClick}
@@ -93,8 +93,8 @@ const Picker = (props) => {
                                 </svg>
                                 </Link>
                             {selected === idx ? (
-                                <Link href={`/${category}/${data.name}`} onClick={handleLinkClick}>
-                                    {title}
+                                <Link href={isAll ? (`/${category}`) : (`/${category}/${data.name}`)} onClick={handleLinkClick}>
+                                    {isProjectCategory && !isAll ? `${data?.subtitle} by.${data?.name}` : title}
                                 </Link>
                             ) : (
                                 title

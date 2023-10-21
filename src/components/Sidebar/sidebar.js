@@ -9,26 +9,14 @@ import "./animation.css";
 import { getProjectListData } from "@/data/project.js";
 import { getProfileListData } from "@/data/profiles.js";
 
-// const mainMenuData = [
-//     { id: 'project', name: 'project', path: '/project' },
-//     { id: 'profile', name: 'profile', path: '/profile' },
-//     { id: 'guest', name: 'guest book', path: '/guestbook' }
-// ]
-// const projectDataExample = Array.from({ length: 24 }, (_, idx) => ({
-//     id: idx,
-//     name: idx === 0 ? 'ALL' : `작품 ${idx}`,
-//     description: idx === 0 ? '전체보기' : `작품설명${idx}작품설명입니다작품`,
-//     path: idx == 0 ? '/project' : `/project/${idx}`
-// }));
-// const profileDataExample = Array.from({ length: 24 }, (_, idx) => ({
-//     id: idx,
-//     name: idx === 0 ? 'ALL' : `학생 ${idx}`,
-//     path: idx == 0 ? '/profile' : `/profile/${idx}`
-// }));
-// const dataExample = {
-//     project: getProjectListData(),
-//     profile: getProfileListData()
-// }
+const toAllData = {
+    id: -1,
+    name: "ALL",
+    title: "ALL"
+}
+
+const instagram = "https://instagram.com/pnu.dt.14";
+const webtoon = "https://instagram.com/dt.14_toon";
 
 export default function Sidebar() {
     const pathname = usePathname();
@@ -44,6 +32,8 @@ export default function Sidebar() {
 
     const projectListData = getProjectListData();
     const profileListData = getProfileListData();
+    projectListData.unshift(toAllData);
+    profileListData.unshift(toAllData);
 
     function collapseMenu() {
         setActiveState("collapsed"); setHoverCategory(null);
@@ -92,10 +82,10 @@ export default function Sidebar() {
                 </ul>
                 <ul className="w-48 p-6 absolute bottom-0">
                     <li className="hover:opacity-50 pb-2">
-                        <Link href="#" className="underline">history</Link>
+                        <Link href={webtoon} target="_blank" className="underline">webtoon</Link>
                     </li>
                     <li className="hover:opacity-50">
-                        <Link href="#">
+                            <Link href={instagram} target="_blank">
                             <span className="sr-only">Instagram</span>
                             <svg
                                 className="h-8 w-8"
@@ -147,10 +137,10 @@ export default function Sidebar() {
                         </ul>
                         <ul className="links absolute bottom-6">
                             <li className="pb-2">
-                                <Link href="#" className="underline">history</Link>
+                                <Link href={webtoon} target="_blank" className="underline">webtoon</Link>
                             </li>
                             <li className="">
-                                <Link href="#">
+                                <Link href={instagram} target="_blank">
                                     <span className="sr-only">Instagram</span>
                                     <svg
                                         className="h-8 w-8"
