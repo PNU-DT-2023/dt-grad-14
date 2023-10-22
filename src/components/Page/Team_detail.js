@@ -29,8 +29,8 @@ export function TeamDetailPage(props) {
                             </div>
                             <h2 className={styles.title}>{data?.filmTitle}</h2>
                             <div className={`${styles.sectionBody} max-w-lg mx-4`}>{
-                                data?.filmBody.split('\n').map(line => {
-                                return (<span>{line}<br /></span>)
+                                data?.filmBody.split('\n').map((line, idx )=> {
+                                return (<span id={idx}>{line}<br /></span>)
                             })
                             }</div>
                         </div>
@@ -66,8 +66,8 @@ export function TeamDetailPage(props) {
                 <div className="project-description basis-2/4  max-tablet:basis-full p-4">
                     <p className="opacity-60 text-xs pb-2 ">DESCRIPTION</p>
                         <div className={`${styles.description}`}>
-                            {data?.description.split('\n').map(line => {
-                                        return (<span>{line}<br /></span>)
+                            {data?.description.split('\n').map((line, idx) => {
+                                        return (<span id={idx}>{line}<br /></span>)
                                     })}
                         </div>
                 </div>
