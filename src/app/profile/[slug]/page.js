@@ -38,8 +38,8 @@ function ProjectList(props) {
 
     const projects = [
         getProjectById(name)?.title,
-        getProjectById(team)?.title,
-        getProjectById(team)?.title,
+        getProjectById(team)?.filmTitle,
+        getProjectById(team)?.interTitle,
     ]
     return (
         <>
@@ -47,8 +47,8 @@ function ProjectList(props) {
                 <section className="relative pb-9 project-list  grid md:grid-cols-3  w-full h-fit relative object-fit">
                  
                         <ProjectItem project = {projects[0]} url={`/project/${name}`} imgSrc={`/projectsImg/${name}_cover.png`} tag="INDIVIDUAL" ></ProjectItem>
-                        <ProjectItem project = {projects[1]} url={`/project/${team}#film`} imgSrc={`/projectsImg/${team}_film_cover.png`} tag="TEAMINTER" ></ProjectItem>
-                        <ProjectItem project = {projects[2]} url={`/project/${team}#inter`} imgSrc={`/projectsImg/${team}_inter_cover.png`}  tag="TEAMFILM" ></ProjectItem>
+                        <ProjectItem project = {projects[1]} url={`/project/${team}#film`} imgSrc={`/projectsImg/${team}_film_cover.png`} tag="TEAMFILM" ></ProjectItem>
+                        <ProjectItem project = {projects[2]} url={`/project/${team}#inter`} imgSrc={`/projectsImg/${team}_inter_cover.png`}  tag="TEAMINTER" ></ProjectItem>
            
                 </section>
         </>

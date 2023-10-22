@@ -1,6 +1,7 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link';
-import fileExists from '@/data/fileExists';
+import { useState } from 'react';
 // 단체용 1/2 프레임
 export default function LargeFrame(props) {
     // 프로젝트인지 프로필인지
@@ -10,23 +11,22 @@ export default function LargeFrame(props) {
     const slugTitle = title?.replaceAll(' ',"");
     const tag = props.data?.tag;
     const name = props.data?.name;
+    
     const imgPath = `/projectsImg/${name}_cover.png`;
     const defaultPath = `/projectsImg/default_cover.png`;
+    const [imgSrc, setimgSrc] = useState(imgPath);
     return (
         <>
-            <div className="group relative transition-scale relative border-white border overflow-hidden min-h-vh70 w-full  max-h-vh md:w-1/2 md:max-h-vh30 md:min-h-vh40" >
+            <div className="group relative transition-scale relative border-white border overflow-hidden basis-1/2" >
                  <Link href={`/project/${props.data.name}`}>
                     <Image
                         alt={title}
                         className="relative duration-300 hover:scale-110 block w-full h-full object-cover object-center"
-                        src={
-                            fileExists(imgPath) ?  (imgPath) : (defaultPath)}  
+                        src={imgSrc}  
                         // 아래 w,h는 필수 구성요소로 크게 영향은 없지만 빠지면 안됨
                         width={500}
                         height={700}
-                        placeholder="blur"
-                        // 이미지 로딩 중 보여줄 이미지
-                        blurDataURL="/teamloadingImage.png"
+                        onError = { () => {setimgSrc(defaultPath)}}
                     />
 
                     {/* hover시 보이는 정보들 (이름, tag) */}
