@@ -65,7 +65,7 @@ export function IndividaulDetailPage(props) {
                 <div className="project-description basis-2/4  max-tablet:basis-full p-4">
                     <p className="opacity-60 text-xs pb-2 ">DESCRIPTION</p>
                     <div className={`${styles.description}`}>
-                        {data?.description.split('\n').map(line => {
+                        {data?.description?.split('\n').map(line => {
                             return (<span>{line}<br /></span>)
                         })}
                     </div>

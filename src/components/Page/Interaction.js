@@ -26,7 +26,7 @@ export function Interaction(props) {
                         </div>
                         <h2 className={styles.title}>{data?.interTitle}</h2>
                         <div className={`${styles.sectionBody} text-body mr-4`}>{
-                            data?.interBody.split('\n').map(line => {
+                            data?.interBody?.split('\n').map(line => {
                                 return (<span>{line}<br /></span>)
                             })
                         }</div>
