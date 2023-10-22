@@ -1,5 +1,4 @@
 
-
 .namelink {
     @apply w-fit ;
     border-bottom-width: 0;
@@ -24,6 +23,11 @@
     font-size: 1.2rem;
 }
 
+.description {
+    @apply leading-relaxed text-base;
+    word-break : keep-all;
+}
+
 .sectionTitle {
     @apply font-bold w-fit shrink-0 my-4 ;
     font-size: 1rem;
@@ -43,5 +47,10 @@
 }
 
 .sectionCaption {
-    @apply opacity-50 py-2
+    @apply opacity-50 py-2;
+}
+
+.methodItemCaption {
+    @apply py-4 text-center px-4 text-slate-600;
+    word-break : keep-all;
 }
