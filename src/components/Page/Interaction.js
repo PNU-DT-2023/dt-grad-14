@@ -27,7 +27,7 @@ export function Interaction(props) {
                         <h2 className={styles.title}>{data?.interTitle}</h2>
                         <div className={`${styles.sectionBody} text-body mr-4`}>{
                             data?.interBody?.split('\n').map((line,idx) => {
-                                return (<span id={idx}>{line}<br /></span>)
+                                return (<span key={idx}>{line}<br /></span>)
                             })
                         }</div>
                         <div className={styles.sectionCaption}>{data?.interFormat}</div>
@@ -50,7 +50,6 @@ export function Interaction(props) {
                         <Image
                             alt="detail-image-step1"
                             className="object-center"
-                            // src={`/projectsImg/${data?.name}_step1.png`}
                             src = {stepImg1Src}
                             width={1200}
                             height={675}

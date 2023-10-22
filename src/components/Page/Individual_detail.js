@@ -66,7 +66,7 @@ export function IndividaulDetailPage(props) {
                     <p className="opacity-60 text-xs pb-2 ">DESCRIPTION</p>
                     <div className={`${styles.description}`}>
                         {data?.description?.split('\n').map((line,idx) => {
-                            return (<span id={idx}>{line}<br /></span>)
+                            return (<span key={idx}>{line}<br /></span>)
                         })}
                     </div>
                 </div>
