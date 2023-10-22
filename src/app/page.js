@@ -60,7 +60,7 @@ export default function Home() {
   return (
     <>
     
-    <div className="w-full min-h-screen font-sans overflow-x-hidden flex flex-col justify-between">
+    <div className="w-full min-h-screen font-sans overflow-x-hidden flex flex-col justify-between max-phone:h-fit">
       <h1 className="text-3xl md:text-6xl font-bold mt-10 ml-5 md:ml-10 -pt-6" >
         HOMMAGE
       </h1>
@@ -77,11 +77,12 @@ export default function Home() {
         </p>
       </div>
       {/* 모바일 이미지 */}
-      <div className="relative overflow-hidden space-between md:pt-32 hidden max-phone:block">
-      <Image
-                width={full}
-                height={full} 
-                src="/hommage-home-mobile.svg" alt="hommage_home" />
+      <div className="overflow-hidden hidden max-phone:block ">
+      <Image src="/hommage-home-mobile.svg" alt="hommage_home" 
+        width={0}
+        height={0}
+        sizes="100vw"
+        style={{ width: '100%', height: 'auto' }}/>
       </div>
       <div className="flex flex-wrap items-center justify-center max-phone:hidden flex-grow">
         <img src="/hommage-home.svg" alt="hommage_home" className="w-screen scale-105" />
@@ -90,8 +91,8 @@ export default function Home() {
     </div>
 
       {/* 전시소개 start*/}
-      <div className='h-screen flex flex-col text-center items-center justify-center max-phone:mx-7' ref={element1}>
-      <span className='text-3xl mb-10'>Intro</span>
+      <div className='h-screen flex flex-col text-center items-center justify-center max-phone:mx-7 max-phone:h-fit' ref={element1}>
+      <span className='text-3xl mb-0 max-phone:mt-32'>Intro</span>
       <span className={` mt-12 ${isVisible ? 'animate-fade-in' : ''}`}>
       &apos;나&apos;는 살아가며 사랑하는, 존경하는 것들로 &apos;나&apos;를 채워나가고, <br />그들에게 경의를 담아 진심어린 애정을 표하는 일을 반복합니다.
       </span>
@@ -111,33 +112,12 @@ export default function Home() {
     {/* 전시소개 end */}
       {/* 유튜브 */}
       {/* <Fullpage /> */}
-      <div className="flex flex-col items-center justify-center h-screen w-full" >
-        <h2 className='text-3xl mb-20'>Opening Film</h2>
-  <iframe src={`https://www.youtube.com/embed/${videoId}`} className=' w-3/4 h-3/4 max-phone:h-1/3 max-phone:w-5/6 ' />
+      <div className="flex flex-col items-center justify-center h-screen w-full max-phone:h-fit" >
+        <h2 className='text-3xl mb-20 max-phone:mb-10'>Opening Film</h2>
+  <iframe src={`https://www.youtube.com/embed/${videoId}`} className=' w-3/4 h-3/4 max-phone:w-5/6 max-phone:h-56 max-phone:mb-10' />
 </div> 
-
-  {/* 오프라인 정보 */}
-  {/* <div className='h-screen text-center items-center justify-center flex flex-col w-3/4 m-auto '>
-        <h2 className='text-3xl mb-20'>Offline Info</h2>
-        <div className='flex flex-col md:flex-row w-full items-center justify-center md:justify-start'>
-      <div className='w-full md:w-1/2 flex flex-col justify-center items-center'>
-        <p>
-          부산디자인진흥원
-          <br />
-          부산광역시 해운대구 센텀동로 57 부산디자인진흥원 1층
-        </p>
-        <p>DESIGN CENTER BUSAN 1F Exhibition Hall</p>
-        <p>2023.11.10 - 2023.11.12</p>
-      </div> */}
-      {/* <div className='w-full md:w-1/2 p-5 flex justify-center md:justify-end items-center'> */}
-        {/* 지도 */}
-        {/* <img src='/cutty.jpeg' alt='전시장위치' /> */}
-        <KakaoMap />
-      {/* </div> */}
-    {/* </div>
-    </div> */}
-{/* MadeBy */}
-<ImageHover />
+      <KakaoMap />
+      <ImageHover />
       {/* 교수님 소개 */}
       <Professors />
       {/* 푸터 */}
@@ -167,51 +147,70 @@ export default function Home() {
     }, [imageIndex, imagePaths]);
   
     return (
-      <div className='h-screen text-center items-center justify-center flex flex-col w-full m-auto   '>
-        <div className='text-3xl mb-20'>
+      <div className='h-screen text-center items-center justify-center flex flex-col w-full m-auto max-phone:h-fit   '>
+        <div className='text-3xl mb-20 max-phone:mb-10 max-phone:mt-10'>
           Made By
         </div>
-        <div className='flex flex-col justify-between w-3/4 md:flex-row'>
-          <Image
-            src={imagePaths[imageIndex]}
-            alt='단체사진'
-            className={`w-1/2 md:w-1/2 cursor-pointer transition-opacity duration-1000 ${imageVisible ? 'opacity-100' : 'opacity-0'}`}
-          />
-  
-  <div className='w-full flex-col flex text-center items-center justify-center md:w-1/2 ml-5 mt-5 md:mt-0 '>
-          <table className="w-full">
-            <tbody>
-              <tr>
-                <th width="40%" height="50">위원장</th>
-                <td className='text-left'>박찬유</td>
-              </tr>
-              <tr>
-                <th>부위원장</th>
-                <td className='text-left'>김나연</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <table className="w-full mt-5">
-            <tbody>
-              <tr>
-                <th width="40%" height="40">웹</th>
-                <td className='text-left'>이진희&nbsp;&nbsp;&nbsp;&nbsp;김유민&nbsp;&nbsp;&nbsp;&nbsp;김유진&nbsp;&nbsp;&nbsp;&nbsp;배유림&nbsp;&nbsp;&nbsp;&nbsp;엄채연</td>
-              </tr>
-              <tr>
-                <th width="40%" height="40">도록</th>
-                <td className='text-left'>문관영&nbsp;&nbsp;&nbsp;&nbsp;김도연&nbsp;&nbsp;&nbsp;&nbsp;박재현&nbsp;&nbsp;&nbsp;&nbsp;김민호&nbsp;&nbsp;&nbsp;&nbsp;전서연</td>
-              </tr>
-              <tr>
-                <th width="40%" height="40">DP</th>
-                <td className='text-left'>김현서&nbsp;&nbsp;&nbsp;&nbsp;박원영&nbsp;&nbsp;&nbsp;&nbsp;이세영&nbsp;&nbsp;&nbsp;&nbsp;전종규&nbsp;&nbsp;&nbsp;&nbsp;전혜성</td>
-              </tr>
-              <tr>
-                <th width="40%" height="40">영상</th>
-                <td className='text-left'>민재현&nbsp;&nbsp;&nbsp;&nbsp;이민영&nbsp;&nbsp;&nbsp;&nbsp;김나연&nbsp;&nbsp;&nbsp;&nbsp;박찬유</td>
-              </tr>
-            </tbody>
-          </table>
+        <div className='flex flex-row justify-between w-3/4 max-phone:flex-col'>
+          <div className='w-1/2 max-phone:w-full max-phone:mb-10 '>
+            <Image
+              // src={imagePaths[imageIndex]}
+              src="/groupPhoto1.jpg"
+              alt='단체사진'
+              width={1000}
+              height={1000}
+              // className={`transition-opacity duration-1000 ${imageVisible ? 'opacity-100' : 'opacity-0'}`}
+            />
+        </div>
+        <div className='w-1/2 flex flex-col m-auto max-phone:w-full'>
+          <div className='flex flex-row mb-5'>
+          <p className='w-1/4 font-bold max-phone:w-full text-center'>위원장</p>
+          <p className='w-3/4 text-left '>박찬유</p>
+          </div>
+          <div className='flex flex-row mb-5'>
+          <p className='w-1/4 font-bold max-phone:w-full text-center'>부위원장</p>
+          <p className='w-3/4 text-left'>김나연</p>
+          </div>
+          <div className='flex flex-row mb-5 max-phone:flex-col'>
+          <p className='w-1/4 font-bold max-phone:w-full text-center'>웹</p>
+          <div className='flex flex-wrap w-3/4 justify-between max-phone:w-full max-phone:mt-5'>
+            <p className=''>이진희</p>
+            <p>김유민</p>
+            <p>김유진</p>
+            <p>배유림</p>
+            <p>엄채연</p>
+          </div>
+          </div>
+          <div className='flex flex-row mb-5 max-phone:flex-col'>
+          <p className='w-1/4 font-bold max-phone:w-full text-center'>도록</p>
+          <div className='flex flex-wrap w-3/4 justify-between max-phone:w-full max-phone:mt-5'>
+            <p className=''>김현서</p>
+            <p>이세영</p>
+            <p>박원영</p>
+            <p>전종규</p>
+            <p>전혜성</p>
+          </div>
+          </div>
+          <div className='flex flex-row mb-5 max-phone:flex-col'>
+          <p className='w-1/4 font-bold max-phone:w-full text-center'>DP</p>
+          <div className='flex flex-wrap w-3/4 justify-between max-phone:w-full max-phone:mt-5 '>
+            <p className=''>문관영</p>
+            <p>김민호</p>
+            <p>김도연</p>
+            <p>박재현</p>
+            <p>전서연</p>
+          </div>
+          </div>
+          <div className='flex flex-row mb-5 max-phone:flex-col'>
+          <p className='w-1/4 font-bold max-phone:w-full text-center'>영상</p>
+          <div className='flex flex-wrap w-3/4 justify-between max-phone:w-full max-phone:mt-5'>
+            <p className=''>민재현</p>
+            <p>김나연</p>
+            <p>박찬유</p>
+            <p>이민영</p>
+            <p>이민영</p>
+          </div>
+          </div>
         </div>
       </div>
       </div>
@@ -220,48 +219,25 @@ export default function Home() {
 
   function Professors() {
     return (
-      <div className='h-screen text-center items-center justify-center flex flex-col w-3/4 m-auto'>
-        <div className='text-3xl mb-20'>
-          Professors
-        </div>
-        <div className="flex flex-wrap items-center justify-between">
-        <div className="text-center">
-              {/* <image src="/cutty.jpeg" alt="교수님1" className=' w-56 h-80' /> */}
-              <Image
-                src="/cutty.jpeg"
-                width={200}
-                height={350}
-                alt="교수님"
-                
-              />
-              <p className="mt-5 text-lg md:text-xl lg:text-2xl">김태완 교수님</p>
-              <p className="mt-3 text-sm md:text-base lg:text-lg">DIGITAL CONTENT DESIGN</p>
+      <div className='w-full h-screen text-center flex flex-col items-center justify-center max-phone:h-fit'>
+        <div className='text-3xl mb-20 max-phone:mb-10 max-phone:mt-10'>Professors</div>
+        <div className='w-3/4 flex flex-wrap justify-between max-phone:justify-center'>
+          <div className='relative items-center flex flex-col'>
+            <Image src="/profile-temp-image.png" alt="" width={250} height={350} />
+            <p className='text-2xl mt-5 mb-5'>김태완 교수님</p>
+            <p className='mt-0 mb-5'>DIGITAL CONTENT DESIGN</p>
           </div>
-          <div className="text-center">
-              {/* <image src="/cutty.jpeg" alt="교수님1" className=' w-56 h-80' /> */}
-              <Image
-                src="/cutty.jpeg"
-                width={200}
-                height={450}
-                alt="교수님"
-                
-              />
-              <p className="mt-5 text-lg md:text-xl lg:text-2xl">김철기 교수님</p>
-              <p className="mt-3 text-sm md:text-base lg:text-lg">UX / AI / 감성공학</p>
+          <div className='relative items-center flex flex-col'>
+            <Image src="/profile-temp-image.png" alt="" width={250} height={350} />
+            <p className='text-2xl mt-5 mb-5'>김철기 교수님</p>
+            <p className='mt-0 mb-5'>UX / AI / 감성공학</p>
           </div>
-            <div className="text-center">
-              {/* <image src="/cutty.jpeg" alt="교수님1"  /> */}
-              <Image
-                src="/cutty.jpeg"
-                width={200}
-                height={450}
-                alt="교수님"
-                
-              />
-              <p className="mt-5 text-lg md:text-xl lg:text-2xl">이화세 교수님</p>
-              <p className="mt-3 text-sm md:text-base lg:text-lg">HCI</p>
-            </div>
+          <div className='relative items-center flex flex-col'>
+            <Image src="/profile-temp-image.png" alt="" width={250} height={350} />
+            <p className='text-2xl mt-5 mb-5'>이화세 교수님</p>
+            <p className='mt-0 mb-5'>HCI</p>
           </div>
         </div>
+      </div>
     );
   }
