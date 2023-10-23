@@ -4,6 +4,7 @@ import { useScrollFadeIn } from '@/components/Hooks/useScrollFadeIn';
 import Footer from '@/components/Footer/Footer.js';
 import Image from 'next/image'
 import KakaoMap from '@/components/KakaoMap/KakaoMap.js';
+import WebLineAnimation from '@/components/SVGAnimation/WebLineAnimation';
 
 export default function Home() {
   const videoId = 'CvRreCQ5H-w';
@@ -85,8 +86,10 @@ export default function Home() {
         style={{ width: '100%', height: 'auto' }}/>
       </div>
       <div className="flex flex-wrap items-center justify-center max-phone:hidden flex-grow">
-        <img src="/hommage-home.svg" alt="hommage_home" className="w-screen scale-105" />
-        <img src="/ArrowIcon.png" alt="ArrowIcon" className="mb-10 cursor-pointer" onClick={onMoveBox} />
+        {/* <img src="/hommage-home.svg" alt="hommage_home" className="w-screen scale-105" />*/}
+        
+        <WebLineAnimation />
+        <img src="/ArrowIcon.png" alt="ArrowIcon" className="pb-20 cursor-pointer" onClick={onMoveBox} /> 
       </div>
     </div>
 
