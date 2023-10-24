@@ -12,8 +12,9 @@ module.exports = {
           port: '',
         },
       ],
-    },
+
     compiler: {
         styledComponents: true,
       },
   }
+}

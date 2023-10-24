@@ -1,0 +1,56 @@
+
+.namelink {
+    @apply w-fit ;
+    border-bottom-width: 0;
+    background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+    background-size: 100% 2px;
+    background-position: 0 105%;
+    background-repeat: no-repeat;
+    transition: transform .3s ease-in-out;
+}
+
+.namelink:hover {
+    background-image: linear-gradient(transparent, transparent), linear-gradient(#E8361E, #E8361E);
+    background-size: 100% 3px;
+    background-position: 0 105%;
+    transform: rotate(-5deg);
+}
+
+/* tailwind */
+/* poster, interaction 소제목들 */
+.subtitle {
+    @apply font-bold font-sanserif w-fit;    
+    font-size: 1.2rem;
+}
+
+.description {
+    @apply leading-relaxed text-base;
+    word-break : keep-all;
+}
+
+.sectionTitle {
+    @apply font-bold w-fit shrink-0 my-4 ;
+    font-size: 1rem;
+    background-image: url('/scribble.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform .3s ease-in-out;
+}
+
+.title {
+    @apply font-bold my-4 ;
+    font-size: 1.5rem;
+}
+
+.sectionBody {
+    word-break : keep-all;
+}
+
+.sectionCaption {
+    @apply opacity-50 py-2;
+}
+
+.methodItemCaption {
+    @apply py-4 text-center px-4 text-slate-600;
+    word-break : keep-all;
+}

@@ -1,4 +1,5 @@
 'use client'
+
 import React, {useRef, useEffect, useState} from 'react'; // Add React import
 import { useScrollFadeIn } from '@/components/Hooks/useScrollFadeIn';
 import Footer from '@/components/Footer/Footer.js';
@@ -110,8 +111,7 @@ export default function Home() {
       우리에게 사랑하는 대상을 탐구하는 이 시간들은 우리의 뿌리를 모색하는 시간이었다.
         <br /> 여러분들에게도 본 전시가 사랑하는 존재에 대해 반추하고, 전하지 못한 존경을 표하며 ‘나’를 이해하는 시간이 되길 바라본다.
       </span>
-
-    </div>
+   </div>
     {/* 전시소개 end */}
       {/* 유튜브 */}
       {/* <Fullpage /> */}
@@ -127,7 +127,6 @@ export default function Home() {
       <Footer className="relative" />
     </>
   );
-
   };
 
   function ImageHover() {
