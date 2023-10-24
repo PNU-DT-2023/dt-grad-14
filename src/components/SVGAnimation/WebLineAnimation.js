@@ -3,15 +3,15 @@ import React from 'react';
 const WebLineAnimation = () => {
   return (
     <div className="section w-full">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="60%" viewBox="0 0 5000 1700" className='sclae-120 w-full'>
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="60%" viewBox="0 0 5000 1700" className='sclae-130 w-full'>
       <style>
           {`
             .path {
                 stroke-dasharray: 20000; /* 선의 전체 길이 */
                 stroke-dashoffset: -20000; /* 초기값을 음수로 설정하여 선이 왼쪽에서 오른쪽으로 그려집니다 */
-                -webkit-animation: dash 10s ease ;
-                -moz-animation: dash 10s ease ;
-                animation: dash 10s ease ;
+                -webkit-animation: dash 10s ease forwards;
+                -moz-animation: dash 10s ease forwards;
+                animation: dash 10s ease forwards;
               }
               
               @keyframes dash {

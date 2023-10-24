@@ -4,7 +4,7 @@ import { useScrollFadeIn } from '@/components/Hooks/useScrollFadeIn';
 import Footer from '@/components/Footer/Footer.js';
 import Image from 'next/image'
 import KakaoMap from '@/components/KakaoMap/KakaoMap.js';
-import WebLineAnimation from '@/components/SVGAnimation/WebLineAnimation';
+import WebLineAnimation from '@/components/Svganimation/WebLineAnimation';
 
 export default function Home() {
   const videoId = 'CvRreCQ5H-w';
@@ -97,18 +97,18 @@ export default function Home() {
       <div className='h-screen flex flex-col text-center items-center justify-center max-phone:mx-7 max-phone:h-fit' ref={element1}>
       <span className='text-3xl mb-0 max-phone:mt-32'>Intro</span>
       <span className={` mt-12 ${isVisible ? 'animate-fade-in' : ''}`}>
-      &apos;나&apos;는 살아가며 사랑하는, 존경하는 것들로 &apos;나&apos;를 채워나가고, <br />그들에게 경의를 담아 진심어린 애정을 표하는 일을 반복합니다.
+      우리는 우리가 사랑하는 것들의 총체이다.
       </span>
       <span className={` mt-12 ${isVisible ? 'animate-fade-in' : ''}`}>
-        그렇게 &apos;나&apos;는 내가 사랑하는 것들의 총체가 됩니다. <br/> 이번 전시에서 &apos;나&apos;는 애정의 대상을 자유롭게 드러내고,
+      누군가를 이해한다는 것은, 그가 사랑하는 것을 이해하는 것이다. <br/> 그렇다면 우리는 우리가 좋아하는 것을 오롯이 말할 수 있는가.<br />함께 하는 타인을 온전히 이해하는가.<br />그렇다면 그들이 사랑하는 것에 대해 적확하게 얘기할 수 있는가.
       </span>
       <span className={` mt-12 ${isVisible ? 'animate-fade-in' : ''}`}>
-        이를 다시 재구성하고 재탄생시키는 과정을 통해<br />
-        잊고 있었을지도 모르는 사랑과 존경의 대상을 다시 떠올려봅니다.
+      우리는 이번 전시를 통해 각자의 삶에 투영된 사랑하는 존재에 충분한 애정을 전한다.<br />
+      누구보다 존경하지만 존경을 표하지 못했던 대상과 사랑하지만 사랑한다고 말하지 못했던 것들에 부족하지 않은, 무궁한 경의를 표한다.
       </span>
       <span className={` mt-12 ${isVisible ? 'animate-fade-in' : ''}`}>
-        이번 전시가 20명의 &apos;나&apos;에게는 지금의 &apos;나&apos;를 이루고 있는 것들을 찾아 스스로를 되돌아보는 기회가,
-        <br /> 관객 여러분께도 당신이 사랑하고 존경했던 대상을 다시 떠올려 보는 순간이 되길 바랍니다.
+      우리에게 사랑하는 대상을 탐구하는 이 시간들은 우리의 뿌리를 모색하는 시간이었다.
+        <br /> 여러분들에게도 본 전시가 사랑하는 존재에 대해 반추하고, 전하지 못한 존경을 표하며 ‘나’를 이해하는 시간이 되길 바라본다.
       </span>
 
     </div>
