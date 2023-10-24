@@ -1,17 +1,21 @@
 'use client'
 
-import React, {useRef, useEffect, useState} from 'react'; // Add React import
-import { useScrollFadeIn } from '@/components/Hooks/useScrollFadeIn';
+import React, { useRef, useEffect, useState } from 'react';
+import useScrollFadeIn from '../hooks/useScrollFadeIn'; // 수정
 import Footer from '@/components/Footer/Footer.js';
-import Image from 'next/image'
+import Image from 'next/image';
 import KakaoMap from '@/components/KakaoMap/KakaoMap.js';
-import WebLineAnimation from '@/components/Svganimation/WebLineAnimation';
+import WebLineAnimation from '@/components/SVGAnimation/WebLineAnimation';
 
 export default function Home() {
   const videoId = 'CvRreCQ5H-w';
-  //스크롤 애니메이션 start
-  const animatedItem1 = useScrollFadeIn('up', 1, 0.2);
-  const animatedItem2 = useScrollFadeIn('up', 1, 0.2);
+  // 스크롤 애니메이션 start
+  const [animatedItem, setAnimatedItem] = useState(() => [
+    useScrollFadeIn('up', 1, 0),
+    useScrollFadeIn('up', 1, 0.2),
+    useScrollFadeIn('up', 1, 0.3),
+    useScrollFadeIn('up', 1, 0.4),
+  ]);
   //스크롤 애니메이션 end
 
   // 버튼 클릭시 스크롤 start
@@ -116,7 +120,7 @@ export default function Home() {
       {/* 유튜브 */}
       {/* <Fullpage /> */}
       <div className="flex flex-col items-center justify-center h-screen w-full max-phone:h-fit" >
-        <h2 className='text-3xl mb-20 max-phone:mb-10'>Opening Film</h2>
+        <h2 className='text-3xl mb-20 max-phone:mb-10'  {...animatedItem[0]}>Opening Film</h2>
   <iframe src={`https://www.youtube.com/embed/${videoId}`} className=' w-3/4 h-3/4 max-phone:w-5/6 max-phone:h-56 max-phone:mb-10' />
 </div> 
       <KakaoMap />
@@ -162,6 +166,7 @@ export default function Home() {
               width={1000}
               height={1000}
               // className={`transition-opacity duration-1000 ${imageVisible ? 'opacity-100' : 'opacity-0'}`}
+              
             />
         </div>
         <div className='w-1/2 flex flex-col m-auto max-phone:w-full'>
