@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* tailwind */
 /* poster, interaction 소제목들 */
 .sectionTitle {
@@ -22,6 +21,14 @@
  }
 
 body {
-   @apply overflow-x-hidden;
+   @apply overflow-x-hidden font-sanserif;
    -ms-overflow-style: none;
  }
+
+.time {
+  @apply text-2xl font-sanserif;
+}
+
+.time-text {
+  @apply  uppercase opacity-50
+}
