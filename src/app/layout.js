@@ -39,13 +39,14 @@ export default function RootLayout({ children,loadingVisible }) {
     <html lang="kr">
     <body className={cls(notoSansKr.className, archivo.variable, philosopher.variable)}>
       {/* 컨테이너 */}
-      <div className="absolute flex items-center h-full w-full overflow-hidden ">
+      <div className="absolute flex items-center h-full w-full overflow-hidden bg-white">
         {/* 네비게이션 */}
         <Sidebar></Sidebar>
 
           {/* 페이지표시 */}
             <div className='w-full h-full overflow-scroll'>
-            <MarqueeText>
+            <div className='marquee-wrap hidden md:block'>
+              <MarqueeText>
               <span className='font-bold'>• HOMMAGE • </span>
               <span className='uppercase'>We are the sum of the things we love</span>
               <span className='font-bold'>• HOMMAGE • </span>
@@ -57,6 +58,7 @@ export default function RootLayout({ children,loadingVisible }) {
               <span className='font-bold'>• HOMMAGE • </span>
               <span className='uppercase'>We are the sum of the things we love</span>
            </MarqueeText>
+           </div>
               {children}
             </div>
           </div>

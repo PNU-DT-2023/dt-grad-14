@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Submenu from "./submenu.js";
 import "./animation.css";
 import { getProjectListData } from "@/data/project.js";
@@ -24,8 +24,8 @@ export default function Sidebar() {
     const [hoverCategory, setHoverCategory] = useState(null);
     const [mobileSidebar, setMobileSidebar] = useState(false);
     const [mobileCategory, setMobileCategory] = useState(null);
+    const [isHamVisible, setHamVisible] = useState(true);
 
- 
     const handleMenuPicked = (newState) => {
         setMobileSidebar(!newState);
     };
@@ -43,6 +43,10 @@ export default function Sidebar() {
         setMobileSidebar(!mobileSidebar);
             if (pathname.startsWith("/project")) { setMobileCategory("project") }
             else if (pathname.startsWith("/profile")) { setMobileCategory("profile") } else {setMobileCategory(null)}
+    }
+
+    function CategoryName() {
+        return `${pathname.startsWith('/profile') ? "profile" : pathname.startsWith('/project') ? "project" : pathname.startsWith('/guestbook') ? "guest book" : ""}`
     }
 
     return (
@@ -109,13 +113,18 @@ export default function Sidebar() {
         </nav>
 
             {/* mobile */}
-            <nav className={`Mobile-sidebar-wrap top-0 left-0 fixed flex font-sanserif z-40 md:hidden ${mobileSidebar ? 'h-full w-full' : 'h-auto w-auto'}`} aria-label="Mobile-sidebar">
-                <div className="hamburger-wrap fixed m-6 z-50">
-                    <button className={`hamburger ${mobileSidebar ? 'active' : ''}`} onClick={()=>{HamburgerClick()}}>
+            <nav className={`Mobile-sidebar-wrap top-0 left-0 fixed flex font-sanserif z-40 md:hidden
+            ${mobileSidebar ? 'h-full w-screen mix-blend-normal' : 'h-auto w-auto mix-blend-difference'}`} aria-label="Mobile-sidebar">
+                <div className={`hamburger-wrap fixed flex justify-between p-6 z-50 w-full ${isHamVisible ? '' : 'hidden' }`}>
+                    <button className={`hamburger my-auto ${mobileSidebar ? 'active' : ''}`} onClick={()=>{HamburgerClick()}}>
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
+                    <div className={`uppercase font-bold text-xl text-white ${mobileSidebar ? 'hidden' : 'inline-block'}`}>
+                        {CategoryName()}
+                        </div>
+                    <div className="w-7"></div>
                 </div>
                 <div className={`Mobile-sidebar ${mobileSidebar ? 'active' : 'collapsed'} h-full w-full backdrop-blur transition-all`}>
                     <div className={`h-full w-1/3 min-w-fit  px-6 ${mobileSidebar ? 'flex' : 'hidden'}`}>
