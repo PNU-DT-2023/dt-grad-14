@@ -28,6 +28,13 @@ const useScrollFadeIn = (direction = 'up', duration = 1, delay = 0) => {
         current.style.transitionDelay = `${delay}s`;
         current.style.opacity = 1;
         current.style.transform = 'translate3d(0, 0, 0)';
+      } else {
+        // 요소가 화면 밖으로 나갈 때, Fade Out 애니메이션을 적용
+        current.style.transitionProperty = 'opacity';
+        current.style.transitionDuration = `${duration}s`;
+        current.style.transitionTimingFunction = 'linear';
+        current.style.transitionDelay = `${delay}s`;
+        current.style.opacity = 0;
       }
     },
     [delay, duration],

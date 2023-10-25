@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef, useEffect, useState } from 'react';
-import useScrollFadeIn from '../hooks/useScrollFadeIn'; // 수정
+import useScrollFadeIn from '@/components/hooks/useScrollFadeIn';
 import Footer from '@/components/Footer/Footer.js';
 import Image from 'next/image';
 import KakaoMap from '@/components/KakaoMap/KakaoMap.js';
@@ -10,12 +10,12 @@ import WebLineAnimation from '@/components/SVGAnimation/WebLineAnimation';
 export default function Home() {
   const videoId = 'CvRreCQ5H-w';
   // 스크롤 애니메이션 start
-  const [animatedItem, setAnimatedItem] = useState(() => [
-    useScrollFadeIn('up', 1, 0),
-    useScrollFadeIn('up', 1, 0.2),
-    useScrollFadeIn('up', 1, 0.3),
-    useScrollFadeIn('up', 1, 0.4),
-  ]);
+  const animatedItem = {
+    0: useScrollFadeIn('up', 1, 0),
+    1: useScrollFadeIn('up', 1, 0.2),
+    2: useScrollFadeIn('up', 1, 0.3),
+    3: useScrollFadeIn('up', 1, 0.4),
+  };
   //스크롤 애니메이션 end
 
   // 버튼 클릭시 스크롤 start
@@ -121,19 +121,19 @@ export default function Home() {
       {/* <Fullpage /> */}
       <div className="flex flex-col items-center justify-center h-screen w-full max-phone:h-fit" >
         <h2 className='text-3xl mb-20 max-phone:mb-10'  {...animatedItem[0]}>Opening Film</h2>
-  <iframe src={`https://www.youtube.com/embed/${videoId}`} className=' w-3/4 h-3/4 max-phone:w-5/6 max-phone:h-56 max-phone:mb-10' />
+  <iframe src={`https://www.youtube.com/embed/${videoId}`} className=' w-3/4 h-3/4 max-phone:w-5/6 max-phone:h-56 max-phone:mb-10'  />
 </div> 
-      <KakaoMap />
-      <ImageHover />
+      <KakaoMap  animatedItem={animatedItem}/>
+      <ImageHover  animatedItem={animatedItem}/>
       {/* 교수님 소개 */}
-      <Professors />
+      <Professors  animatedItem={animatedItem} />
       {/* 푸터 */}
       <Footer className="relative" />
     </>
   );
   };
 
-  function ImageHover() {
+  function ImageHover({ animatedItem }) {
     const imagePaths = ['/groupPhoto1.jpg', '/groupPhoto2.jpg'];
     const [imageIndex, setImageIndex] = useState(0);
     const [imageVisible, setImageVisible] = useState(true);
@@ -154,7 +154,7 @@ export default function Home() {
   
     return (
       <div className='h-screen text-center items-center justify-center flex flex-col w-full m-auto max-phone:h-fit   '>
-        <div className='text-3xl mb-20 max-phone:mb-10 max-phone:mt-10'>
+        <div className='text-3xl mb-20 max-phone:mb-10 max-phone:mt-10' {...animatedItem[1]}>
           Made By
         </div>
         <div className='flex flex-row justify-between w-3/4 max-phone:flex-col'>
@@ -224,7 +224,7 @@ export default function Home() {
     );
   }
 
-  function Professors() {
+  function Professors({ animatedItem }) {
     return (
       <div className='w-full h-screen text-center flex flex-col items-center justify-center max-phone:h-fit'>
         <div className='text-3xl mb-20 max-phone:mb-10 max-phone:mt-10'>Professors</div>
