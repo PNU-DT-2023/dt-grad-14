@@ -28,23 +28,24 @@ const useScrollFadeIn = (direction = 'up', duration = 1, delay = 0) => {
         current.style.transitionDelay = `${delay}s`;
         current.style.opacity = 1;
         current.style.transform = 'translate3d(0, 0, 0)';
-      } else {
+      } else if (entry.intersectionRatio < 0.2) {
         // 요소가 화면 밖으로 나갈 때, Fade Out 애니메이션을 적용
-        current.style.transitionProperty = 'opacity';
+        current.style.transitionProperty = 'all';
         current.style.transitionDuration = `${duration}s`;
-        current.style.transitionTimingFunction = 'linear';
+        current.style.transitionTimingFunction = 'cubic-bezier(0, 0, 0.2, 1)';
         current.style.transitionDelay = `${delay}s`;
+        current.style.transform = handleDirection(direction);
         current.style.opacity = 0;
       }
     },
-    [delay, duration],
+    [delay,direction, duration],
   );
 
   useEffect(() => {
     let observer;
 
     if (element.current) {
-      observer = new IntersectionObserver(onScroll, { threshold: 0.7 });
+      observer = new IntersectionObserver(onScroll, { threshold: [0, 0.2] });
       observer.observe(element.current);
     }
 

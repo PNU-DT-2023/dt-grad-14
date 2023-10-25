@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import useScrollFadeIn from '../hooks/useScrollFadeIn';
+import useScrollClipPath from '@/components/hooks/useScrollClipPath';
 function KakaoMap() {
+  const animatedImage = useScrollClipPath('right',1,0);
   const animatedItem = {
     0: useScrollFadeIn('up', 1, 0),
-    1: useScrollFadeIn('up', 1, 0.2),
-    2: useScrollFadeIn('up', 1, 0.3),
-    3: useScrollFadeIn('up', 1, 0.4),
+    1: useScrollFadeIn('up', 1, 0),
+    2: useScrollFadeIn('up', 1, 0.1),
+    3: useScrollFadeIn('up', 1, 0.2),
   };
   useEffect(() => {
     const mapScript = document.createElement('script');
@@ -51,7 +53,7 @@ function KakaoMap() {
           <p style={{ wordBreak: 'keep-all' }} className='my-2' {...animatedItem[2]}>DESIGN CENTER BUSAN 1F ExhibitionHall</p>
           <p  style={{ wordBreak: 'keep-all' }} {...animatedItem[3]}>2023.11.10 - 2023.11.12</p>
         </div>
-        <div id="map" className="w-1/2 h-96 max-phone:w-72 max-phone:h-72 max-phone:mt-10"></div>
+        <div id="map" className="w-1/2 h-96 max-phone:w-72 max-phone:h-72 max-phone:mt-10" {...animatedImage}></div>
       </div>
     </div>
   );
