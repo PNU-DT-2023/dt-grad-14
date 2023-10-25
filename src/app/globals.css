@@ -25,3 +25,8 @@ body {
    @apply overflow-x-hidden;
    -ms-overflow-style: none;
  }
+
+.member-items * {
+  text-align: left;
+ }
+ 

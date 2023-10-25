@@ -40,7 +40,7 @@ function KakaoMap() {
 
   return (
     <div className='h-screen text-center items-center justify-center flex flex-col w-3/4 m-auto '>
-      <h2 className='text-3xl mb-20 max-phone:mb-10' {...animatedItem[0]}>Offline Info</h2>
+      <h2 className='text-3xl mb-20 max-phone:mb-10 font-sanserif uppercase font-semibold' {...animatedItem[0]}>Offline Info</h2>
       <div className='flex flex-col md:flex-row w-full items-center justify-center md:justify-start'>
         <div className='w-full md:w-1/2 flex flex-col justify-center items-center'>
           <p style={{ wordBreak: 'keep-all' }} className='my-2' {...animatedItem[1]}>
