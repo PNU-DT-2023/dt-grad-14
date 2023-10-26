@@ -50,7 +50,7 @@ export function TeamDetailPage(props) {
 
     function TitleBar() {
         return (
-            <div className="z-50 project-title-area w-full bg-black text-white flex justify-between flex-wrap p-4  max-phone:relative   ">
+            <div className="z-50 project-title-area w-full bg-black text-white flex justify-between flex-wrap pt-16 md:pt-4 p-4  max-phone:relative   ">
                 <div className="project-title text-xl basis-1/4  max-tablet:basis-full m-30 p-4">
                     <p className="opacity-60 text-xs pb-2 ">TITLE</p>
                     <h1 className="font-bold">
