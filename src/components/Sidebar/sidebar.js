@@ -3,32 +3,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Submenu from "./submenu.js";
 import "./animation.css";
 import { getProjectListData } from "@/data/project.js";
 import { getProfileListData } from "@/data/profiles.js";
 
-// const mainMenuData = [
-//     { id: 'project', name: 'project', path: '/project' },
-//     { id: 'profile', name: 'profile', path: '/profile' },
-//     { id: 'guest', name: 'guest book', path: '/guestbook' }
-// ]
-// const projectDataExample = Array.from({ length: 24 }, (_, idx) => ({
-//     id: idx,
-//     name: idx === 0 ? 'ALL' : `작품 ${idx}`,
-//     description: idx === 0 ? '전체보기' : `작품설명${idx}작품설명입니다작품`,
-//     path: idx == 0 ? '/project' : `/project/${idx}`
-// }));
-// const profileDataExample = Array.from({ length: 24 }, (_, idx) => ({
-//     id: idx,
-//     name: idx === 0 ? 'ALL' : `학생 ${idx}`,
-//     path: idx == 0 ? '/profile' : `/profile/${idx}`
-// }));
-// const dataExample = {
-//     project: getProjectListData(),
-//     profile: getProfileListData()
-// }
+const toAllData = {
+    id: -1,
+    name: "ALL",
+    title: "ALL"
+}
+
+const instagram = "https://instagram.com/pnu.dt.14";
+const webtoon = "https://instagram.com/dt.14_toon";
 
 export default function Sidebar() {
     const pathname = usePathname();
@@ -36,14 +24,16 @@ export default function Sidebar() {
     const [hoverCategory, setHoverCategory] = useState(null);
     const [mobileSidebar, setMobileSidebar] = useState(false);
     const [mobileCategory, setMobileCategory] = useState(null);
+    const [isHamVisible, setHamVisible] = useState(true);
 
- 
     const handleMenuPicked = (newState) => {
         setMobileSidebar(!newState);
     };
 
     const projectListData = getProjectListData();
     const profileListData = getProfileListData();
+    projectListData.unshift(toAllData);
+    profileListData.unshift(toAllData);
 
     function collapseMenu() {
         setActiveState("collapsed"); setHoverCategory(null);
@@ -53,6 +43,10 @@ export default function Sidebar() {
         setMobileSidebar(!mobileSidebar);
             if (pathname.startsWith("/project")) { setMobileCategory("project") }
             else if (pathname.startsWith("/profile")) { setMobileCategory("profile") } else {setMobileCategory(null)}
+    }
+
+    function CategoryName() {
+        return `${pathname.startsWith('/profile') ? "profile" : pathname.startsWith('/project') ? "project" : pathname.startsWith('/guestbook') ? "guest book" : ""}`
     }
 
     return (
@@ -92,10 +86,10 @@ export default function Sidebar() {
                 </ul>
                 <ul className="w-48 p-6 absolute bottom-0">
                     <li className="hover:opacity-50 pb-2">
-                        <Link href="#" className="underline">history</Link>
+                        <Link href={webtoon} target="_blank" className="underline">webtoon</Link>
                     </li>
                     <li className="hover:opacity-50">
-                        <Link href="#">
+                            <Link href={instagram} target="_blank">
                             <span className="sr-only">Instagram</span>
                             <svg
                                 className="h-8 w-8"
@@ -119,13 +113,18 @@ export default function Sidebar() {
         </nav>
 
             {/* mobile */}
-            <nav className={`Mobile-sidebar-wrap top-0 left-0 fixed flex font-sanserif z-40 md:hidden ${mobileSidebar ? 'h-full w-full' : 'h-auto w-auto'}`} aria-label="Mobile-sidebar">
-                <div className="hamburger-wrap fixed m-6 z-50">
-                    <button className={`hamburger ${mobileSidebar ? 'active' : ''}`} onClick={()=>{HamburgerClick()}}>
+            <nav className={`Mobile-sidebar-wrap top-0 left-0 fixed flex font-sanserif z-40 md:hidden
+            ${mobileSidebar ? 'h-full w-screen mix-blend-normal' : 'h-auto w-auto mix-blend-difference'}`} aria-label="Mobile-sidebar">
+                <div className={`hamburger-wrap fixed flex justify-between p-6 z-50 w-full ${isHamVisible ? '' : 'hidden' }`}>
+                    <button className={`hamburger my-auto ${mobileSidebar ? 'active' : ''}`} onClick={()=>{HamburgerClick()}}>
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
+                    <div className={`uppercase font-bold text-xl text-white ${mobileSidebar ? 'hidden' : 'inline-block'}`}>
+                        {CategoryName()}
+                        </div>
+                    <div className="w-7"></div>
                 </div>
                 <div className={`Mobile-sidebar ${mobileSidebar ? 'active' : 'collapsed'} h-full w-full backdrop-blur transition-all`}>
                     <div className={`h-full w-1/3 min-w-fit  px-6 ${mobileSidebar ? 'flex' : 'hidden'}`}>
@@ -147,10 +146,10 @@ export default function Sidebar() {
                         </ul>
                         <ul className="links absolute bottom-6">
                             <li className="pb-2">
-                                <Link href="#" className="underline">history</Link>
+                                <Link href={webtoon} target="_blank" className="underline">webtoon</Link>
                             </li>
                             <li className="">
-                                <Link href="#">
+                                <Link href={instagram} target="_blank">
                                     <span className="sr-only">Instagram</span>
                                     <svg
                                         className="h-8 w-8"

@@ -32,6 +32,7 @@ export async function generateMetadata({ params }) {
 }
   
 
+
 // 프로젝트 목록
 function ProjectList(props) {
     const profile = props.data

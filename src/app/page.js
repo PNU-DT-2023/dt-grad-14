@@ -35,9 +35,9 @@ export default function Home() {
  
   return (
     <>
-    
+   
     <div className="w-full min-h-screen font-sans overflow-x-hidden flex flex-col justify-between max-phone:h-fit">
-      <h1 className="text-3xl md:text-6xl font-bold mt-10 ml-5 md:ml-10 -pt-6"  {...animatedItem[5]}>
+      <h1 className="text-3xl md:text-6xl font-bold mt-14 md:mt-10 ml-5 md:ml-10 -pt-6"  {...animatedItem[5]}>
         HOMMAGE
       </h1>
       <div className="flex mt-5">

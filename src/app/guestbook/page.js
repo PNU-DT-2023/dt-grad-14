@@ -13,8 +13,8 @@ const boardDataExample = Array.from({ length: 8 }, (_, idx) => ({
 export default function GuestBook() {
     return (
         <div className="">
-            <div className="flex justify-between w-full">
-                <h2 className="font-bold text-2xl px-6 py-4 whitespace-nowrap">제14회 졸업전시에 오신 여러분 감사합니다! 응원의 한마디를 남겨주세요.</h2>
+            <div className="flex justify-between w-full pt-14 md:pt-0">
+                <h2 className="font-bold text-2xl px-6 py-4 whitespace-nowrap hidden md:block">제14회 졸업전시에 오신 여러분 감사합니다! 응원의 한마디를 남겨주세요.</h2>
                 <div className="flex justify-between bg-black text-white text-xl px-4 m-2 mt-3 min-w-fit h-10">
                     <div className="inline-flex items-center space-x-2 w font-bold my-auto">
                         <svg width="16" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg">

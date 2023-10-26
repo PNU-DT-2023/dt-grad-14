@@ -47,6 +47,7 @@ export default function RootLayout({ children, loadingVisible }) {
       setIsOpen(currentTime >= openTime);
     };
 
+
     if(!isclicked){
       calculateIsOpen();
     }
@@ -69,23 +70,27 @@ export default function RootLayout({ children, loadingVisible }) {
         ) : (
           <TimerPage />
         )}
-        <div className="absolute flex items-center h-full w-full overflow-hidden ">
+        <div className="absolute flex items-center h-full w-full overflow-hidden bg-white">
             {/* 네비게이션 */}
             <Sidebar></Sidebar>
             {/* 페이지표시 */}
             <div className='w-full h-full overflow-scroll'>
+
+            <div className='marquee-wrap hidden md:block'>
               <MarqueeText>
-                <span className='font-bold'>• HOMMAGE • </span>
-                <span className='uppercase'>We are the sum of the things we love</span>
-                <span className='font-bold'>• HOMMAGE • </span>
-                <span className='uppercase'>We are the sum of the things we love</span>
-                <span className='font-bold'>• HOMMAGE • </span>
-                <span className='uppercase'>We are the sum of the things we love</span>
-                <span className='font-bold'>• HOMMAGE • </span>
-                <span className='uppercase'>We are the sum of the things we love</span>
-                <span className='font-bold'>• HOMMAGE • </span>
-                <span className='uppercase'>We are the sum of the things we love</span>
-              </MarqueeText>
+              <span className='font-bold'>• HOMMAGE • </span>
+              <span className='uppercase'>We are the sum of the things we love</span>
+              <span className='font-bold'>• HOMMAGE • </span>
+              <span className='uppercase'>We are the sum of the things we love</span>
+              <span className='font-bold'>• HOMMAGE • </span>
+              <span className='uppercase'>We are the sum of the things we love</span>
+              <span className='font-bold'>• HOMMAGE • </span>
+              <span className='uppercase'>We are the sum of the things we love</span>
+              <span className='font-bold'>• HOMMAGE • </span>
+              <span className='uppercase'>We are the sum of the things we love</span>
+           </MarqueeText>
+           </div>
+
               {children}
             </div>
           </div>
