@@ -11,11 +11,13 @@ export default  function Profile({params}) {
     const data =  getProfileByName(params.slug)
     return (
         <>
-            <div className=" h-screen flex-column flex-col ">
+        <div className="lg:h-screen flex flex-col bg-black">
+            <div className="flex flex flex-wrap ">
                 <ProfileHeader data = {data}></ProfileHeader>
                 <ProjectList data = {data}></ProjectList>
-                <Footer></Footer>
             </div>
+            <Footer className="h-1/3 relative"></Footer>
+        </div>
 
         </>
     )
@@ -43,14 +45,16 @@ function ProjectList(props) {
     ]
     return (
         <>
+        <div className=" lg:basis-1/3 h-full p-4 bg-[#EDBC81] w-full ">
                 <h2 className="sectionTitle relative mx-2 ">PROJECT</h2>
-                <section className="relative pb-9 project-list  grid md:grid-cols-3  w-full h-fit relative object-fit">
-                 
-                        <ProjectItem project = {projects[0]} url={`/project/${name}`} imgSrc={`/projectsImg/${name}_cover.png`} tag="INDIVIDUAL" ></ProjectItem>
+                {/* <div className="relative project-list flex flex-row flex-wrap relative h-full content-start"> */}
+                <div className="relative project-list grid grid-cols-auto content-start">
+                        <ProjectItem className="col-span-2 p-5" project = {projects[0]} url={`/project/${name}`} imgSrc={`/projectsImg/${name}_cover.png`} tag="INDIVIDUAL" ></ProjectItem>
                         <ProjectItem project = {projects[1]} url={`/project/${team}#film`} imgSrc={`/projectsImg/${team}_film_cover.png`} tag="TEAMFILM" ></ProjectItem>
                         <ProjectItem project = {projects[2]} url={`/project/${team}#inter`} imgSrc={`/projectsImg/${team}_inter_cover.png`}  tag="TEAMINTER" ></ProjectItem>
            
-                </section>
+                </div>
+                </div>
         </>
     )
 
@@ -63,7 +67,8 @@ function ProjectList(props) {
        
         return (
             
-            <div className="group relative transition-scale relative border-white border  h-full w-full overflow-hidden ">
+            // <div className="group relative transition-scale border-white border  overflow-hidden min-w-min w-fit h-1/3  min-h-[10%]">
+            <div className="group relative transition-scale border-white border  overflow-hidden w-full h-fit  min-h-[10%]">
                 <Link href={url}>
                     <Image
                         alt={projectTitle}

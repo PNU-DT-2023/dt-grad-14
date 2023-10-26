@@ -39,7 +39,7 @@ export const cls = (...classnames) => {
 
 export default function RootLayout({ children, loadingVisible }) {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [isclicked, setClicked] = useState(false);
   useEffect(() => {
     const calculateIsOpen = () => {
       const currentTime = new Date().getTime();
@@ -47,9 +47,9 @@ export default function RootLayout({ children, loadingVisible }) {
       setIsOpen(currentTime >= openTime);
     };
 
-    calculateIsOpen();
-
-    // You can set up an interval to periodically recalculate isOpen
+    if(!isclicked){
+      calculateIsOpen();
+    }
     const interval = setInterval(calculateIsOpen, 10000); // Recalculate every 10 seconds
 
     return () => clearInterval(interval);
@@ -57,14 +57,19 @@ export default function RootLayout({ children, loadingVisible }) {
 
   const handleDebugClick = () => {
     // 클릭 시 isOpen 상태를 true로 변경
+    setClicked(true);
     setIsOpen(!isOpen);
   };
 
   return (
     <html lang="kr">
       <body className={cls(notoSansKr.className, archivo.variable, philosopher.variable, 'overflow-hidden')}>
-        {isOpen ? (
-          <div className="absolute flex items-center h-full w-full overflow-hidden ">
+        {isclicked ? (
+          <></>
+        ) : (
+          <TimerPage />
+        )}
+        <div className="absolute flex items-center h-full w-full overflow-hidden ">
             {/* 네비게이션 */}
             <Sidebar></Sidebar>
             {/* 페이지표시 */}
@@ -84,9 +89,6 @@ export default function RootLayout({ children, loadingVisible }) {
               {children}
             </div>
           </div>
-        ) : (
-          <TimerPage />
-        )}
 
         {/* 비밀버튼 */}
         <div className='w-16 h-16'
