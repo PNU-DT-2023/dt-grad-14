@@ -3,7 +3,7 @@ import React from 'react';
 const WebLineAnimation = () => {
   return (
     <div className="section w-full">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="60%" viewBox="0 0 5000 1700" className='sclae-130 w-full'>
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="60%" viewBox="0 0 5000 1700" className='hidden lg:block sclae-130 w-full'>
       <style>
           {`
             .path {

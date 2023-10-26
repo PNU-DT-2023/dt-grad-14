@@ -63,7 +63,7 @@ export default function RootLayout({ children, loadingVisible }) {
   return (
     <html lang="kr">
       <body className={cls(notoSansKr.className, archivo.variable, philosopher.variable, 'overflow-hidden')}>
-        {isOpen ? (
+
           <div className="absolute flex items-center h-full w-full overflow-hidden ">
             {/* 네비게이션 */}
             <Sidebar></Sidebar>
@@ -84,10 +84,7 @@ export default function RootLayout({ children, loadingVisible }) {
               {children}
             </div>
           </div>
-        ) : (
-          <TimerPage />
-        )}
-
+        
         {/* 비밀버튼 */}
         <div className='w-16 h-16'
           style={{

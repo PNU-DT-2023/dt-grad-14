@@ -6,6 +6,7 @@ import Footer from '@/components/Footer/Footer.js';
 import Image from 'next/image';
 import KakaoMap from '@/components/KakaoMap/KakaoMap.js';
 import WebLineAnimation from '@/components/SVGAnimation/WebLineAnimation';
+import MobileLineAnimation from '@/components/SVGAnimation/MobileLineAnimation';
 import NameLink from '@/components/Page/NameLinks';
 import useScrollClipPath from '@/components/hooks/useScrollClipPath';
 
@@ -37,7 +38,7 @@ export default function Home() {
     <>
     
     <div className="w-full min-h-screen font-sans overflow-x-hidden flex flex-col justify-between max-phone:h-fit">
-      <h1 className="text-3xl md:text-6xl font-bold mt-10 ml-5 md:ml-10 -pt-6"  {...animatedItem[5]}>
+      <h1 className="lg:text-5xl text-5xl font-bold ml-5 md:ml-10 -pt-6 mt-14 lg:mt-10"  {...animatedItem[5]}>
         HOMMAGE
       </h1>
       <div className="flex mt-5">
@@ -56,23 +57,24 @@ export default function Home() {
         </p>
       </div>
       {/* 모바일 이미지 */}
-      <div className="overflow-hidden hidden max-phone:block ">
+      {/* <div className="overflow-hidden block lg:hidden ">
       <Image src="/hommage-home-mobile.svg" alt="hommage_home" 
         width={0}
         height={0}
         sizes="100vw"
         style={{ width: '100%', height: 'auto' }}/>
-      </div>
+      </div> */}
+      <MobileLineAnimation />
       <div className="flex flex-wrap items-center justify-center max-phone:hidden flex-grow">
         {/* <img src="/hommage-home.svg" alt="hommage_home" className="w-screen scale-105" />*/}
         
         <WebLineAnimation />
-        <img src="/ArrowIcon.png" alt="ArrowIcon" className="pb-20 cursor-pointer" onClick={onMoveBox} /> 
+        <img src="/ArrowIcon.png" alt="ArrowIcon" className="pb-20 cursor-pointer hidden lg:block" onClick={onMoveBox} /> 
       </div>
     </div>
 
       {/* 전시소개 start*/}
-      <div className='h-screen flex flex-col text-center items-center justify-center max-phone:mx-7 max-phone:h-fit' ref={element1}>
+      <div className='lg:h-screen lg:mx-0 flex flex-col text-center items-center justify-center mx-7 h-fit' ref={element1}>
       <span className='text-3xl mb-0 max-phone:mt-32 font-sanserif uppercase font-semibold'>Intro</span>
       {/* <span className={` mt-12 ${isVisible ? 'animate-fade-in' : ''}`}>
 
@@ -93,7 +95,7 @@ export default function Home() {
     {/* 전시소개 end */}
       {/* 유튜브 */}
       {/* <Fullpage /> */}
-      <div className="flex flex-col items-center justify-center h-screen w-full max-phone:h-fit" >
+      <div className="flex flex-col items-center justify-center lg:h-screen w-full h-fit" >
 
         <h2 className='text-3xl mb-20 max-phone:mb-10 font-sanserif uppercase font-semibold'  {...animatedItem[0]}>Opening Film</h2>
   <iframe src={`https://www.youtube.com/embed/${videoId}`} className=' w-3/4 h-3/4 max-phone:w-5/6 max-phone:h-56 max-phone:mb-10'  />
@@ -129,8 +131,8 @@ export default function Home() {
     }, [imageIndex, imagePaths]);
   
     return (
-      <div className='h-screen text-center items-center justify-center flex flex-col flex-wrap w-full m-auto max-phone:h-fit   '>
-        <div className='text-3xl mb-20 max-phone:mb-10 max-phone:mt-10 font-sanserif uppercase font-semibold' {...animatedItem[1]}>
+      <div className='lg:h-screen text-center items-center justify-center flex flex-col flex-wrap lg:w-3/4 m-auto h-fit   '>
+        <div className='text-3xl lg:mb-20 mb-10 mt-10 font-sanserif uppercase font-semibold' {...animatedItem[1]}>
           Made By
         </div>
       <div className='member-items flex justify-between flex-col lg:flex-row  px-12 gap-4 '>
@@ -146,18 +148,19 @@ export default function Home() {
             />
         </div>
         <div className='lg:basis-1/2 flex flex-col m-auto w-full text-left'>
-          <div className='flex flex-row mb-5'>
-          <p className='w-1/4 font-bold max-phone:w-full lg:text-center text-left'>위원장</p>
+        <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+        <p class="lg:w-1/4 font-bold lg:text-center text-center">위원장</p>
           {/* <p className='w-3/4 text-left '>박찬유</p> */}
           <NameLink name="박찬유"></NameLink>
           </div>
-          <div className='flex flex-row mb-5'>
-          <p className='w-1/4 font-bold max-phone:w-full lg:text-center text-left'>부위원장</p>
-          <p className='w-3/4 text-left'>김나연</p>
+          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+          <p class="lg:w-1/4 font-bold lg:text-center text-center">부위원장</p>
+          {/* <p className='w-3/4 text-left'>김나연</p> */}
+          <NameLink name="김나연"></NameLink>
           </div>
-          <div className='flex flex-row mb-5 max-phone:flex-col'>
-          <p className='w-1/4 font-bold max-phone:w-full lg:text-center text-left'>웹</p>
-          <div className='flex flex-wrap w-3/4 justify-between max-phone:w-full max-phone:mt-5'>
+          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+          <p class="lg:w-1/4 font-bold lg:text-center text-center">웹</p>
+          <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
             <NameLink name="이진희"></NameLink>
             
             <NameLink name="김유민"></NameLink>
@@ -169,34 +172,34 @@ export default function Home() {
             <NameLink name="엄채연"></NameLink>
           </div>
           </div>
-          <div className='flex flex-row mb-5 max-phone:flex-col'>
-          <p className='w-1/4 font-bold max-phone:w-full lg:text-center text-left'>도록</p>
-          <div className='flex flex-wrap w-3/4 justify-between max-phone:w-full max-phone:mt-5'>
-            <p className=''>김현서</p>
-            <p>이세영</p>
-            <p>박원영</p>
-            <p>전종규</p>
-            <p>전혜성</p>
+          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+          <p class="lg:w-1/4 font-bold lg:text-center text-center">도록</p>
+          <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
+          <NameLink name="김현서"></NameLink>
+          <NameLink name="박원영"></NameLink>
+          <NameLink name="이세영"></NameLink>
+          <NameLink name="전종규"></NameLink>
+          <NameLink name="전혜성"></NameLink>
           </div>
           </div>
-          <div className='flex flex-row mb-5 max-phone:flex-col'>
-          <p className='w-1/4 font-bold max-phone:w-full lg:text-center text-left'>DP</p>
-          <div className='flex flex-wrap w-3/4 justify-between max-phone:w-full max-phone:mt-5 '>
-            <p className=''>문관영</p>
-            <p>김민호</p>
-            <p>김도연</p>
-            <p>박재현</p>
-            <p>전서연</p>
+          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+          <p class="lg:w-1/4 font-bold lg:text-center text-center">DP</p>
+          <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
+          <NameLink name="문관영"></NameLink>
+          <NameLink name="김도연"></NameLink>
+          <NameLink name="김민호"></NameLink>
+          <NameLink name="박재현"></NameLink>
+          <NameLink name="전서연"></NameLink>
           </div>
           </div>
-          <div className='flex flex-row mb-5 max-phone:flex-col'>
-          <p className='w-1/4 font-bold max-phone:w-full lg:text-center text-left'>영상</p>
-          <div className='flex flex-wrap w-3/4 justify-between max-phone:w-full max-phone:mt-5'>
-            <p className=''>민재현</p>
-            <p>김나연</p>
-            <p>박찬유</p>
-            <p>이민영</p>
-            <p>이민영</p>
+          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+          <p class="lg:w-1/4 font-bold lg:text-center text-center">영상</p>
+          <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
+          <NameLink name="민재현"></NameLink>
+          <NameLink name="김나연"></NameLink>
+          <NameLink name="박찬유"></NameLink>
+          <NameLink name="이민영"></NameLink>
+          
           </div>
           </div>
         </div>
@@ -210,24 +213,24 @@ export default function Home() {
       0: useScrollFadeIn('up', 1, 0),
       1: useScrollFadeIn('up', 1, 0.2),
       2: useScrollFadeIn('up', 1, 0.4),
-      3: useScrollFadeIn('up', 1, 0)
+      3: useScrollFadeIn('up', 1, 0.6)
     };
     return (
 
-      <div className='content-center w-full text-center flex flex-col items-center justify-center max-phone:h-fit'>
-        <div className='text-3xl mb-20 max-phone:mb-10 max-phone:mt-10  font-sanserif uppercase font-semibold'>Professors</div>
+      <div className='content-center w-full lg:h-screen text-center flex flex-col items-center justify-center h-fit'>
+        <div className='text-3xl lg:mb-20 mb-10 mt-10  font-sanserif uppercase font-semibold'>Professors</div>
         <div className='w-3/4 flex flex-wrap justify-between lg:flex-row flex-col'>
-          <div className='relative items-center flex flex-col mr-32' {...animatedItem[1]}>
+          <div className='relative items-center flex flex-col'{...animatedItem[1]} >
             <Image src="/profile-temp-image.png" alt="" width={200} height={350} />
-            <p className='text-2xl mt-5 mb-5'>김철기 교수님</p>
+            <p className='text-2xl mt-5 mb-5'>김태완 교수님</p>
             <p className='mt-0 mb-5'>DIGITAL CONTENT DESIGN</p>
           </div>
-          <div className='relative items-center flex flex-col mr-32' {...animatedItem[1]}>
+          <div className='relative items-center flex flex-col '{...animatedItem[2]}>
             <Image src="/profile-temp-image.png" alt="" width={200} height={350} />
             <p className='text-2xl mt-5 mb-5'>김철기 교수님</p>
             <p className='mt-0 mb-5'>UX / AI / 감성공학</p>
           </div>
-          <div className='relative items-center flex flex-col' {...animatedItem[2]}>
+          <div className='relative items-center flex flex-col' {...animatedItem[3]}>
             <Image src="/profile-temp-image.png" alt="" width={200} height={350} />
             <p className='text-2xl mt-5 mb-5'>이화세 교수님</p>
             <p className='mt-0 mb-5'>HCI</p>
