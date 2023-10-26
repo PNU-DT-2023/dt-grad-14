@@ -15,6 +15,7 @@ module.exports = {
       fontFamily: { //폰트 추가
         sanserif: ["var(--archivo)"], // :앞에 있는 글자대로 class 추가해주면 적용됨
         serif: ["var(--archivo)"],
+        noto: ["var(--noto)"]
       },
       minHeight: {
         vh30: '30vh',
