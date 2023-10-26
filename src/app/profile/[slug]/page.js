@@ -68,7 +68,7 @@ function ProjectList(props) {
         return (
             
             // <div className="group relative transition-scale border-white border  overflow-hidden min-w-min w-fit h-1/3  min-h-[10%]">
-            <div className="group relative transition-scale border-white border  overflow-hidden w-full h-fit  min-h-[10%]">
+            <div className="group relative transition-scale border-black border  overflow-hidden w-full h-fit  min-h-[10%]">
                 <Link href={url}>
                     <Image
                         alt={projectTitle}
