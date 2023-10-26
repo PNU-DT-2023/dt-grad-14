@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
     <div className="w-full h-full font-sans overflow-x-hidden flex flex-col justify-between">
-      <h1 className="text-3xl md:text-6xl font-bold mt-10 ml-5 md:ml-10 -pt-6">
+        <h1 className="text-3xl md:text-6xl font-bold mt-14 ml-5 md:ml-10 -pt-6 md:mt-10">
         HOMMAGE
       </h1>
       <div className="flex mt-5">

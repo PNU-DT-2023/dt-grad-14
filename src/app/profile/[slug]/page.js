@@ -35,7 +35,7 @@ function ProfileHeader(props) {
         <>
             {/* 사이니지: background-image */}
 
-            <section className={` relative overflow-hidden profile-section text-white  bg-black md:px-16 md:my-12 p-4 phone:mb-12 max-phone:mb-24`}>
+            <section className={` relative overflow-hidden profile-section text-white  bg-black pt-16 md:pt-4 md:px-16 md:my-12 p-4 phone:mb-12 max-phone:mb-24`}>
 
                 {/* 이름 */}
                 <h1 className="name text-xl  w-screen">{profile.name}</h1>
