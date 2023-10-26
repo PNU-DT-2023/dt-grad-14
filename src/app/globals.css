@@ -25,6 +25,10 @@ body {
    -ms-overflow-style: none;
  }
 
+.member-items * {
+  text-align: left;
+ }
+
 .time {
   @apply text-2xl font-sanserif;
 }
@@ -32,3 +36,4 @@ body {
 .time-text {
   @apply  uppercase opacity-50
 }
+
