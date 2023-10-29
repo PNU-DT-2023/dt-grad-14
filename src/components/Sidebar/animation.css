@@ -1,5 +1,8 @@
 /* hamburger wrapper */
-.hamburger-wrap.hidden {
+.hamburger-wrap {
+    transition: all .5s ;
+}
+.hamburger-wrap.closed {
     transform: translateY(-100%);
 }
 
