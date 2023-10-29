@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import "./scrollbar.css";
 import { usePathname } from 'next/navigation';
 
 const Picker = (props) => {

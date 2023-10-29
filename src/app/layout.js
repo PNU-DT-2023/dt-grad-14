@@ -6,7 +6,6 @@ import MarqueeText from '@/components/Marquee/MarqueeText.js';
 import Sidebar from '@/components/Sidebar/sidebar.js';
 import TimerPage from '@/components/Page/TimerPage';
 import useThrottle from '@/components/hooks/useThrottle.js';
-import useDebounce from '@/components/hooks/useDebounce.js';
 import { useState, useEffect, useCallback, useRef, useLayoutEffect } from 'react';
 
 //한글 기본 폰트 : notoSans
