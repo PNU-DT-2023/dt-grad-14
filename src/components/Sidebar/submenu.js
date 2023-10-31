@@ -4,7 +4,6 @@ import { useRef, useEffect, useState } from "react";
 import Preview from "./Preview.js";
 import Picker from "./Picker.js"; 
 import { getProjectByIndex } from "@/data/project.js";
-import "./scrollbar.css";
 
 
 export default function Submenu(props) {

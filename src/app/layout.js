@@ -5,7 +5,8 @@ import Footer from '@/components/Footer/Footer.js'
 import MarqueeText from '@/components/Marquee/MarqueeText.js';
 import Sidebar from '@/components/Sidebar/sidebar.js';
 import TimerPage from '@/components/Page/TimerPage';
-import { useState, useEffect } from 'react';
+import useThrottle from '@/components/hooks/useThrottle.js';
+import { useState, useEffect, useCallback, useRef, useLayoutEffect } from 'react';
 
 //한글 기본 폰트 : notoSans
 
@@ -40,6 +41,9 @@ export const cls = (...classnames) => {
 export default function RootLayout({ children, loadingVisible }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isclicked, setClicked] = useState(false);
+  const [prevY, setPrevY] = useState();
+  const [isHeaderShow, setIsHeaderShow] = useState(true);
+  const scrollRef = useRef();
   useEffect(() => {
     const calculateIsOpen = () => {
       const currentTime = new Date().getTime();
@@ -62,6 +66,38 @@ export default function RootLayout({ children, loadingVisible }) {
     setIsOpen(!isOpen);
   };
 
+  // 스크롤이 내려가고 올라오는지 확인해주는 핸들러
+  const handleScroll = useCallback(
+    (e) => {
+      // 현재위치와 이전 위치의 차를 계산한다.
+      const diff = e.target.scrollTop - prevY
+      if (diff > 0) {
+        setIsHeaderShow(false)
+      } else if (diff < 0) {
+        setIsHeaderShow(true)
+      }
+      setPrevY(e.target.scrollTop)
+    },
+    [prevY]
+  )
+  const throttleScroll = useThrottle(handleScroll, 300)
+  const scrollDetectHandler = useCallback(
+    (...e) => {
+      throttleScroll(...e)
+    },
+    [prevY]
+  )
+  useLayoutEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.addEventListener('scroll', scrollDetectHandler)
+    }
+    return () => {
+      if (!scrollRef.current) return
+      scrollRef.current.removeEventListener('scroll', scrollDetectHandler)
+    }
+  }, [prevY])
+
+
   return (
     <html lang="kr">
       <body className={cls(notoSansKr.className, archivo.variable, philosopher.variable, 'overflow-hidden')}>
@@ -72,9 +108,9 @@ export default function RootLayout({ children, loadingVisible }) {
         )}
         <div className="absolute flex items-center h-full w-full overflow-hidden bg-white">
             {/* 네비게이션 */}
-            <Sidebar></Sidebar>
+          <Sidebar isHeaderShow={isHeaderShow}></Sidebar>
             {/* 페이지표시 */}
-            <div className='w-full h-full overflow-scroll'>
+          <div className='w-full h-full overflow-scroll' ref={scrollRef}>
 
             <div className='marquee-wrap hidden md:block'>
               <MarqueeText>
@@ -90,7 +126,6 @@ export default function RootLayout({ children, loadingVisible }) {
               <span className='uppercase'>We are the sum of the things we love</span>
            </MarqueeText>
            </div>
-
               {children}
             </div>
           </div>

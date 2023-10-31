@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState, useEffect, useCallback } from "react";
+import { useEffect, useState } from "react";
 import Submenu from "./submenu.js";
 import "./animation.css";
 import { getProjectListData } from "@/data/project.js";
@@ -18,13 +18,14 @@ const toAllData = {
 const instagram = "https://instagram.com/pnu.dt.14";
 const webtoon = "https://instagram.com/dt.14_toon";
 
-export default function Sidebar() {
+export default function Sidebar(props) {
+    const { isHeaderShow } = props;
     const pathname = usePathname();
     const [activeState, setActiveState] = useState("collapsed");
     const [hoverCategory, setHoverCategory] = useState(null);
     const [mobileSidebar, setMobileSidebar] = useState(false);
     const [mobileCategory, setMobileCategory] = useState(null);
-    const [isHamVisible, setHamVisible] = useState(true);
+    const [isHeaderOpen, setHeaderOpen] = useState(isHeaderShow);
 
     const handleMenuPicked = (newState) => {
         setMobileSidebar(!newState);
@@ -48,6 +49,10 @@ export default function Sidebar() {
     function CategoryName() {
         return `${pathname.startsWith('/profile') ? "profile" : pathname.startsWith('/project') ? "project" : pathname.startsWith('/guestbook') ? "guest book" : ""}`
     }
+
+    useEffect(() => {
+        setHeaderOpen(isHeaderShow)
+    }, [isHeaderShow]);
 
     return (
         <>
@@ -115,7 +120,7 @@ export default function Sidebar() {
             {/* mobile */}
             <nav className={`Mobile-sidebar-wrap top-0 left-0 fixed flex font-sanserif z-40 md:hidden
             ${mobileSidebar ? 'h-full w-screen mix-blend-normal' : 'h-auto w-auto mix-blend-difference'}`} aria-label="Mobile-sidebar">
-                <div className={`hamburger-wrap fixed flex justify-between p-6 z-50 w-full ${isHamVisible ? '' : 'hidden' }`}>
+                <div className={`hamburger-wrap ${isHeaderOpen ? '' : 'closed' } fixed flex justify-between p-6 z-50 w-full`}>
                     <button className={`hamburger my-auto ${mobileSidebar ? 'active' : ''}`} onClick={()=>{HamburgerClick()}}>
                         <span></span>
                         <span></span>

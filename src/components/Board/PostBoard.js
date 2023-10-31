@@ -5,14 +5,15 @@ export default function PostBoardLayout(props){
 
     return(
         <>
-        <div className="w-full overflow-y-auto">
-                <div className="flex flex-wrap border-l border-t border-black">
+            <div className="post-board w-full h-full overflow-y-auto transition-all">
+                <div className="flex flex-wrap md:border-l md:border-t md:border-black">
                     <>
                         {dataList.map((data) => (
                             <Post id={data.id} key={data.id} from={data.from} to={data.to} text={data.text}></Post>
                         ))}
                     </>
                 </div>
+                <div className="h-2/6 md:h-1/6"></div>
         </div>
         </>
     )
