@@ -23,23 +23,38 @@ export function TeamDetailPage(props) {
 
                     {/* TEAMFILM */}
                     <section id="film" className='py-12'>
-                        <div className="text-center flex flex-wrap flex-col items-center justify-items-center justify-center place-content-center pb-12">
+                        <div className="relative text-center flex flex-wrap flex-col items-center justify-items-center justify-center place-content-center pb-12">
                             <div className={`p-2 ${styles.sectionTitle}`}>
                                 TEAM FILM
                             </div>
+
                             <h2 className={styles.title}>{data?.filmTitle}</h2>
                             <div className={`${styles.sectionBody} max-w-lg mx-4`}>{
-                                data?.filmBody.split('\n').map((line, idx )=> {
-                                return (<span key={idx}>{line}<br /></span>)
-                            })
+                                data?.filmBody.split('\n').map((line, idx) => {
+                                    return (<span key={idx}>{line}<br /></span>)
+                                })
                             }</div>
+
+                            <Image
+                                alt="detail-image"
+                                className="pt-4 object-center w-full lg:w-[50%]"
+                                src={`/projectsImg/${data.name}_film_cover.webp`}
+                                width={1280}
+                                height={720}
+                                placeholder={placeholderURL}
+                                onError={() => { setMapImgSrc(mapErrorImg) }}
+                            />
+
                         </div>
+
                         {
-                            data?.interVideoURL !== "" &&
-                            <div className="flex justify-center bg-black">
-                                <iframe src={data?.interVideoURL} className='w-half min-h-vh30 max-laptop:w-full tablet:h-vh50 tablet:h-vh30' />
-                            </div>
+
+                            // data?.interVideoURL !== "" &&
+                            // <div className="flex justify-center bg-black">
+                            //     <iframe src={data?.interVideoURL} className='w-half min-h-vh30 max-laptop:w-full tablet:h-vh50 tablet:h-vh30' />
+                            // </div>
                         }
+
                     </section>
                     {/* INTERACTION */}
                     <Interaction data={data}></Interaction>
@@ -65,11 +80,11 @@ export function TeamDetailPage(props) {
                 {/* 프로젝트 요약 설명 */}
                 <div className="project-description basis-2/4  max-tablet:basis-full p-4">
                     <p className="opacity-60 text-xs pb-2 ">DESCRIPTION</p>
-                        <div className={`${styles.description}`}>
-                            {data?.description.split('\n').map((line, idx) => {
-                                        return (<span key={idx}>{line}<br /></span>)
-                                    })}
-                        </div>
+                    <div className={`${styles.description}`}>
+                        {data?.description.split('\n').map((line, idx) => {
+                            return (<span key={idx}>{line}<br /></span>)
+                        })}
+                    </div>
                 </div>
 
                 <div className="project-credit-area basis-1/4 max-tablet:basis-full p-4 flex flex-col flex-wrap ">

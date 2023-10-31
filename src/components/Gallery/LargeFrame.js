@@ -13,7 +13,7 @@ export default function LargeFrame(props) {
     const tag = props.data?.tag;
     const name = props.data?.name;
     
-    const imgPath = `/projectsImg/${name}_cover.png`;
+    const imgPath = `/projectsImg/${name}_cover.webp`;
     const defaultPath = `/projectsImg/default_cover.png`;
     const [imgSrc, setimgSrc] = useState(imgPath);
     return (

@@ -8,7 +8,7 @@ export function Interaction(props) {
     const data = props.data;
     const name = data?.name;
 
-    const [mapImgSrc, setMapImgSrc] = useState(`/projectsImg/${name}_map.png`);
+    const [mapImgSrc, setMapImgSrc] = useState(`/projectsImg/${name}_map.webp`);
     const mapErrorImg = `/projectsImg/웹팀_map.png`;
 
     const steps = data ? data.interMethod.split('||') : [];
@@ -26,12 +26,12 @@ export function Interaction(props) {
                             INTERACTION
                         </div>
                         <h2 className={styles.title}>{data?.interTitle}</h2>
-                        <div className={`${styles.sectionBody} text-body mr-4`}>{
+                        <div className={`${styles.sectionBody} text-sm mr-4 mb-2`}>{
                             data?.interBody?.split('\n').map((line,idx) => {
                                 return (<span key={idx}>{line}<br /></span>)
                             })
                         }</div>
-                        <div className={styles.sectionCaption}>{data?.interFormat}</div>
+                        <div className={`${styles.sectionCaption} mb-4 text-sm`}>{data?.interFormat}</div>
                     </div>
                     <div id='map' className='lg:basis-1/2  h-auto'>
                         <Image
@@ -55,13 +55,15 @@ export function Interaction(props) {
                                 <Image
                                     alt={`detail-image-step${idx+1}`}
                                     className="object-center h-full"
-                                    src={imageError ? '/projectsImg/temp_step.png' : `/projectsImg/${name}_step${idx + 1}.png`}
+                                    src={imageError ? '/projectsImg/temp_step.png' : `/projectsImg/${name}_step${idx + 1}.webp`}
                                     width={1200}
                                     height={675}
                                     placeholder={placeholderURL}
                                     onError={() => {
                                       if (!imageError) {
-                                        setImageError(true); 
+                                        setTimeout(() => {
+                                            setImageError(true); 
+                                        }, 1000);
                                       }
                                     }}
                                 />

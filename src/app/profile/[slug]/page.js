@@ -49,9 +49,9 @@ function ProjectList(props) {
                 <h2 className="sectionTitle relative mx-2 ">PROJECT</h2>
                 {/* <div className="relative project-list flex flex-row flex-wrap relative h-full content-start"> */}
                 <div className="relative project-list grid grid-cols-auto content-start">
-                        <ProjectItem className="col-span-2 p-5" project = {projects[0]} url={`/project/${name}`} imgSrc={`/projectsImg/${name}_cover.png`} tag="INDIVIDUAL" ></ProjectItem>
-                        <ProjectItem project = {projects[1]} url={`/project/${team}#film`} imgSrc={`/projectsImg/${team}_film_cover.png`} tag="TEAMFILM" ></ProjectItem>
-                        <ProjectItem project = {projects[2]} url={`/project/${team}#inter`} imgSrc={`/projectsImg/${team}_inter_cover.png`}  tag="TEAMINTER" ></ProjectItem>
+                        <ProjectItem className="col-span-2 p-5" project = {projects[0]} url={`/project/${name}`} imgSrc={`/projectsImg/${name}_cover.webp`} tag="INDIVIDUAL" ></ProjectItem>
+                        <ProjectItem project = {projects[1]} url={`/project/${team}#film`} imgSrc={`/projectsImg/${team}_film_cover.webp`} tag="TEAMFILM" ></ProjectItem>
+                        <ProjectItem project = {projects[2]} url={`/project/${team}#inter`} imgSrc={`/projectsImg/${team}_inter_cover.webp`}  tag="TEAMINTER" ></ProjectItem>
            
                 </div>
                 </div>
@@ -72,7 +72,7 @@ function ProjectList(props) {
                 <Link href={url}>
                     <Image
                         alt={projectTitle}
-                        className="relative border border-white object-cover object-center h-full w-full  transition-transform hover:scale-110"
+                        className="relative object-cover object-center h-full w-full  transition-transform hover:scale-110"
                         // 이미지 url 넣기
                         src={imgSrc}
                         width={1920}

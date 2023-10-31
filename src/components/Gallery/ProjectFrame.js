@@ -23,8 +23,8 @@ export default function ProjectFrame(props) {
             className="relative duration-300 hover:scale-110 block w-full h-full object-cover object-center"
             src={imgSrc}
             // 아래 w,h는 필수 구성요소로 크게 영향은 없지만 빠지면 안됨
-            width={120}
-            height={96}
+            width={720}
+            height={480}
             onError = { () => {setimgSrc(defaultPath)}}
             placeholder = {placeholderURL}
             />
