@@ -1,7 +1,6 @@
 import SmallFrame from './SmallFrame'
 import LargeFrame from './LargeFrame'
-import ProjectFrame
- from './projectFrame';
+import ProjectFrame from './ProjectFrame';
 export default function GalleryLayout(props) {
     // 리스트 데이터
     const data = props.dataList; 
