@@ -43,14 +43,14 @@ export default function Home() {
       </h1>
       <div className="flex mt-5">
 
-        <p className="font-sanserif ml-5 md:ml-10 mt-3 md:w-2/3">
+        <p className="font-sanserif ml-5 md:ml-10 mt-3 md:w-2/3" {...animatedItem[6]}>
 
           Pusan National Univ. Design & Technology
           <br />
           14th Graduation Exhibition
         </p>
 
-        <p className="font-sanserif mt-3 md:mr-10 md:w-1/3 md:flex md:justify-end max-phone:hidden">
+        <p className="font-sanserif mt-3 md:mr-10 md:w-1/3 md:flex md:justify-end hidden lg:block" {...animatedItem[7]}>
           Design Center Pusan 1F Exhibition hall
           <br />
           11.10 - 11.12 10am-6pm
@@ -65,6 +65,11 @@ export default function Home() {
         style={{ width: '100%', height: 'auto' }}/>
       </div> */}
       <MobileLineAnimation />
+      <p className="font-sanserif mr-5 mb-10 flex justify-end text-right block lg:hidden" {...animatedItem[7]}>
+          Design Center Pusan 1F Exhibition hall
+          <br />
+          11.10 - 11.12 10am-6pm
+        </p>
       <div className="flex flex-wrap items-center justify-center max-phone:hidden flex-grow">
         {/* <img src="/hommage-home.svg" alt="hommage_home" className="w-screen scale-105" />*/}
         
@@ -95,10 +100,10 @@ export default function Home() {
     {/* 전시소개 end */}
       {/* 유튜브 */}
       {/* <Fullpage /> */}
-      <div className="flex flex-col items-center justify-center lg:h-screen w-full h-fit" >
+      <div className="flex flex-col items-center justify-center lg:h-screen w-full h-screen" >
 
-        <h2 className='text-3xl mb-20 max-phone:mb-10 font-sanserif uppercase font-semibold'  {...animatedItem[0]}>Opening Film</h2>
-  <iframe src={`https://www.youtube.com/embed/${videoId}`} className=' w-3/4 h-3/4 max-phone:w-5/6 max-phone:h-56 max-phone:mb-10'  />
+        <h2 className='text-3xl mb-20 max-phone:mb-10 lg:mt-0 mt-10 font-sanserif uppercase font-semibold'  {...animatedItem[0]}>Opening Film</h2>
+  <iframe src={`https://www.youtube.com/embed/${videoId}`} className=' lg:w-3/4 lg:h-2/3 lg:mb-0 h-1/3 w-5/6 max-phone:h-56 mb-10'  />
 </div> 
       <KakaoMap  animatedItem={animatedItem}/>
       <ImageHover  animatedItem={animatedItem}/>
@@ -136,7 +141,7 @@ export default function Home() {
           Made By
         </div>
       <div className='member-items flex justify-between flex-col lg:flex-row  px-12 gap-4 '>
-          <div className='basis-1/2 max-phone:mb-10 '>
+          <div className='basis-1/2 mb-10 lg:mb-0 '>
             <Image
               // src={imagePaths[imageIndex]}
               src="/groupPhoto1.jpg"
@@ -199,7 +204,7 @@ export default function Home() {
           <NameLink name="김나연"></NameLink>
           <NameLink name="박찬유"></NameLink>
           <NameLink name="이민영"></NameLink>
-          
+          <p><span className="pr-11" /></p>
           </div>
           </div>
         </div>
