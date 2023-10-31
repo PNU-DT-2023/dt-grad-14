@@ -1,6 +1,7 @@
 import SmallFrame from './SmallFrame'
 import LargeFrame from './LargeFrame'
-
+import ProjectFrame
+ from './projectFrame';
 export default function GalleryLayout(props) {
     // 리스트 데이터
     const data = props.dataList; 
@@ -12,7 +13,7 @@ export default function GalleryLayout(props) {
                                                 key={index} data={e} category={category}/>
                                                
                                                 ) :
-                                            ( <SmallFrame 
+                                            ( <ProjectFrame 
                                                 key={index}
                                                 data={e} category={category}/>)
                                 ) :

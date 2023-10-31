@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link';
 import { useState } from 'react';
+import placeholderURL from '../PlaceHolder';
 // 단체용 1/2 프레임
 export default function LargeFrame(props) {
     // 프로젝트인지 프로필인지
@@ -26,6 +27,7 @@ export default function LargeFrame(props) {
                         // 아래 w,h는 필수 구성요소로 크게 영향은 없지만 빠지면 안됨
                         width={500}
                         height={700}
+                        placeholder = {placeholderURL}
                         onError = { () => {setimgSrc(defaultPath)}}
                     />
 

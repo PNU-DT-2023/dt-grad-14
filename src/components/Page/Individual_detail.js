@@ -39,8 +39,6 @@ export function IndividaulDetailPage(props) {
 
                     {/* INTERACTION */}
                     <Interaction data={data}></Interaction>
-
-
                 </div>
             </div>
         </>
@@ -49,7 +47,7 @@ export function IndividaulDetailPage(props) {
 
     function TitleBar() {
         return (
-            <div className="z-50 project-title-area w-full bg-black text-white flex justify-between flex-wrap p-4  max-phone:relative   ">
+            <div className="pt-12 z-50 project-title-area w-full bg-black text-white flex justify-between flex-wrap p-4  max-phone:relative   ">
                 <div className="project-title text-xl basis-1/4  max-tablet:basis-full m-30 p-4">
                     <p className="opacity-60 text-xs pb-2 ">TITLE</p>
                     <h1 className="font-bold">
