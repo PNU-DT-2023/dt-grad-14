@@ -9,7 +9,7 @@ export default function PostBoardLayout(props){
                 <div className="flex flex-wrap md:border-l md:border-t md:border-black">
                     <>
                         {dataList.map((data) => (
-                            <Post id={data.id} key={data.id} from={data.from} to={data.to} text={data.text}></Post>
+                            <Post key={data.id} num={data.num} from={data.from} to={data.to} text={data.text} timestamp={data.timestamp}></Post>
                         ))}
                     </>
                 </div>
