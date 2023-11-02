@@ -10,7 +10,7 @@ export function ProfileHeader(props) {
         <>
             {/* 사이니지: background-image */}
 
-            <section className={` bg-black lg:w-2/3 relative overflow-hidden profile-section text-white md:px-16 md:my-12 p-4 phone:mb-12 max-phone:mb-24`}>
+            <section className={` bg-black lg:w-2/3 relative overflow-hidden profile-section text-white pt-16 md:pt-4 md:px-16 md:my-12 p-4 phone:mb-12 max-phone:mb-24`}>
 
                 {/* 이름 */}
                 <h1 className="name text-xl  w-screen">{profile.name}</h1>
