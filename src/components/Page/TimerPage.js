@@ -11,7 +11,9 @@ export default function TimerPage() {
         <header className="header">
           <h1 className="title text-6xl lg:text-9xl md:w-full">HOMMAGE</h1>
           <div>2023 Pusan National Univ.</div>
-          <div>Dept. of Design, Design and Technology \/n 14th Graduation Show</div>
+          <div>Dept. of Design, Design and Technology
+            <br></br>
+            14th Graduation Show</div>
         </header>
         <div className='content-wrapper flex flex-col gap-2 justify-between'>
           <h1 className='lg:text-4xl text-3xl'>OPENING | 11.10 6pm</h1>
