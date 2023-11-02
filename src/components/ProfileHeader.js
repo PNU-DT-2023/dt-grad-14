@@ -10,7 +10,7 @@ export function ProfileHeader(props) {
         <>
             {/* 사이니지: background-image */}
 
-            <section className={` bg-black lg:w-2/3 relative overflow-hidden profile-section text-white pt-16 md:pt-4 md:px-16 md:my-12 p-4 phone:mb-12 max-phone:mb-24`}>
+            <section className={` bg-black lg:basis-2/3 relative overflow-hidden profile-section text-white pt-16 md:pt-4 md:px-16 md:my-12 p-4 phone:mb-12 max-phone:mb-24`}>
 
                 {/* 이름 */}
                 <h1 className="name text-xl  w-screen">{profile.name}</h1>
@@ -19,17 +19,15 @@ export function ProfileHeader(props) {
                 {/* 프로필 상세*/}
                 <div className="relative flex flex-wrap pt-4 gap-2">
                     {/* 프로필 이미지 */}
-                    <ProfileImage imgSrc={`/profilesImg/${profile.name}_profile.webp`}></ProfileImage>
-                    <div className="absolute flex top-1/4 lg:top-full md:top-[80%]  p-auto p-2 right-1  content-end object-contain h-[25%] lg:h-[30%] r-0" >
-                        <img classname="h-fit" src={`/profilesImg/${profile.name}_signage.svg`}></img>
-                    </div>
+                    <ProfileImage name={profile.name}></ProfileImage>
+                    
                     {/* 프로필 정보 영역 */}
                     <div className="flex flex-col leading-loose">
-                        <div className=" min-h-[50%] h-auto ">{profile.introduction} </div>
+                        <div className=" h-auto w-2/3 pb-4 ">{profile.introduction} </div>
                         <div>
                             <div className="CONTACT h-full">
                                 <h5 className="font-sanserif text-gray-500">CONTACT</h5>
-                                <ul className="flex flex-col gap-1.5">
+                                <ul className="flex flex-col gap-1.5 opacity-[90]">
                                     <li>{profile.email && <a alt="이메일" href={`mailto:${profile.email}`}>{profile.email}</a>}</li>
                                     <li>{profile.phone && <a alt="전화번호" href={`telto:${profile.phone}`}>{profile.phone} </a>}</li>
                                     <li className="leading-normal px-2 bg-slate-700 rounded-full w-fit h-fit ">{profile.instagram && <a alt="인스타그램" href={`https://instagram.com/${profile.instagram}`}target="_blank">
@@ -51,7 +49,8 @@ export function ProfileHeader(props) {
 
 
 function ProfileImage(props) {
-    const imgSrc = props.imgSrc;
+    const name = props.name
+    const imgSrc = `/profilesImg/${name}_profile.webp`
     const remove = (e) => {
         e.target.classList.remove('opacity-0');
     }
@@ -70,7 +69,11 @@ function ProfileImage(props) {
                     placeholder = {placeholderURL}
                     loading = 'eager'
                 />
+                <div className="mix-blend-difference opacity-80 absolute flex  bottom-[0%] right-[-70%] lg:right-[-200%]  p-auto p-2 right-1  content-end object-contain h-[30%] lg:h-[50%] r-0" >
+                        <img classname="h-fit" src={`/profilesImg/${name}_signage.svg`}></img>
+                    </div>
             </div>
         </>
     )
 }
+
