@@ -42,9 +42,9 @@ function KakaoMap() {
 
   return (
     <div className='h-screen text-center items-center justify-center flex flex-col w-3/4 m-auto '>
-      <h2 className='text-3xl mb-20 max-phone:mb-10 font-sanserif uppercase font-semibold' {...animatedItem[0]}>Offline Info</h2>
-      <div className='flex flex-col md:flex-row w-full items-center justify-center md:justify-start'>
-        <div className='w-full md:w-1/2 flex flex-col justify-center items-center'>
+      <h2 className='text-3xl lg:mb-20 mb-10 font-sanserif uppercase font-semibold' {...animatedItem[0]}>Offline Info</h2>
+      <div className='flex lg:flex-row flex-col w-full items-center lg:justify-center justify-start'>
+        <div className='lg:w-1/2 w-full flex flex-col justify-center items-center'>
           <p style={{ wordBreak: 'keep-all' }} className='my-2' {...animatedItem[1]}>
             부산디자인진흥원
             <br />
@@ -53,7 +53,7 @@ function KakaoMap() {
           <p style={{ wordBreak: 'keep-all' }} className='my-2' {...animatedItem[2]}>DESIGN CENTER BUSAN 1F ExhibitionHall</p>
           <p  style={{ wordBreak: 'keep-all' }} {...animatedItem[3]}>2023.11.10 - 2023.11.12</p>
         </div>
-        <div id="map" className="w-1/2 h-96 max-phone:w-72 max-phone:h-72 max-phone:mt-10" {...animatedImage}></div>
+        <div id="map" className="lg:w-1/2 lg:h-96 w-72 h-72 mt-10" {...animatedImage}></div>
       </div>
     </div>
   );
