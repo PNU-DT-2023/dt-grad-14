@@ -12,7 +12,7 @@ export default function Post(props) {
                         <span>to {to}</span>
                     </div>
                 </div>
-                <div className="w-full h-full pt-2 mb-2 overflow-y-scroll overflow-x-hidden md:my-4 md:pt-0 md:h-48">
+                <div className="post-text w-full h-full pt-2 mb-2 overflow-y-scroll overflow-x-hidden md:my-4 md:pt-0 md:h-48 md:text-lg">
                     {text}
                 </div>
                 <div className="flex justify-between w-full text-sm text-neutral-500 md:my-2 ">

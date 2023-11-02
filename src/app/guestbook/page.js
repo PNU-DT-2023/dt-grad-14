@@ -4,15 +4,12 @@ import PostBoardLayout from '@/components/Board/PostBoard'
 import Write from '@/components/Board/Write'
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
+import { getProfileListData } from "@/data/profiles.js";
 
-const boardDataExample = Array.from({ length: 8 }, (_, idx) => ({
-    id: idx,
-    from: `방문자 ${idx+1}`,
-    to: "ALL",
-    text: "더미텍스트입니다dummytexttextextext더미텍스트",
-    date: "2023-11-10"
-    
-}));
+const toAllData = {
+    id: -1,
+    name: "ALL",
+}
 
 function formatTimestamp(timestamp) {
     const date = new Date(timestamp.seconds * 1000); // Firestore 타임스탬프를 JavaScript Date 객체로 변환
@@ -43,39 +40,67 @@ async function fetchDataFromFirestore() {
 }
 
 export default function GuestBook() {
+    const profileListData = getProfileListData();
+    profileListData.unshift(toAllData);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [reciever, setReciever] = useState("ALL");
     const [dataList, setDataList] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const data = await fetchDataFromFirestore();
-                console.log("데이터 가져오기 성공", data)
-                setDataList(data);
+                const filteredData = reciever === "ALL" ? data : data.filter(item => item.to === reciever);;
+                setDataList(filteredData);
             } catch (error) {
                 console.error('Firestore 데이터 가져오기 오류:', error);
             }
         }
 
         fetchData();
-    }, []);
+    }, [reciever]);
+
+    const handleDropdown = () => {
+        setIsMenuOpen(!isMenuOpen);
+    }
+
+    const onPostButtonClick = () => {
+        setReciever("ALL");
+        fetchData();
+    }
 
     return (
         <div className="guestbook h-full overflow-hidden flex-col">
             <div className="flex justify-between w-full pt-14 md:pt-0 flex-shrink-0">
-                <h2 className="font-bold text-lg px-6 py-4 whitespace-nowrap md:text-2xl">제14회 졸업전시에 오신 여러분 감사합니다!</h2>
-                <div className="search justify-between bg-black text-white text-xl px-4 m-2 mt-3 min-w-fit h-10 hidden md:flex">
-                    <div className="inline-flex items-center space-x-2 w font-bold my-auto">
-                        <svg width="16" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9.5 11L18.5933 0.5H0.406734L9.5 11Z" fill="white" />
-                        </svg>
-                        <span>ALL</span>
+                <div className="font-bold text-lg w-2/3 px-6 py-4 md:w-auto whitespace-nowrap md:text-2xl md:px-6">
+                    <span className='block md:inline'>제 14회 졸업전시에 오신 </span><span className='block md:inline'>여러분 감사합니다!</span></div>
+                <button className='search z-10 inline-flex self-end bg-black text-white text-md m-3 mr-4 mt-3 min-w-max h-10 md:text-xl md:mr-0' onClick={handleDropdown}>
+                    <div className="py-1 my-auto bg-black text-white font-bold">
+                        <div className='inline-flex items-center space-x-2 my-auto px-1 mx-2 md:px-2 md:mx-4'>
+                            <span className="font-bold my-auto hidden md:block">TO: </span>
+                            <span>{reciever}</span>
+                            <svg className="" width="16" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.5 11L18.5933 0.5H0.406734L9.5 11Z" fill="white" />
+                            </svg>
+                        </div>
+                        <ul className={`dropdown-content mt-2 mb-4 font-normal text-center overflow-y-scroll max-h-64 ${isMenuOpen ? "block" : "hidden"}`}>
+                            {profileListData.map((data) => {
+                                return (
+                                    <>
+                                        <li className="hover:font-bold"
+                                            key={data.id} onClick={() => setReciever(data.name)}>
+                                            {data.name}
+                                        </li>
+                                    </>
+                                );
+                            })}
+                        </ul>
                     </div>
-                    <input className="h-full w-3/4 bg-transparent outline-none" type="text" placeholder="검색"></input>
-                </div>
+                </button>
             </div>
             <div className="flex flex-col-reverse h-full bottom-0 md:flex-row">
                 <div className="w-full h-fit bottom-0 absolute z-10 md:relative md:max-w-xs lg:max-w-sm md:h-80">
-                <Write></Write>
+                <Write profileList={profileListData} onPostButtonClick={onPostButtonClick}></Write>
                 </div>
                 <PostBoardLayout dataList={dataList}></PostBoardLayout>
             </div>
