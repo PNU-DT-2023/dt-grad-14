@@ -12,7 +12,7 @@ export default function SmallFrame(props) {
     const slugTitle = title?.replaceAll(' ',"");
     const tag = props.data?.tag;
     const name = props.data?.name;
-    const imgPath = category==="project" ? `/projectsImg/${name}_poster.png` : `/profilesImg/${name}_profile.webp`;
+    const imgPath = category==="project" ? `/projectsImg/${name}_poster.webp` : `/profilesImg/${name}_profile.webp`;
     
     const defaultPath = `/projectsImg/default_cover.png`;
     const [imgSrc, setimgSrc] = useState(imgPath);
@@ -42,3 +42,4 @@ export default function SmallFrame(props) {
         </>
     )
 }
+

@@ -11,8 +11,8 @@ import Interaction from './Interaction';
 
 export function IndividaulDetailPage(props) {
     const data = props.data;
-    const posterURL = `/projectsImg/${data?.name}_poster.png`;
-    const detailURL = `/projectsImg/${data?.name}_detail.png`;
+    const posterURL = `/projectsImg/${data?.name}_poster.webp`;
+    const detailURL = `/projectsImg/${data?.name}_detail.wenp`;
     // const youtubeURL = data?.videoURL?.replace('watch?v=','embed/');
 
     return (
@@ -24,7 +24,7 @@ export function IndividaulDetailPage(props) {
                     {/* POSTER */}
                     <section id="poster" className="poster-area w-full flex flex-wrap">
                         {/* 포스터 설명 텍스트 */}
-                        <div className="poster-content basis-full laptop:basis-1/2  p-6 ">
+                        <div className="poster-content basis-full laptop:basis-1/2 text-sm  p-6 ">
                             <div className={`${styles.sectionTitle} px-4`}>
                                 POSTER
                             </div>
@@ -32,15 +32,13 @@ export function IndividaulDetailPage(props) {
                             <div className={styles.sectionBody}>{data?.posterBody}</div>
                         </div>
                         {/* 데스크톱 : 포스터ON */}
-                        <div className="bg-black basis-full laptop:basis-1/2 flex justify-center">
+                        <div className="bg-black basis-full laptop:basis-1/2 flex justify-center text-sm">
                             <Poster className=" phone:w-full " imgSrc={posterURL}></Poster>
                         </div>
                     </section>
 
                     {/* INTERACTION */}
                     <Interaction data={data}></Interaction>
-
-
                 </div>
             </div>
         </>
@@ -49,7 +47,7 @@ export function IndividaulDetailPage(props) {
 
     function TitleBar() {
         return (
-            <div className="z-50 project-title-area w-full bg-black text-white flex justify-between flex-wrap pt-16 md:pt-4 p-4  max-phone:relative   ">
+            <div className="pt-12 z-50 project-title-area w-full bg-black text-white flex justify-between flex-wrap p-4  max-phone:relative   ">
                 <div className="project-title text-xl basis-1/4  max-tablet:basis-full m-30 p-4">
                     <p className="opacity-60 text-xs pb-2 ">TITLE</p>
                     <h1 className="font-bold">

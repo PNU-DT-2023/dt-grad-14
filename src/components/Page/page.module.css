@@ -24,7 +24,7 @@
 }
 
 .description {
-    @apply leading-relaxed text-base;
+    @apply leading-relaxed text-sm;
     word-break : keep-all;
 }
 
