@@ -10,8 +10,6 @@ export default function Submenu(props) {
 
     const { mobile, state, category, dataList, onChildStateChange, isCollapsed } = props;
     const pathname = usePathname();
-    //랜덤이미지 (임시용)
-    const randomImg = "https://source.unsplash.com/random/"
 
     const [active, setActive] = useState(false);
     const [activeId, setActiveId] = useState(null);
@@ -106,8 +104,7 @@ export default function Submenu(props) {
             {
             category === "project" && (
                     <div onMouseEnter={() => { setIsMouseOut("collapsed"); console.log("mouse enter") }}>
-                {/* <Preview isActive={decodeURI(pathname) !== activePath && active && isMouseOut =="hover"} imgSrc={randomImg + activeId} /> */}
-                        <Preview isActive={category === "project" && pathname !== `/project/${activeId}` && active && isMouseOut == "hover"} imgSrc={`/projectsImg/${getProjectByIndex(activeId)?.name}`} />
+                        <Preview isActive={category === "project" && pathname !== `/project/${activeId}` && active && isMouseOut == "hover"} imgSrc={`/projectsImg/${getProjectByIndex(activeId)?.name}_poster.png`} />
                 </div>
             )}
         </>

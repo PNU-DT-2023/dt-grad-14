@@ -62,8 +62,8 @@ export default function Sidebar(props) {
                 <ul className="w-48 text-neutral-500">
                     <li key="main" onMouseEnter={() => { collapseMenu() }}>
                         <Link href='/'>
-                            <div className={`py-10 border-b border-black bg-black hover:opacity-100
-                                ${pathname === '/' ? "opacity-100" : "opacity-30"}`}>
+                            <div className={`py-10 border-b border-black bg-black hover:opacity-30
+                                ${pathname === '/' ? "opacity-100" : "opacity-100"}`}>
                                 <span className="sr-only">Main</span>
                                 <Image
                                     alt="project-image"

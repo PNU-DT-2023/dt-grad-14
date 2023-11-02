@@ -25,7 +25,7 @@ export default function GalleryLayout(props) {
 
     return (
         <section>
-            <div className="w-full">
+            <div className="w-full pt-[70px] md:pt-0">
                 <div className="flex flex-wrap w-full border-1">
                     {profileGallery}
                 </div>
