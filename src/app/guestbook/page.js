@@ -80,7 +80,7 @@ export default function GuestBook(props) {
             <div className="flex justify-between w-full pt-14 md:pt-0 flex-shrink-0">
                 <div className="font-bold text-lg w-2/3 px-6 py-4 md:w-auto whitespace-nowrap md:text-2xl md:px-6">
                     <span className='block md:inline'>제 14회 졸업전시에 오신 </span><span className='block md:inline'>여러분 감사합니다!</span></div>
-                <button className='search z-10 inline-flex self-end bg-black text-white text-md m-3 mr-4 mt-3 min-w-max h-10 md:text-xl md:mr-0' onClick={handleDropdown}>
+                <div className='search cursor-pointer z-10 inline-flex self-end bg-black text-white text-md m-3 mr-4 mt-3 min-w-max h-10 md:text-xl' onClick={handleDropdown}>
                     <div className="py-1 my-auto bg-black text-white font-bold">
                         <div className='inline-flex items-center space-x-2 my-auto px-1 mx-2 md:px-2 md:mx-4'>
                             <span className="font-bold my-auto hidden md:block">TO: </span>
@@ -102,7 +102,7 @@ export default function GuestBook(props) {
                             })}
                         </ul>
                     </div>
-                </button>
+                </div>
             </div>
             <div className="flex flex-col-reverse h-full bottom-0 md:flex-row">
                 <div className="w-full h-fit bottom-0 absolute z-10 md:relative md:max-w-xs lg:max-w-sm md:h-96">

@@ -34,7 +34,7 @@ export default function Write(props) {
 
     const onClickPostButton = async () => {
         console.log("추가 준비", firestore)
-        if (text.trim() === "" || name.trim() === "") {
+        if (text.trim() === "" || name.trim() === "" || password.trim() === "") {
         } else{
         try {
             const docRef = await addDoc(collection(firestore, "test"), {
@@ -45,6 +45,7 @@ export default function Write(props) {
                 password: password,
             });
             console.log("추가 완료 ", docRef.id);
+            setReciever("ALL");
             textareaRef.current.value = "";
             setText("");
             nameareaRef.current.value = "";
@@ -76,7 +77,7 @@ export default function Write(props) {
                 <div className={`items-center justify-between mb-2 ${isWriting ? "inline-flex" : "hidden"} md:inline-flex`}>
                     <div className='inline-flex w-64'>
                         <span className="font-bold my-auto">TO.</span>
-                        <button className="absolute left-10 px-4 py-0 mx-2 w-28 bg-black text-white font-bold md:left-20"
+                        <div className="absolute text-center left-10 px-2 py-0 mx-3 w-24 bg-black text-white font-bold md:left-20 md:px-4 md:mx-2 md:w-28 cursor-pointer"
                             onClick={handleDropdown}>
                             <div className='inline-flex items-center space-x-2 my-auto'>
                                 <span>{reciever}</span>
@@ -96,7 +97,7 @@ export default function Write(props) {
                                     );
                                 })}
                             </ul>
-                        </button>
+                        </div>
                     </div>
                     <button className="px-4 md:hidden" onClick={handleTextareaBlur}>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -114,14 +115,14 @@ export default function Write(props) {
                         </svg>
                     </button>
                 </div>
-                <div className={`name-area whitespace-nowrap mt-0 mb-2 ${isWriting ? "flex" : "hidden"} md:flex`}>
+                <div className={`name-area whitespace-nowrap mt-2 mb-2 ${isWriting ? "flex" : "hidden"} md:flex md:mt-0` }>
                     <span className="font-bold my-auto">FROM.</span>
-                    <input className="flex-1 w-1/2 mx-2 border-b border-b-black outline-none" type="text" placeholder="이름" maxLength={10}
+                    <input className="flex-1 w-1/2 mx-2 border-b border-b-black outline-none" type="text" placeholder="이름" maxLength={10} spellCheck="false"
                         onChange={(e) => setName(e.target.value)} ref={nameareaRef}></input>
                 </div>
                 <div className={`w-full mx-auto ${isWriting ? "py-4" : "pt-2"} md:h-3/4 md:flex-1 md:py-2`}>
                     <textarea className={`textarea w-full resize-none outline-none border-b ${isWriting ? "h-40" : "h-8 min-h-fit"} md:h-full md:overflow-auto`} name="body"
-                        placeholder="응원의 한마디를 남겨주세요." maxLength={300} onFocus={handleTextareaFocus} ref={textareaRef}
+                        placeholder="응원의 한마디를 남겨주세요." maxLength={300} spellCheck="false" onFocus={handleTextareaFocus} ref={textareaRef}
                         onChange={(e) => setText(e.target.value)}></textarea>
                 </div>
                 <div className={`submit-button justify-end whitespace-nowrap mt-0 w-full ${isWriting ? "flex" : "hidden"} md:flex md:mt-1`}>
