@@ -36,17 +36,17 @@ export default function Home() {
  
   return (
     <>
-   
+    
     <div className="w-full min-h-screen font-sans overflow-x-hidden flex flex-col justify-between max-phone:h-fit">
-
       <h1 className="lg:text-5xl text-5xl font-bold ml-5 md:ml-10 -pt-6 mt-14 lg:mt-10"  {...animatedItem[5]}>
         HOMMAGE
       </h1>
       <div className="flex mt-5">
-        <p className="font-sans ml-5 md:ml-10 mt-3 md:w-2/3">
-        Dept. of Design, Design and Technology 
+
+        <p className="font-sanserif ml-5 md:ml-10 mt-3 md:w-2/3" {...animatedItem[6]}>
+          Dept. of Design, Design and Technology 
           <br />
-        14th Grauation Show
+          14th Graduation Exhibition
         </p>
 
         <p className="font-sanserif mt-3 md:mr-10 md:w-1/3 md:flex md:justify-end hidden lg:block" {...animatedItem[7]}>
@@ -139,15 +139,6 @@ export default function Home() {
         <div className='text-3xl lg:mb-20 mb-10 mt-10 font-sanserif uppercase font-semibold' {...animatedItem[1]}>
           Made By
         </div>
-      </div>
-    </div>
-        <div className='flex flex-col items-center justify-center'>
-      <h2>교수님소개</h2>
-      <div className='flex flex-wrap gap-20 justify-center md:justify-start'>
-      <div className='text-center'>
-          <img src='/cutty.jpeg' alt='이화세 교수님' className='w-48 h-72 object-cover' />
-          <p>이화세 교수님</p>
-          <p>디자인앤테크놀로지 전공</p>
       <div className='member-items flex justify-between flex-col lg:flex-row  px-12 gap-4 '>
           <div className='basis-1/2 mb-10 lg:mb-0 '>
             <Image
@@ -160,17 +151,62 @@ export default function Home() {
               {...animatedImage}
             />
         </div>
-        <div className='text-center'>
-          <img src='/cutty.jpeg' alt='김철기 교수님' className='w-48 h-72 object-cover' />
-          <p>김철기 교수님</p>
-          <p>디자인앤테크놀로지 전공</p>
+        <div className='lg:basis-1/2 flex flex-col m-auto w-full text-left'>
+        <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+        <p class="lg:w-1/4 font-bold lg:text-center text-center">위원장</p>
+          {/* <p className='w-3/4 text-left '>박찬유</p> */}
+          <NameLink name="박찬유"></NameLink>
+          </div>
+          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+          <p class="lg:w-1/4 font-bold lg:text-center text-center">부위원장</p>
+          {/* <p className='w-3/4 text-left'>김나연</p> */}
+          <NameLink name="김나연"></NameLink>
+          </div>
+          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+          <p class="lg:w-1/4 font-bold lg:text-center text-center">웹</p>
+          <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
+            <NameLink name="이진희"></NameLink>
+            
+            <NameLink name="김유민"></NameLink>
+            
+            <NameLink name="김유진"></NameLink>
+            
+            <NameLink name="배유림"></NameLink>
+            
+            <NameLink name="엄채연"></NameLink>
+          </div>
+          </div>
+          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+          <p class="lg:w-1/4 font-bold lg:text-center text-center">도록</p>
+          <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
+          <NameLink name="김현서"></NameLink>
+          <NameLink name="박원영"></NameLink>
+          <NameLink name="이세영"></NameLink>
+          <NameLink name="전종규"></NameLink>
+          <NameLink name="전혜성"></NameLink>
+          </div>
+          </div>
+          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+          <p class="lg:w-1/4 font-bold lg:text-center text-center">DP</p>
+          <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
+          <NameLink name="문관영"></NameLink>
+          <NameLink name="김도연"></NameLink>
+          <NameLink name="김민호"></NameLink>
+          <NameLink name="박재현"></NameLink>
+          <NameLink name="전서연"></NameLink>
+          </div>
+          </div>
+          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+          <p class="lg:w-1/4 font-bold lg:text-center text-center">영상</p>
+          <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
+          <NameLink name="민재현"></NameLink>
+          <NameLink name="김나연"></NameLink>
+          <NameLink name="박찬유"></NameLink>
+          <NameLink name="이민영"></NameLink>
+          <p><span className="pr-11" /></p>
+          </div>
+          </div>
         </div>
-        <div className='text-center'>
-          <img src='/cutty.jpeg' alt='김태완 교수님' className='w-48 h-72 object-cover' />
-          <p>김태완 교수님</p>
-          <p>디자인앤테크놀로지 전공</p>
-        </div>
-
       </div>
       </div>
     );
@@ -188,21 +224,23 @@ export default function Home() {
       <div className='content-center w-full lg:h-screen text-center flex flex-col items-center justify-center h-fit'>
         <div className='text-3xl lg:mb-20 mb-10 mt-10  font-sanserif uppercase font-semibold'>Professors</div>
         <div className='w-3/4 flex flex-wrap justify-between lg:flex-row flex-col'>
-          <div className='relative items-center flex flex-col'{...animatedItem[1]} >
-            <Image src="/profile-temp-image.png" alt="" width={200} height={350} />
-            <p className='text-2xl mt-5 mb-5'>김태완 교수님</p>
-            <p className='mt-0 mb-5'>DIGITAL CONTENT DESIGN</p>
-          </div>
-          <div className='relative items-center flex flex-col '{...animatedItem[2]}>
-            <Image src="/profile-temp-image.png" alt="" width={200} height={350} />
-            <p className='text-2xl mt-5 mb-5'>김철기 교수님</p>
-            <p className='mt-0 mb-5'>UX / AI / 감성공학</p>
-          </div>
-          <div className='relative items-center flex flex-col' {...animatedItem[3]}>
-            <Image src="/profile-temp-image.png" alt="" width={200} height={350} />
+          <div className='relative items-center flex flex-col' {...animatedItem[1]}>
+            <Image src="/profilesImg/이화세교수님.webp" alt="" width={200} height={350} />
             <p className='text-2xl mt-5 mb-5'>이화세 교수님</p>
             <p className='mt-0 mb-5'>HCI</p>
           </div>
+          <div className='relative items-center flex flex-col '{...animatedItem[2]}>
+            <Image src="/profilesImg/김철기교수님.webp" alt="" width={200} height={350} />
+            <p className='text-2xl mt-5 mb-5'>김철기 교수님</p>
+            <p className='mt-0 mb-5'>UX / AI / 감성공학</p>
+          </div>
+          <div className='relative items-center flex flex-col'{...animatedItem[3]} >
+            <Image src="/profilesImg/김태완교수님.webp" alt="" width={200} height={350} />
+            <p className='text-2xl mt-5 mb-5'>김태완 교수님</p>
+            <p className='mt-0 mb-5'>DIGITAL CONTENT DESIGN</p>
+          </div>
+          
+          
         </div>
       </div>
     );
