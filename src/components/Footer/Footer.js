@@ -16,7 +16,9 @@ export default function Footer() {
                     <div className='flex'>
                         <div className='min-w-[50%]'>
                             <p className="text-base">오마주 : 우리는 우리가 사랑하는 것들의 총체</p>
-                            <p className="text-sm font-light">부산대학교 디자인앤테크놀로지 전공 14회 졸업전시 </p>
+                            <p className="text-sm font-light">부산대학교 디자인학과 디자인앤테크놀로지 전공 14회 졸업전시 </p>
+                            <p className="text-sm font-light">Dept. of Design, Design and Technology   <br />
+                            14th Grauation Show </p>
                         </div>
                         
                     </div>
