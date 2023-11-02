@@ -20,11 +20,8 @@ export const profileData = [
         "name": "김나연",
         "engName": "Kim Nayeon",
         "team": "영상팀",
-        "introduction": "안녕하세요? 김나연입니다?",
         "email": "yohotiger2680@gmail.com",
-        // "phone": "",
-        "instagram": "nayeon",
-        "url": "https://www.behance.net/"
+        "instagram": "@___skdus___"
        },
        {
         "Index": 1,
@@ -89,7 +86,11 @@ export const profileData = [
        {
         "Index": 13,
         "name": "이민영",
-        "team": "영상팀"
+        "engName": "Lee Minyoung",
+        "team": "영상팀",
+        "email": "enldrnfdl31@naver.com",
+        "phone": '01075244534',
+        "instagram": "@lamp6laddinny"
        },
        {
         "Index": 14,
@@ -99,7 +100,9 @@ export const profileData = [
        {
         "Index": 15,
         "name": "이진희",
-        "team": "웹팀"
+        "engName": "Lee\nJinhee",
+        "team": "웹팀",
+        "email": "alivemaker@naver.com"
        },
        {
         "Index": 16,

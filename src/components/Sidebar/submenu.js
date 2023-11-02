@@ -4,7 +4,6 @@ import { useRef, useEffect, useState } from "react";
 import Preview from "./Preview.js";
 import Picker from "./Picker.js"; 
 import { getProjectByIndex } from "@/data/project.js";
-import "./scrollbar.css";
 
 
 export default function Submenu(props) {
@@ -38,11 +37,13 @@ export default function Submenu(props) {
 
         }
         setSubtitlePosition(newPosition);
-        if (idx !== 0) {
+        if (dataId >= 0) {
             setActive(true);
             setActiveId(dataId);
             setActivePath(decodeURI(`/${category}/${dataList[dataId].name}`))
-        }
+        } else{
+            setActive(false);
+        };
     };
 
     const handleMouseLeave = () => {
@@ -52,7 +53,10 @@ export default function Submenu(props) {
 
     useEffect(()=>{
         setIsMouseOut(state);
-    },[state])
+        setActive(false);
+        setActiveId(null);
+        console.log("mouse out");
+    },[state, category])
 
 
     return (
@@ -60,27 +64,28 @@ export default function Submenu(props) {
 
             {mobile ? (
                 <nav className={`mobile-submenu h-full grow relative border-l border-black overflow-auto ${category === null ? "hidden" : "flex"}`}>
-                    <Picker items={dataList} onPickerClicked={handlePickerChange} category={category} isCollapsed={isCollapsed}></Picker>
+                    <Picker dataList={dataList} onPickerClicked={handlePickerChange} category={category} isCollapsed={isCollapsed}></Picker>
                 </nav>
             ) : (
                 <nav className={`submenu h-full border-r border-black z-40 ${isMouseOut === "hover" ? "absolute left-48 border-l" : "hidden"}`} aria-label="Sidebar">
                     <div className="h-full">
                             <ul className="submenu-scroll-container w-48 h-full px-6 py-8 bg-white overflow-y-auto">
                                 {dataList.map((data, idx) => {
+                                    const isAll = data.name === "ALL";
                                     const isProjectCategory = category === "project";
-                                    const isPathnameMatch = decodeURI(pathname) === decodeURI(`/${category}/${data.name}`);
-                                    const isActive = idx !== 0 && activeId === data.id;
+                                    const isPathnameMatch = isAll ? (decodeURI(pathname) === decodeURI(`/${category}`)) : (decodeURI(pathname) === decodeURI(`/${category}/${data.name}`));
+                                    const isActive = !isAll && activeId === data.id;
                                     const title = isProjectCategory ? data.title : data.name;
                                     return (
                                         <>
                                             <li
                                                 key={data.id} className="submenu-list w-full inline-block group pb-3 hover:font-bold relative"
                                                 onMouseEnter={() => handleMouseEnter(idx, data.id)} onMouseLeave={handleMouseLeave}>
-                                                <Link ref={(el) => (submenuListRefs.current[idx] = el)} href={`/${category}/${data.name}`} className={`${isPathnameMatch ? "font-bold" : ""}`}>
+                                                <Link ref={(el) => (submenuListRefs.current[idx] = el)} href={isAll ? (`/${category}`) : (`/${category}/${data.name}`)} className={`${isPathnameMatch ? "font-bold" : ""}`}>
                                                     {isPathnameMatch && "> "}{title}
                                                 </Link>
                                             </li>
-                                            {isProjectCategory && isActive && (
+                                            {isProjectCategory && isActive && active && (
                                                 <div className="description absolute bg-black  ml-4 px-4 py-1 text-white font-bold whitespace-nowrap inline-block"
                                                     style={{
                                                         position: "absolute",
@@ -101,8 +106,8 @@ export default function Submenu(props) {
             {
             category === "project" && (
                     <div onMouseEnter={() => { setIsMouseOut("collapsed"); console.log("mouse enter") }}>
-                <Preview isActive={decodeURI(pathname) !== activePath && active && isMouseOut =="hover"} imgSrc={randomImg + activeId} />
-                {/* <Preview isActive={category === "project" && pathname !== `/project/${activeId}` && active} imgSrc={`/projectsImg/${getProjectByIndex(activeId)?.name}`} /> */}
+                {/* <Preview isActive={decodeURI(pathname) !== activePath && active && isMouseOut =="hover"} imgSrc={randomImg + activeId} /> */}
+                        <Preview isActive={category === "project" && pathname !== `/project/${activeId}` && active && isMouseOut == "hover"} imgSrc={`/projectsImg/${getProjectByIndex(activeId)?.name}`} />
                 </div>
             )}
         </>

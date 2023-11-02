@@ -36,8 +36,9 @@ export default function Home() {
  
   return (
     <>
-    
+   
     <div className="w-full min-h-screen font-sans overflow-x-hidden flex flex-col justify-between max-phone:h-fit">
+
       <h1 className="lg:text-5xl text-5xl font-bold ml-5 md:ml-10 -pt-6 mt-14 lg:mt-10"  {...animatedItem[5]}>
         HOMMAGE
       </h1>
