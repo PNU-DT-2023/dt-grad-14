@@ -36,17 +36,15 @@ export default function Home() {
  
   return (
     <>
-   
+    
     <div className="w-full min-h-screen font-sans overflow-x-hidden flex flex-col justify-between max-phone:h-fit">
-
       <h1 className="lg:text-5xl text-5xl font-bold ml-5 md:ml-10 -pt-6 mt-14 lg:mt-10"  {...animatedItem[5]}>
         HOMMAGE
       </h1>
       <div className="flex mt-5">
 
         <p className="font-sanserif ml-5 md:ml-10 mt-3 md:w-2/3" {...animatedItem[6]}>
-
-          Pusan National Univ. Design & Technology
+          Dept. of Design, Design and Technology 
           <br />
           14th Graduation Exhibition
         </p>
@@ -226,21 +224,23 @@ export default function Home() {
       <div className='content-center w-full lg:h-screen text-center flex flex-col items-center justify-center h-fit'>
         <div className='text-3xl lg:mb-20 mb-10 mt-10  font-sanserif uppercase font-semibold'>Professors</div>
         <div className='w-3/4 flex flex-wrap justify-between lg:flex-row flex-col'>
-          <div className='relative items-center flex flex-col'{...animatedItem[1]} >
-            <Image src="/profile-temp-image.png" alt="" width={200} height={350} />
-            <p className='text-2xl mt-5 mb-5'>김태완 교수님</p>
-            <p className='mt-0 mb-5'>DIGITAL CONTENT DESIGN</p>
-          </div>
-          <div className='relative items-center flex flex-col '{...animatedItem[2]}>
-            <Image src="/profile-temp-image.png" alt="" width={200} height={350} />
-            <p className='text-2xl mt-5 mb-5'>김철기 교수님</p>
-            <p className='mt-0 mb-5'>UX / AI / 감성공학</p>
-          </div>
-          <div className='relative items-center flex flex-col' {...animatedItem[3]}>
-            <Image src="/profile-temp-image.png" alt="" width={200} height={350} />
+          <div className='relative items-center flex flex-col' {...animatedItem[1]}>
+            <Image src="/profilesImg/이화세교수님.webp" alt="" width={200} height={350} />
             <p className='text-2xl mt-5 mb-5'>이화세 교수님</p>
             <p className='mt-0 mb-5'>HCI</p>
           </div>
+          <div className='relative items-center flex flex-col '{...animatedItem[2]}>
+            <Image src="/profilesImg/김철기교수님.webp" alt="" width={200} height={350} />
+            <p className='text-2xl mt-5 mb-5'>김철기 교수님</p>
+            <p className='mt-0 mb-5'>UX / AI / 감성공학</p>
+          </div>
+          <div className='relative items-center flex flex-col'{...animatedItem[3]} >
+            <Image src="/profilesImg/김태완교수님.webp" alt="" width={200} height={350} />
+            <p className='text-2xl mt-5 mb-5'>김태완 교수님</p>
+            <p className='mt-0 mb-5'>DIGITAL CONTENT DESIGN</p>
+          </div>
+          
+          
         </div>
       </div>
     );
