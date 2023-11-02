@@ -41,7 +41,6 @@ export function Interaction(props) {
                             width={1920}
                             height={1080}
                             placeholder={placeholderURL}
-                            onError = { () => { setMapImgSrc(mapErrorImg)}}
                         />
                     </div>
                 </div>
@@ -59,13 +58,13 @@ export function Interaction(props) {
                                     width={1200}
                                     height={675}
                                     placeholder={placeholderURL}
-                                    onError={() => {
-                                      if (!imageError) {
-                                        setTimeout(() => {
-                                            setImageError(true); 
-                                        }, 1000);
-                                      }
-                                    }}
+                                    // onError={() => {
+                                    //   if (!imageError) {
+                                    //     setTimeout(() => {
+                                    //         setImageError(true); 
+                                    //     }, 1000);
+                                    //   }
+                                    // }}
                                 />
                                 <p className={`row-start-2 h-auto ${styles.methodItemCaption}`}>
                                     {step}
