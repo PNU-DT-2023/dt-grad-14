@@ -1,4 +1,7 @@
 'use client'
+
+const COLLECTION_NAME = "test";
+
 import firestore from '../../../firebasedb';
 import PostBoardLayout from '@/components/Board/PostBoard'
 import Write from '@/components/Board/Write'
@@ -23,40 +26,39 @@ function formatTimestamp(timestamp) {
 }
 
 async function fetchDataFromFirestore() {
-    const querySnapshot = await getDocs(query(collection(firestore, 'test'), orderBy('timestamp', 'desc')));
+    const querySnapshot = await getDocs(query(collection(firestore, COLLECTION_NAME), orderBy('timestamp', 'desc')));
     const dataList = [];
 
     querySnapshot.forEach((doc, index) => {
         dataList.push({
             id: doc.id,
-            num: index,
             from: doc.data().from,
             to: doc.data().to,
             text: doc.data().text,
             timestamp: formatTimestamp(doc.data().timestamp),
+            password: doc.data().password,
         });
     });
     return dataList;
 }
 
-export default function GuestBook() {
+export default function GuestBook(props) {
     const profileListData = getProfileListData();
     profileListData.unshift(toAllData);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [reciever, setReciever] = useState("ALL");
     const [dataList, setDataList] = useState([]);
 
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const data = await fetchDataFromFirestore();
-                const filteredData = reciever === "ALL" ? data : data.filter(item => item.to === reciever);;
-                setDataList(filteredData);
-            } catch (error) {
-                console.error('Firestore 데이터 가져오기 오류:', error);
-            }
+    const fetchData = async () => {
+        try {
+            const data = await fetchDataFromFirestore();
+            const filteredData = reciever === "ALL" ? data : data.filter(item => item.to === reciever);;
+            setDataList(filteredData);
+        } catch (error) {
+            console.error('Firestore 데이터 가져오기 오류:', error);
         }
-
+    }
+    useEffect(() => {
         fetchData();
     }, [reciever]);
 
@@ -66,6 +68,10 @@ export default function GuestBook() {
 
     const onPostButtonClick = () => {
         setReciever("ALL");
+        fetchData();
+    }
+
+    const handlePostModified = () => {
         fetchData();
     }
 
@@ -99,10 +105,10 @@ export default function GuestBook() {
                 </button>
             </div>
             <div className="flex flex-col-reverse h-full bottom-0 md:flex-row">
-                <div className="w-full h-fit bottom-0 absolute z-10 md:relative md:max-w-xs lg:max-w-sm md:h-80">
+                <div className="w-full h-fit bottom-0 absolute z-10 md:relative md:max-w-xs lg:max-w-sm md:h-96">
                 <Write profileList={profileListData} onPostButtonClick={onPostButtonClick}></Write>
                 </div>
-                <PostBoardLayout dataList={dataList}></PostBoardLayout>
+                <PostBoardLayout dataList={dataList} collectionName={COLLECTION_NAME} onPostModified={handlePostModified}></PostBoardLayout>
             </div>
         </div>
     )

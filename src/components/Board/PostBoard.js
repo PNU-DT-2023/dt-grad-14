@@ -2,6 +2,9 @@ import Post from "./Post";
 
 export default function PostBoardLayout(props){
     const dataList = props.dataList;
+    const onPostModified = () => {
+        props.onPostModified();
+    }
 
     return(
         <>
@@ -9,7 +12,9 @@ export default function PostBoardLayout(props){
                 <div className="flex flex-wrap md:border-l md:border-t md:border-black">
                     <>
                         {dataList.map((data) => (
-                            <Post key={data.id} num={data.num} from={data.from} to={data.to} text={data.text} timestamp={data.timestamp}></Post>
+                            <Post key={data.id} id={data.id} from={data.from} to={data.to} text={data.text} timestamp={data.timestamp} password={data.password}
+                            collectionName={props.collectionName}
+                            onModified={onPostModified}></Post>
                         ))}
                     </>
                 </div>
