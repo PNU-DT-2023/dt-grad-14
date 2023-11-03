@@ -1,4 +1,5 @@
 import Image from "next/image";
+import placeholderURL from "../PlaceHolder";
 
 export default function Preview(props){
     const {imgSrc, isActive} = props;
@@ -11,8 +12,7 @@ return(
             src={imgSrc}
             width={500}
             height={700}
-            placeholder="blur"
-            blurDataURL="/loadingImage.png"
+            placeholder={placeholderURL}
         />
 
     </div>

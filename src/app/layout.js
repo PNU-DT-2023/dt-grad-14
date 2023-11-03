@@ -129,7 +129,6 @@ export default function RootLayout({ children, loadingVisible }) {
               {children}
             </div>
           </div>
-
         {/* 비밀버튼 */}
         <div className='w-16 h-16'
           style={{

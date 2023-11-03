@@ -111,6 +111,7 @@ export default function Submenu(props) {
             )}
             {
             category === "project" && (
+
                     <div onMouseEnter={() => { setIsMouseOut("collapsed"); }}>
                         <Preview isActive={category === "project" && pathname !== `/project/${activeId}` && active && isMouseOut == "hover"}
                         imgSrc={previewURL()} tag={getProjectByIndex(activeId)?.tag} />
