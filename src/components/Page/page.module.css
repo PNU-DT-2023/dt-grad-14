@@ -51,6 +51,6 @@
 }
 
 .methodItemCaption {
-    @apply py-4 text-center px-4 text-slate-600;
+    @apply py-4 text-center px-4  text-sm text-gray-400;
     word-break : keep-all;
 }

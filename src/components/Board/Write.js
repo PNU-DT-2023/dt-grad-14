@@ -64,9 +64,9 @@ export default function Write(props) {
     const onClickPostButton = async () => {
         console.log("추가 준비", firestore)
         if (text.trim() === "") {
-            alert("내용을 입력하세요.");
+            alert("내용을 입력해주세요");
         } else if(password.trim() === ""){
-            alert("비밀번호를 입력하세요.");
+            alert("삭제 시 입력할 비밀번호를 입력해주세요!");
         } else{
         try {
             const docRef = await addDoc(collection(firestore, props.collectionName), {

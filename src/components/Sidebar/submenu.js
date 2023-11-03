@@ -85,7 +85,7 @@ export default function Submenu(props) {
                                     return (
                                         <>
                                             <li
-                                                key={data.id} className="submenu-list w-full inline-block group pb-4 hover:font-bold relative leading-4"
+                                                key={data.id} className="submenu-list w-full inline-block group pb-4 hover:font-bold relative leading-4  text-gray-600 hover:text-gray-900"
                                                 onMouseEnter={() => handleMouseEnter(idx, data.id)} onMouseLeave={handleMouseLeave}>
                                                 <Link ref={(el) => (submenuListRefs.current[idx] = el)} href={isAll ? (`/${category}`) : (`/${category}/${data.name}`)} className={`${isPathnameMatch ? "font-bold" : ""}`}>
                                                     {isPathnameMatch && "> "}{title}
