@@ -31,7 +31,7 @@ export function Interaction(props) {
                                 return (<span key={idx}>{line}<br /></span>)
                             })
                         }</div>
-                        <div className={`${styles.sectionCaption} mb-4 text-sm`}>{data?.interFormat}</div>
+                        <div className={`${styles.sectionCaption} mb-4 text-sm text-gray-600`}>{data?.interFormat}</div>
                     </div>
                     <div id='map' className='lg:basis-1/2  h-auto'>
                         <Image
