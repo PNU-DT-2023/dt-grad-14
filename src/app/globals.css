@@ -31,7 +31,8 @@
 .submenu-scroll-container::-webkit-scrollbar,
 .dropdown-content::-webkit-scrollbar,
 .textarea::-webkit-scrollbar,
-.post-text::-webkit-scrollbar {
+.post-text::-webkit-scrollbar,
+.update-textarea::-webkit-scrollbar {
   width: 8px;
 }
 
@@ -68,20 +69,22 @@
    background-color: transparent;
  }
 
- .textarea, .post-text {
+ .textarea, .post-text, .update-textarea {
    scrollbar-width: thin;
    scrollbar-color: rgba(0, 0, 0, 0.2);
  }
 
  .textarea::-webkit-scrollbar-thumb,
- .post-text::-webkit-scrollbar-thumb {
+ .post-text::-webkit-scrollbar-thumb,
+ .update-textarea::-webkit-scrollbar-thumb {
    background-color: rgba(0, 0, 0, 0.2);
    border-radius: 10px;
    background-clip: padding-box;
    border: 2px solid transparent;
  }
 
- .textarea::-webkit-scrollbar-track, .post-text::-webkit-scrollbar-track {
+ .textarea::-webkit-scrollbar-track, .post-text::-webkit-scrollbar-track
+ , .update-textarea::-webkit-slider-thumb {
    background-color: transparent;
  }
  
