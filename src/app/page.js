@@ -22,6 +22,7 @@ export default function Home() {
     5: useScrollFadeIn('down', 1, 0.2),
     6: useScrollFadeIn('right', 1, 0.4),
     7: useScrollFadeIn('right', 1, 0.4),
+    8: useScrollFadeIn('right', 1, 0.4)
   };
 
   //스크롤 애니메이션 end
@@ -49,7 +50,7 @@ export default function Home() {
           14th Graduation Exhibition
         </p>
 
-        <p className="font-sanserif mt-3 md:mr-10 md:w-1/3 md:flex md:justify-end hidden lg:block" {...animatedItem[7]}>
+        <p className="font-sanserif mt-3 mr-10 md:w-1/3 md:flex md:justify-end hidden lg:block lg:mr-0" {...animatedItem[7]}>
           Design Center Pusan 1F Exhibition hall
           <br />
           11.10 - 11.12 10am-6pm
@@ -64,7 +65,7 @@ export default function Home() {
         style={{ width: '100%', height: 'auto' }}/>
       </div> */}
       <MobileLineAnimation />
-      <p className="font-sanserif mr-5 mb-10 flex justify-end text-right block lg:hidden" {...animatedItem[7]}>
+      <p className="font-sanserif mr-5 mb-10 flex justify-end text-right block lg:hidden" {...animatedItem[8]}>
           Design Center Pusan 1F Exhibition hall
           <br />
           11.10 - 11.12 10am-6pm
