@@ -52,9 +52,8 @@ export default function Write(props) {
     useEffect(() => {
         const newRandomName = getRandomName(nameList);
         if (name === "") {
-            // nameareaRef.current.placeholder = newRandomName;
+            setName(newRandomName);
         }
-        setName(newRandomName);
     }, [name]);
 
     function getRandomName(nameList) {
@@ -78,16 +77,18 @@ export default function Write(props) {
                 password: password,
             });
             console.log("추가 완료 ", docRef.id);
+            
+            alert("작성 완료!");
             const newRandomName = getRandomName(nameList);
             setReciever("ALL");
             textareaRef.current.value = "";
             setText("");
-            nameareaRef.current.placeholder = newRandomName;
-            setName(newRandomName);
             passwordareaRef.current.value = "";
             setPassword("");
             props.onPostButtonClick();
-            alert("작성 완료!");
+            nameareaRef.current.placeholder = newRandomName;
+            setName(newRandomName);
+            nameareaRef.current.value = "";
         } catch (error) {
             console.error("데이터 추가 중 오류 발생:", error);
         }

@@ -75,7 +75,7 @@ export default function Post(props) {
                     <span className='mr-2'>To. {to}</span>
                     <span>From. {from}</span>
                 </div>
-                <div className={`post-text w-full pt-2 mb-2 overflow-y-auto max-h-32 overflow-x-hidden md:overflow-y-auto md:my-4 md:pt-0 md:h-44 md:max-h-44 md:text-lg
+                <div className={`post-text whitespace-pre-wrap w-full pt-2 mb-2 overflow-y-auto max-h-32 overflow-x-hidden md:overflow-y-auto md:my-4 md:pt-0 md:h-44 md:max-h-44 md:text-lg
                 ${modify === "update" ? "hidden" : ""}`}>
                     {text}
                 </div>
