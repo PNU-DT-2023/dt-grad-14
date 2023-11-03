@@ -49,11 +49,19 @@ export default function Submenu(props) {
         // setActiveId(null);
     };
 
+    const previewURL = () => {
+        const artistName = getProjectByIndex(activeId)?.name;
+        if(getProjectByIndex(activeId)?.tag === "TEAM"){
+            return `/projectsImg/${artistName}_inter_cover.webp`
+        } else if(getProjectByIndex(activeId)?.tag === "INDIVIDUAL"){
+            return `/projectsImg/${artistName}_poster.webp`
+        }
+    }
+
     useEffect(()=>{
         setIsMouseOut(state);
         setActive(false);
         setActiveId(null);
-        console.log("mouse out");
     },[state, category])
 
 
@@ -103,8 +111,10 @@ export default function Submenu(props) {
             )}
             {
             category === "project" && (
-                    <div onMouseEnter={() => { setIsMouseOut("collapsed"); console.log("mouse enter") }}>
-                        <Preview isActive={category === "project" && pathname !== `/project/${activeId}` && active && isMouseOut == "hover"} imgSrc={`/projectsImg/${getProjectByIndex(activeId)?.name}_poster.webp`} />
+
+                    <div onMouseEnter={() => { setIsMouseOut("collapsed"); }}>
+                        <Preview isActive={category === "project" && pathname !== `/project/${activeId}` && active && isMouseOut == "hover"}
+                        imgSrc={previewURL()} tag={getProjectByIndex(activeId)?.tag} />
                 </div>
             )}
         </>
