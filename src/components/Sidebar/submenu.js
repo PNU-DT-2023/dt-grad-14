@@ -30,7 +30,7 @@ export default function Submenu(props) {
         const submenuList = submenuListRefs.current[idx];
         const rect = submenuList.getBoundingClientRect();
         const newPosition = {
-            top: rect.top - (rect.height/2),
+            top: rect.top - (32 - rect.height)/2 ,
             left: 16 + rect.width,
 
         }

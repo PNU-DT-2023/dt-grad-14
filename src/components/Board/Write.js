@@ -53,6 +53,7 @@ export default function Write(props) {
             passwordareaRef.current.value = "";
             setPassword("");
             props.onPostButtonClick();
+            alert("방명록을 작성했습니다!");
         } catch (error) {
             console.error("데이터 추가 중 오류 발생:", error);
         }
