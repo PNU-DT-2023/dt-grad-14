@@ -104,8 +104,8 @@ export default function GuestBook(props) {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col-reverse h-full bottom-0 md:flex-row">
-                <div className="w-full h-fit bottom-0 absolute z-10 md:relative md:max-w-xs lg:max-w-sm md:h-96">
+            <div className="flex flex-col-reverse h-full md:flex-row">
+                <div className="write-wrapper w-full bottom-0 absolute z-10 md:relative md:max-w-xs lg:max-w-sm md:h-96">
                 <Write profileList={profileListData} onPostButtonClick={onPostButtonClick} collectionName={COLLECTION_NAME}></Write>
                 </div>
                 <PostBoardLayout dataList={dataList} collectionName={COLLECTION_NAME} onPostModified={handlePostModified}></PostBoardLayout>

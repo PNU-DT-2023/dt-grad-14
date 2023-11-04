@@ -18,7 +18,7 @@ export default function PostBoardLayout(props){
                         ))}
                     </>
                 </div>
-                <div className="h-2/6 md:h-1/6"></div>
+                <div className="h-1/2 md:h-1/6"></div>
         </div>
         </>
     )
