@@ -6,6 +6,7 @@ import MarqueeText from '@/components/Marquee/MarqueeText.js';
 import Sidebar from '@/components/Sidebar/sidebar.js';
 import TimerPage from '@/components/Page/TimerPage';
 import useThrottle from '@/components/hooks/useThrottle.js';
+import useDebounce from '@/components/hooks/useDebounce.js';
 import { useState, useEffect, useCallback, useRef, useLayoutEffect } from 'react';
 
 //한글 기본 폰트 : notoSans
@@ -71,7 +72,9 @@ export default function RootLayout({ children, loadingVisible }) {
     (e) => {
       // 현재위치와 이전 위치의 차를 계산한다.
       const diff = e.target.scrollTop - prevY
-      if (diff > 0) {
+      if(e.target.scrollTop <= 0) {
+        setIsHeaderShow(true)
+      } else if (diff > 0) {
         setIsHeaderShow(false)
       } else if (diff < 0) {
         setIsHeaderShow(true)
@@ -80,10 +83,23 @@ export default function RootLayout({ children, loadingVisible }) {
     },
     [prevY]
   )
+
+  const stopScroll = useCallback((e) => {
+    console.log('🥎🥎🥎멈춤', e.target.scrollTop)
+    if (e.target.scrollTop === 0) {
+      setIsHeaderShow(true)
+    } else {
+      setIsHeaderShow(false)
+    }
+  }, [])
+
   const throttleScroll = useThrottle(handleScroll, 300)
+  const debounceScroll = useDebounce(stopScroll, 1500)
+
   const scrollDetectHandler = useCallback(
     (...e) => {
       throttleScroll(...e)
+      debounceScroll(...e)
     },
     [prevY]
   )
@@ -99,7 +115,7 @@ export default function RootLayout({ children, loadingVisible }) {
 
 
   return (
-    <html lang="kr">
+    <html lang="kr"> 
       <body className={cls(notoSansKr.className, archivo.variable, philosopher.variable, 'overflow-hidden')}>
         {isclicked ? (
           <></>
