@@ -186,21 +186,21 @@ export default function Home() {
           <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
           <p class="lg:w-1/4 font-bold lg:text-center text-center">도록</p>
           <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
-          <NameLink name="김현서"></NameLink>
-          <NameLink name="박원영"></NameLink>
-          <NameLink name="이세영"></NameLink>
-          <NameLink name="전종규"></NameLink>
-          <NameLink name="전혜성"></NameLink>
-          </div>
-          </div>
-          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
-          <p class="lg:w-1/4 font-bold lg:text-center text-center">DP</p>
-          <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
           <NameLink name="문관영"></NameLink>
           <NameLink name="김도연"></NameLink>
           <NameLink name="김민호"></NameLink>
           <NameLink name="박재현"></NameLink>
           <NameLink name="전서연"></NameLink>
+          </div>
+          </div>
+          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+          <p class="lg:w-1/4 font-bold lg:text-center text-center">DP</p>
+          <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
+          <NameLink name="김현서"></NameLink>
+          <NameLink name="박원영"></NameLink>
+          <NameLink name="이세영"></NameLink>
+          <NameLink name="전종규"></NameLink>
+          <NameLink name="전혜성"></NameLink>
           </div>
           </div>
           <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
