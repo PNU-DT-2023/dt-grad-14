@@ -32,7 +32,7 @@ export default function Footer() {
                     <div className='flex justify-items-center justify-between max-tablet:flex-wrap'>
                         <div className="font-archivo text-sm text-gray-400 self-end">
                             본 사이트는 2023 졸업논문을 대체합니다. <br></br>
-                            &copy; Ⓒ2023 Pusan National University Design&Technology all rights reserved.
+                            &copy;2023 Pusan National University Design&Technology all rights reserved.
                         </div>
                         <div className='flex flex-col max-tablet:flex-row gap-2 pt-4 content-end justify-end h-full'>
                             <img src="/pnuLogo_w.svg" className="h-14 w-14 fill-gray-400 self-end"
