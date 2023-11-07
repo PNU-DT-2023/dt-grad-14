@@ -13,9 +13,13 @@ export function ProfileHeader(props) {
             <section className={` bg-black lg:basis-2/3 relative overflow-hidden profile-section text-white pt-16 md:pt-4 md:px-16 md:my-12 p-4 phone:mb-12 max-phone:mb-24`}>
 
                 {/* 이름 */}
-                <h1 className="name text-xl  w-screen">{profile.name}</h1>
-                <div className="english-name text-gray-500">{profile.engName}</div>
-
+                <div className="flex  w-full justify-between">
+                    <div>
+                        <h1 className="name text-xl">{profile.name}</h1>
+                        <div className="english-name text-gray-500">{profile.engName}</div>
+                    </div>
+                    <div className="english-name text-gray-400 p-4 outline outline-gray-600">{profile.team}</div>
+                </div>
                 {/* 프로필 상세*/}
                 <div className="relative flex flex-wrap pt-4 gap-2">
                     {/* 프로필 이미지 */}
