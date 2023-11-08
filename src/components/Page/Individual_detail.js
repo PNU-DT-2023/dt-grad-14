@@ -29,7 +29,11 @@ export function IndividaulDetailPage(props) {
                                 POSTER
                             </div>
                             <h2 className={styles.title}>{data?.posterTitle}</h2>
-                            <div className={styles.sectionBody}>{data?.posterBody}</div>
+                            <div className={styles.sectionBody}>
+                            
+                            {data?.posterBody.split('\n').map((line,idx) => {
+                            return (<span key={idx}>{line}<br /></span>)
+                        })}</div>
                         </div>
                         {/* 데스크톱 : 포스터ON */}
                         <div className="bg-black basis-full laptop:basis-1/2 flex justify-center text-sm">
