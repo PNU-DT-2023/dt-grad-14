@@ -187,7 +187,7 @@ export const profileData = [
         "Index": 18,
         "name": "전혜성",
         "engName": "Jeon Hyeseong",
-        "team": "디피팀",
+        "team": "DP팀",
         "introduction": "다양성을 존중하는 디자인,\n누구나 쉽고 편안하게 이용할 수 있는 디자인을 추구합니다.",
         "email": "jeon.comet.design@gmail.com",
         "phone": "010-9922-6032",
