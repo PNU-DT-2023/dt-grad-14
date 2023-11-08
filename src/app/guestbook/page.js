@@ -1,6 +1,6 @@
 'use client'
 
-const COLLECTION_NAME = "test";
+const COLLECTION_NAME = "guestbook";
 
 import firestore from '../../../firebasedb';
 import PostBoardLayout from '@/components/Board/PostBoard'
