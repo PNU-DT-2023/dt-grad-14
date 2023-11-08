@@ -73,7 +73,7 @@ function ProfileImage(props) {
                     placeholder = {placeholderURL}
                     loading = 'eager'
                 />
-                <div className="mix-blend-difference opacity-80 absolute flex  bottom-[0%] right-[-70%] lg:right-[-200%]  p-auto p-2 right-1  content-end object-contain h-[30%] lg:h-[50%] r-0" >
+                <div className="mix-blend-difference opacity-80 absolute flex  bottom-[0%] right-[-50%] lg:right-[-200%]  p-auto p-2 right-1  content-end object-contain h-[30%] lg:h-[50%] r-0" >
                         <img classname="h-fit" src={`/profilesImg/${name}_signage.svg`}></img>
                     </div>
             </div>
