@@ -19,7 +19,7 @@
 /* tailwind */
 /* poster, interaction 소제목들 */
 .subtitle {
-    @apply font-bold font-sanserif w-fit;    
+    @apply font-bold font-sanserif w-fit leading-7;    
     font-size: 1.2rem;
 }
 
