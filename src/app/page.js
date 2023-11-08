@@ -200,12 +200,12 @@ export default function Home() {
           </div>
           <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
           <p class="lg:w-1/4 font-bold lg:text-center text-center">영상</p>
-          <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
+          <div className='flex flex-wrap justify-between lg: w-3/4 w-3/4 lg:mt-0 mt-5'>
           <NameLink name="민재현"></NameLink>
           <NameLink name="김나연"></NameLink>
           <NameLink name="박찬유"></NameLink>
           <NameLink name="이민영"></NameLink>
-          <p><span className="pr-11" /></p>
+          <p><span className="pr-11 lg:block hidden" /></p>
           </div>
           </div>
         </div>
