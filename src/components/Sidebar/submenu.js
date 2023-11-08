@@ -52,7 +52,7 @@ export default function Submenu(props) {
     const previewURL = () => {
         const artistName = getProjectByIndex(activeId)?.name;
         if(getProjectByIndex(activeId)?.tag === "TEAM"){
-            return `/projectsImg/${artistName}_inter_cover.webp`
+            return `/projectsImg/${artistName}_cover.webp`
         } else if(getProjectByIndex(activeId)?.tag === "INDIVIDUAL"){
             return `/projectsImg/${artistName}_poster.webp`
         } else {return ""}
