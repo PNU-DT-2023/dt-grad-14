@@ -117,11 +117,6 @@ export default function RootLayout({ children, loadingVisible }) {
   return (
     <html lang="kr"> 
       <body className={cls(notoSansKr.className, archivo.variable, philosopher.variable, 'overflow-hidden')}>
-        {isclicked ? (
-          <></>
-        ) : (
-          <TimerPage />
-        )}
         <div className="absolute flex items-center h-full w-full overflow-hidden bg-white">
             {/* 네비게이션 */}
           <Sidebar isHeaderShow={isHeaderShow}></Sidebar>
