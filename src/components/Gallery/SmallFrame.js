@@ -12,22 +12,39 @@ export default function SmallFrame(props) {
     const slugTitle = title?.replaceAll(' ',"");
     const tag = props.data?.tag;
     const name = props.data?.name;
-    const imgPath = category==="project" ? `/projectsImg/${name}_poster.webp` : `/profilesImg/${name}_profile.webp`;
+    // const imgPath = category==="project" ? `/projectsImg/${name}_poster.webp` : `/profilesImg/${name}_profile.webp`;
     
     const defaultPath = `/projectsImg/default_cover.png`;
-    const [imgSrc, setimgSrc] = useState(imgPath);
+    const [imgSrc, setImgSrc] = useState(`/profilesImg/line/${name}.svg`);
+
+    const [isHovered, setIsHovered] = useState(false);
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+        setImgSrc(`/profilesImg/${name}_profile.webp`); // 여기에서 다른 이미지로 바꿀 이미지 경로를 설정
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+        setImgSrc(`/profilesImg/line/${name}.svg`); // 마우스가 벗어날 때 기존 이미지로 돌아가도록 설정
+    };
+
+
     return (
         <>
-        <div className="group relative transition-scale relative border-white border overflow-hidden md:min-h-vh50 h-auto w-1/2  md:w-1/5 sm:w-1/2 group-hover">
+        <div
+                className="group relative transition-scale relative border-white border overflow-hidden h-auto w-1/2 md:w-1/5 lg:w-1/5 group-hover"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+            >
             <Link href={`/${category}/${props.data.name}`}>
             <Image
             alt={`/${title}`}
-            className="relative duration-300 hover:scale-110 block w-full h-full object-cover object-center"
+            className="relative duration-300 block w-full h-full object-fit object-center tranisition-all"
             src={imgSrc}
             // 아래 w,h는 필수 구성요소로 크게 영향은 없지만 빠지면 안됨
             width={500}
             height={700}
-            onError = { () => {setimgSrc(defaultPath)}}
+            onError = { () => {setImgSrc(defaultPath)}}
             placeholder = {placeholderURL}
             />
             {/* hover시 보이는 정보들 (이름, tag) */}

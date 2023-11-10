@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+span {
+  @apply leading-7;
+}
 /* tailwind */
 /* poster, interaction 소제목들 */
 .sectionTitle {
@@ -105,4 +107,5 @@ body {
 .time-text {
   @apply  uppercase opacity-50
 }
+
 

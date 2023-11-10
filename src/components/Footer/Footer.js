@@ -9,15 +9,21 @@ export default function Footer() {
                 <div className="mx-auto  text-white space-y-8 px-4 py-16 sm:px-6 lg:space-y-4 lg:px-8">
                     <div className="flex max-tablet:flex-wrap">
                         <div className="basis-full font-sanserif text-xl font-bold gray-900 my-2">
-                            HOMMAGE
+                            <Image
+                                alt = "Hommage"
+                                src = "/sub-logo.svg"
+                                width={300}
+                                height = {60}
+                            >  
+                            </Image>
                         </div>
                     </div>
                    
                     <div className='flex'>
                         <div className='min-w-[50%]'>
-                            <p className="text-base">오마주 : 우리는 우리가 사랑하는 것들의 총체</p>
-                            <p className="text-sm font-light">부산대학교 디자인학과 디자인앤테크놀로지 전공 14회 졸업전시 </p>
-                            <p className="text-sm font-light">Dept. of Design, Design and Technology   <br />
+                            <p className="text-base pb-4">오마주 : 우리는 우리가 사랑하는 것들의 총체</p>
+                            <p className="text-sm font-light text-gray-300">부산대학교 디자인학과 디자인앤테크놀로지 전공 14회 졸업전시 </p>
+                            <p className="text-sm font-light text-gray-300">Dept. of Design, Design and Technology   <br />
                             14th Graduation Show </p>
                         </div>
                         
@@ -26,7 +32,7 @@ export default function Footer() {
                     <div className='flex justify-items-center justify-between max-tablet:flex-wrap'>
                         <div className="font-archivo text-sm text-gray-400 self-end">
                             본 사이트는 2023 졸업논문을 대체합니다. <br></br>
-                            &copy; Ⓒ2023 Pusan National University Design&Technology all rights reserved.
+                            &copy;2023 Pusan National University Design&Technology all rights reserved.
                         </div>
                         <div className='flex flex-col max-tablet:flex-row gap-2 pt-4 content-end justify-end h-full'>
                             <img src="/pnuLogo_w.svg" className="h-14 w-14 fill-gray-400 self-end"

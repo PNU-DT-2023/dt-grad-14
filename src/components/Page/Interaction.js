@@ -19,7 +19,7 @@ export function Interaction(props) {
     return (
         <>
         <section id="inter" className='pt-12 px-2'>
-            <div className="text-left flex flex-wrap pb-12 \">
+            <div className="text-left flex flex-wrap ">
                 <div className='line1 flex flex-wrap'>
                     <div className='text-left lg:basis-1/2  flex flex-col px-4'>
                         <div className={styles.sectionTitle}>
@@ -31,7 +31,7 @@ export function Interaction(props) {
                                 return (<span key={idx}>{line}<br /></span>)
                             })
                         }</div>
-                        <div className={`${styles.sectionCaption} mb-4 text-sm`}>{data?.interFormat}</div>
+                        <div className={`${styles.sectionCaption} mb-4 text-sm text-gray-600`}>{data?.interFormat}</div>
                     </div>
                     <div id='map' className='lg:basis-1/2  h-auto'>
                         <Image
@@ -77,10 +77,24 @@ export function Interaction(props) {
             </div>
             {/* 인터 시연 영상 유튜브 | 없으면 안띄움*/}
             {
-                videoURL &&
+                videoURL ? 
+                
                     <div className="flex justify-center bg-black">
                         <iframe src={data?.interVideoURL} className='w-half min-h-vh30 max-laptop:w-full tablet:h-vh50 tablet:h-vh30' />
                     </div>
+                 :
+
+                                <div className='cover w-full top-50 flex justify-center lg:p-24'>
+                                    <Image
+                                        width={1920}
+                                        height={1080}
+                                        src={`/projectsImg/${name}_inter_cover.webp`}
+                                        className='object-fit'
+                                        placeholder={placeholderURL}
+                                    >
+                                    </Image>
+                                    </div>
+ 
             }
         </section>
     </>

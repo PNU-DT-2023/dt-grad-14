@@ -6,7 +6,7 @@ import placeholderURL from "../PlaceHolder";
 // 포스터 이미지
 function Poster(props) {
     return (
-        <div className="bg-[#EDF2F7] w-full flex justify-center bg-gray">
+        <div className = {`bg-[#EDF2F7] w-full flex justify-center ${props.isTransparent == "이세영" ? 'bg-white' : 'bg-gray'}`}>
             <Image
                 alt="poster-image"
                 className="object-fit object-center"

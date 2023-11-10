@@ -18,7 +18,7 @@ export default function LargeFrame(props) {
     const [imgSrc, setimgSrc] = useState(imgPath);
     return (
         <>
-            <div className="group relative transition-scale relative border-white border overflow-hidden basis-1/2" >
+            <div className="group relative transition-scale relative border-white border overflow-hidden lg:basis-1/2 w-full " >
                  <Link href={`/project/${props.data.name}`}>
                     <Image
                         alt={title}

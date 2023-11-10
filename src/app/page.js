@@ -22,6 +22,7 @@ export default function Home() {
     5: useScrollFadeIn('down', 1, 0.2),
     6: useScrollFadeIn('right', 1, 0.4),
     7: useScrollFadeIn('right', 1, 0.4),
+    8: useScrollFadeIn('right', 1, 0.4)
   };
 
   //스크롤 애니메이션 end
@@ -39,9 +40,15 @@ export default function Home() {
     
     <div className="w-full min-h-screen font-sans overflow-x-hidden flex flex-col justify-between max-phone:h-fit">
       <h1 className="lg:text-5xl text-5xl font-bold ml-5 md:ml-10 -pt-6 mt-14 lg:mt-10"  {...animatedItem[5]}>
-        HOMMAGE
+        <Image
+                                alt = "sub-logo"
+                                src = "main-title.svg"
+                                width={300}
+                                height = {60}
+                            >  
+                            </Image>
       </h1>
-      <div className="flex mt-5">
+      <div className="flex ">
 
         <p className="font-sanserif ml-5 md:ml-10 mt-3 md:w-2/3" {...animatedItem[6]}>
           Dept. of Design, Design and Technology 
@@ -49,7 +56,7 @@ export default function Home() {
           14th Graduation Exhibition
         </p>
 
-        <p className="font-sanserif mt-3 md:mr-10 md:w-1/3 md:flex md:justify-end hidden lg:block" {...animatedItem[7]}>
+        <p className="font-sanserif mt-3 mr-10 md:w-1/3 md:flex md:justify-end hidden lg:block lg:mr-0" {...animatedItem[7]}>
           Design Center Pusan 1F Exhibition hall
           <br />
           11.10 - 11.12 10am-6pm
@@ -64,7 +71,7 @@ export default function Home() {
         style={{ width: '100%', height: 'auto' }}/>
       </div> */}
       <MobileLineAnimation />
-      <p className="font-sanserif mr-5 mb-10 flex justify-end text-right block lg:hidden" {...animatedItem[7]}>
+      <p className="font-sanserif mr-5 mb-10 flex justify-end text-right block lg:hidden" {...animatedItem[8]}>
           Design Center Pusan 1F Exhibition hall
           <br />
           11.10 - 11.12 10am-6pm
@@ -84,14 +91,14 @@ export default function Home() {
 
       우리는 우리가 사랑하는 것들의 총체이다.
       </span> */}
-      <span className="mt-12"  {...animatedItem[2]}>
+      <span className="mt-12 leading-8"  {...animatedItem[2]}>
       누군가를 이해한다는 것은, 그가 사랑하는 것을 이해하는 것이다. <br/> 그렇다면 우리는 우리가 좋아하는 것을 오롯이 말할 수 있는가.<br />함께 하는 타인을 온전히 이해하는가.<br />그렇다면 그들이 사랑하는 것에 대해 적확하게 얘기할 수 있는가.
       </span>
-      <span className="mt-12"  {...animatedItem[3]}>
+      <span className="mt-12 leading-8"  {...animatedItem[3]}>
       우리는 이번 전시를 통해 각자의 삶에 투영된 사랑하는 존재에 충분한 애정을 전한다.<br />
       누구보다 존경하지만 존경을 표하지 못했던 대상과 사랑하지만 사랑한다고 말하지 못했던 것들에 부족하지 않은, 무궁한 경의를 표한다.
       </span>
-      <span className="mt-12"  {...animatedItem[4]}>
+      <span className="mt-12 leading-8"  {...animatedItem[4]}>
       우리에게 사랑하는 대상을 탐구하는 이 시간들은 우리의 뿌리를 모색하는 시간이었다.
         <br /> 여러분들에게도 본 전시가 사랑하는 존재에 대해 반추하고, 전하지 못한 존경을 표하며 ‘나’를 이해하는 시간이 되길 바라본다.
       </span>
@@ -179,21 +186,21 @@ export default function Home() {
           <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
           <p class="lg:w-1/4 font-bold lg:text-center text-center">도록</p>
           <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
-          <NameLink name="김현서"></NameLink>
-          <NameLink name="박원영"></NameLink>
-          <NameLink name="이세영"></NameLink>
-          <NameLink name="전종규"></NameLink>
-          <NameLink name="전혜성"></NameLink>
-          </div>
-          </div>
-          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
-          <p class="lg:w-1/4 font-bold lg:text-center text-center">DP</p>
-          <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
           <NameLink name="문관영"></NameLink>
           <NameLink name="김도연"></NameLink>
           <NameLink name="김민호"></NameLink>
           <NameLink name="박재현"></NameLink>
           <NameLink name="전서연"></NameLink>
+          </div>
+          </div>
+          <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
+          <p class="lg:w-1/4 font-bold lg:text-center text-center">DP</p>
+          <div className='flex flex-wrap lg:w-3/4 justify-between w-full lg:mt-0 mt-5'>
+          <NameLink name="김현서"></NameLink>
+          <NameLink name="박원영"></NameLink>
+          <NameLink name="이세영"></NameLink>
+          <NameLink name="전종규"></NameLink>
+          <NameLink name="전혜성"></NameLink>
           </div>
           </div>
           <div className='flex lg:flex-row mb-5 flex-col text-center items-center '>
@@ -223,21 +230,21 @@ export default function Home() {
 
       <div className='content-center w-full lg:h-screen text-center flex flex-col items-center justify-center h-fit'>
         <div className='text-3xl lg:mb-20 mb-10 mt-10  font-sanserif uppercase font-semibold'>Professors</div>
-        <div className='w-3/4 flex flex-wrap justify-between lg:flex-row flex-col'>
+        <div className='w-3/4 flex flex-wrap justify-between lg:flex-row flex-col pb-24'>
           <div className='relative items-center flex flex-col' {...animatedItem[1]}>
             <Image src="/profilesImg/이화세교수님.webp" alt="" width={200} height={350} />
-            <p className='text-2xl mt-5 mb-5'>이화세 교수님</p>
-            <p className='mt-0 mb-5'>HCI</p>
+            <p className='text-2xl mt-5 mb-2'>이화세 교수님</p>
+            <p className='mt-0 mb-5  text-sm text-gray-400'>HCI</p>
           </div>
           <div className='relative items-center flex flex-col '{...animatedItem[2]}>
             <Image src="/profilesImg/김철기교수님.webp" alt="" width={200} height={350} />
-            <p className='text-2xl mt-5 mb-5'>김철기 교수님</p>
-            <p className='mt-0 mb-5'>UX / AI / 감성공학</p>
+            <p className='text-2xl mt-5 mb-2'>김철기 교수님</p>
+            <p className='mt-0 mb-5  text-sm text-gray-400'>UX / AI / 감성공학</p>
           </div>
           <div className='relative items-center flex flex-col'{...animatedItem[3]} >
             <Image src="/profilesImg/김태완교수님.webp" alt="" width={200} height={350} />
-            <p className='text-2xl mt-5 mb-5'>김태완 교수님</p>
-            <p className='mt-0 mb-5'>DIGITAL CONTENT DESIGN</p>
+            <p className='text-2xl mt-5 '>김태완 교수님</p>
+            <p className='mt-0 mb-5 text-sm text-gray-400'>DIGITAL CONTENT DESIGN</p>
           </div>
           
           

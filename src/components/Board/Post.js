@@ -92,7 +92,7 @@ export default function Post(props) {
                     </div>
                 </div>
                 <div className={`${modify !== "" ? "hidden" : ""}`}>
-                <div className="flex justify-between w-full text-sm text-neutral-500 md:my-2 ">
+                <div className="flex justify-between w-full text-sm text-gray-600 md:my-2 ">
                     <span className="px-1">
                         {timestamp}
                     </span>

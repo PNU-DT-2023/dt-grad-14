@@ -13,7 +13,6 @@ import { Interaction } from './Interaction';
 
 export function TeamDetailPage(props) {
     const data = props.data;
-    // const youtubeURL = data?.videoURL?.replace('watch?v=','embed/');
 
     return (
         <>
@@ -35,7 +34,7 @@ export function TeamDetailPage(props) {
                                 })
                             }</div>
 
-                            <Image
+                            {/* <Image
                                 alt="detail-image"
                                 className="pt-4 object-center w-full lg:w-[50%]"
                                 src={`/projectsImg/${data.name}_film_cover.webp`}
@@ -43,16 +42,16 @@ export function TeamDetailPage(props) {
                                 height={720}
                                 placeholder={placeholderURL}
                                 onError={() => { setMapImgSrc(mapErrorImg) }}
-                            />
+                            /> */}
 
                         </div>
 
                         {
 
-                            // data?.interVideoURL !== "" &&
-                            // <div className="flex justify-center bg-black">
-                            //     <iframe src={data?.interVideoURL} className='w-half min-h-vh30 max-laptop:w-full tablet:h-vh50 tablet:h-vh30' />
-                            // </div>
+                            data?.interVideoURL !== "" &&
+                            <div className="flex justify-center bg-black">
+                                <iframe src={`https://www.youtube.com/embed/${data?.interVideoURL}`} className='w-half min-h-vh30 max-laptop:w-full tablet:h-vh50 tablet:h-vh30' />
+                            </div>
                         }
 
                     </section>

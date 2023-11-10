@@ -22,7 +22,7 @@
       ([entry]) => {
         const { current } = element;
         if (entry.isIntersecting) {
-          entry.current.style.transitionProperty = 'transform, clip-path';
+          current.style.transitionProperty = 'transform, clip-path';
           current.style.transitionDuration = `${duration * 1.5}s, ${duration}s`;
           current.style.transitionTimingFunction = 'cubic-bezier(0, 0, 0.2, 1)';
           current.style.transitionDelay = `${delay}s`;
