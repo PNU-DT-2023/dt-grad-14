@@ -31,7 +31,7 @@ export const profileData = [
         "engName": "Kim Doyeon",
         "team": "도록팀",
         "email": "osenmeltom@gmail.com",
-        "phone": "010-7259-0589",
+        "phone": "010-7259-5089",
         "instagram": "osenmeltom"
        },
        {
@@ -132,7 +132,8 @@ export const profileData = [
         "engName": "Eom Chae Yeon",
         "team": "웹팀",
         "email": "sorimchuku@gmail.com",
-        "phone": "010-2818-6421"
+        "phone": "010-2818-6421",
+        "instagram": "eomyummy"
        },
        {
         "Index": 13,
