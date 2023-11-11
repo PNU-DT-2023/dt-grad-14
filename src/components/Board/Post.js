@@ -36,6 +36,9 @@ export default function Post(props) {
             text: updateText
         }
         if (inputPassword === password) {
+            if (updateText.trim() === "") {
+                alert("내용을 입력해주세요");
+            } else{
             updateDoc(doc(collectionRef, id), updateData)
                 .then(() => {
                     props.onModified();
@@ -46,6 +49,7 @@ export default function Post(props) {
                 .catch((error) => {
                     console.error('문서 업데이트 중 오류 발생:', error);
                 });
+            }
         } else {
             setInputPassword("");
             passwordareaRef.current.value = "";
@@ -54,11 +58,15 @@ export default function Post(props) {
     }
 
     const onDeleteClick = () => {
+        passwordareaRef.current.value = "";
         setModify("delete");
     }
 
     const onUpdateClick = () => {
         textareaRef.current.value = text;
+        textareaRef.current.focus();
+        setUpdateText(text);
+        passwordareaRef.current.value = "";
         setModify("update");
     }
 
@@ -79,7 +87,7 @@ export default function Post(props) {
                 ${modify === "update" ? "hidden" : ""}`}>
                     {text}
                 </div>
-                <textarea className={`update-textarea text-md w-full h-32 pt-2 overflow-y-scroll overflow-x-hidden md:my-4 md:pt-0 md:h-44 md:text-lg
+                <textarea className={`update-textarea border text-md w-full h-32 pt-2 overflow-y-scroll overflow-x-hidden md:my-4 md:pt-0 md:h-44 md:text-lg
                 resize-none outline-none ${modify === "update" ? "" : "hidden"}`} onChange={(e) => setUpdateText(e.target.value)}
                     ref={textareaRef} maxLength={300} spellCheck="false"></textarea>
                 <div className={`modifyDialog w-full flex ${modify === "delete" ? "-mt-1" : modify === "update" ? "-mt-2" : "hidden"}`}>
@@ -87,7 +95,7 @@ export default function Post(props) {
                         <input className="w-2/3 border-b border-b-black outline-none" type="password" placeholder="비밀번호를 입력하세요"
                             onChange={(e) => setInputPassword(e.target.value)} ref={passwordareaRef}></input>
                         <button className={`px-2 py-1 bg-black font-bold text-white md:py-0 ${modify === "delete" ? "" : "hidden"}`} type="submit" onClick={handleDelete}>삭제</button>
-                        <button className={`px-2 py-1 bg-black font-bold text-white md:py-0 ${modify === "update" ? "" : "hidden"}`} type="submit" onClick={handleUpdate}>수정</button>
+                        <button className={`px-2 py-1 bg-black font-bold text-white md:py-0 ${modify === "update" ? "" : "hidden"}`} type="submit" onClick={handleUpdate}>확인</button>
                         <button className="px-2 py-1 bg-black/30 text-white md:py-0" type="submit" onClick={handleModifyCancel}>취소</button>
                     </div>
                 </div>

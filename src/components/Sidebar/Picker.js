@@ -84,7 +84,7 @@ const Picker = (props) => {
                             className={`list-item relative w-full px-4 pr-12 py-0 h-10 leading-10 truncate group ${selected === idx ? 'font-bold text-black' : 'text-neutral-500'}`}
                             onClick={() => { handleMenuPicked(idx); }}
                         >
-                            <Link href={`/${category}/${data.name}`} onClick={handleLinkClick}
+                            <Link href={isAll ? (`/${category}`) : (`/${category}/${data.name}`)} onClick={handleLinkClick}
                                 className={`absolute h-full inline-block duration-200 ${selected === idx ? "right-4" : "-right-12"}`}>
                                 <span className="sr-only">화살표</span>
                                 <svg width="21" height="39" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
