@@ -11,7 +11,7 @@ import NameLink from '@/components/Page/NameLinks';
 import useScrollClipPath from '@/components/hooks/useScrollClipPath';
 
 export default function Home() {
-  const videoId = 'CvRreCQ5H-w';
+  const videoId = 'oTEYBxPvTso';
   // 스크롤 애니메이션 start
   const animatedItem = {
     0: useScrollFadeIn('up', 1, 0),
