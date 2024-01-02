@@ -9,16 +9,15 @@ export function Interaction(props) {
     const name = data?.name;
 
     const [mapImgSrc, setMapImgSrc] = useState(`/projectsImg/${name}_map.webp`);
-    const mapErrorImg = `/projectsImg/웹팀_map.png`;
 
     const steps = data ? data.interMethod.split('||') : [];
     const [imageError, setImageError] = useState(false);
 
-    const videoURL = data?.videoURL ? data.videoURL : false;
+    const interVideoURL = data?.interVideoURL ? `https://www.youtube.com/embed/${data.interVideoURL}` : false;
 
     return (
         <>
-        <section id="inter" className='pt-12 px-2'>
+        <section id="inter" className='pt-12 px-2 pb-12'>
             <div className="text-left flex flex-wrap ">
                 <div className='line1 flex flex-wrap'>
                     <div className='text-left lg:basis-1/2  flex flex-col px-4'>
@@ -58,13 +57,6 @@ export function Interaction(props) {
                                     width={1200}
                                     height={675}
                                     placeholder={placeholderURL}
-                                    // onError={() => {
-                                    //   if (!imageError) {
-                                    //     setTimeout(() => {
-                                    //         setImageError(true); 
-                                    //     }, 1000);
-                                    //   }
-                                    // }}
                                 />
                                 <p className={`row-start-2 h-auto ${styles.methodItemCaption}`}>
                                     {step}
@@ -77,10 +69,9 @@ export function Interaction(props) {
             </div>
             {/* 인터 시연 영상 유튜브 | 없으면 안띄움*/}
             {
-                videoURL ? 
-                
+                interVideoURL ? 
                     <div className="flex justify-center bg-black">
-                        <iframe src={data?.interVideoURL} className='w-half min-h-vh30 max-laptop:w-full tablet:h-vh50 tablet:h-vh30' />
+                        <iframe src={interVideoURL} className='w-half min-h-vh30 max-laptop:w-full tablet:h-vh50 tablet:h-vh30' />
                     </div>
                  :
 
