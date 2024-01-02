@@ -33,24 +33,13 @@ export function TeamDetailPage(props) {
                                     return (<span key={idx}>{line}<br /></span>)
                                 })
                             }</div>
-
-                            {/* <Image
-                                alt="detail-image"
-                                className="pt-4 object-center w-full lg:w-[50%]"
-                                src={`/projectsImg/${data.name}_film_cover.webp`}
-                                width={1280}
-                                height={720}
-                                placeholder={placeholderURL}
-                                onError={() => { setMapImgSrc(mapErrorImg) }}
-                            /> */}
-
                         </div>
 
                         {
 
-                            data?.interVideoURL !== "" &&
+                            data?.filmVideoURL !== "" &&
                             <div className="flex justify-center bg-black">
-                                <iframe src={`https://www.youtube.com/embed/${data?.interVideoURL}`} className='w-half min-h-vh30 max-laptop:w-full tablet:h-vh50 tablet:h-vh30' />
+                                <iframe src={`https://www.youtube.com/embed/${data?.filmVideoURL}`} className='w-half min-h-vh30 max-laptop:w-full tablet:h-vh50 tablet:h-vh30' />
                             </div>
                         }
 
