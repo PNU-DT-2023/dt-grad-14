@@ -60,5 +60,4 @@ DT-GRAD-14
 
 ## License
 
-MIT © [Harsh Vijay ](https://github.com/iharsh234)
-
+MIT
